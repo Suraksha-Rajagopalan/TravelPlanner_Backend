@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\H&R\\travel-planner\\API\\TravelPlannerAPI\\TravelPlannerAPI\\TravelPlannerAPI.csproj": {}
+    "D:\\HR\\travel-planner\\API\\TravelPlannerAPI\\TravelPlannerAPI\\TravelPlannerAPI.csproj": {}
   },
   "projects": {
-    "D:\\H&R\\travel-planner\\API\\TravelPlannerAPI\\TravelPlannerAPI\\TravelPlannerAPI.csproj": {
+    "D:\\HR\\travel-planner\\API\\TravelPlannerAPI\\TravelPlannerAPI\\TravelPlannerAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\H&R\\travel-planner\\API\\TravelPlannerAPI\\TravelPlannerAPI\\TravelPlannerAPI.csproj",
+        "projectUniqueName": "D:\\HR\\travel-planner\\API\\TravelPlannerAPI\\TravelPlannerAPI\\TravelPlannerAPI.csproj",
         "projectName": "TravelPlannerAPI",
-        "projectPath": "D:\\H&R\\travel-planner\\API\\TravelPlannerAPI\\TravelPlannerAPI\\TravelPlannerAPI.csproj",
+        "projectPath": "D:\\HR\\travel-planner\\API\\TravelPlannerAPI\\TravelPlannerAPI\\TravelPlannerAPI.csproj",
         "packagesPath": "C:\\Users\\araku\\.nuget\\packages\\",
-        "outputPath": "D:\\H&R\\travel-planner\\API\\TravelPlannerAPI\\TravelPlannerAPI\\obj\\",
+        "outputPath": "D:\\HR\\travel-planner\\API\\TravelPlannerAPI\\TravelPlannerAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -50,17 +50,37 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.5, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.13, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.13, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.3, )"
+              "version": "[8.0.13, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[8.0.13, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.3, )"
+              "version": "[8.0.13, )"
             },
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",

@@ -1,41 +1,10 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "TravelPlannerAPI",
-    "version": "1.0"
+    "title": "Your API",
+    "version": "v1"
   },
   "paths": {
-    "/api/Auth/login": {
-      "post": {
-        "tags": [
-          "Auth"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/LoginRequest"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/LoginRequest"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/LoginRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/api/Auth/signup": {
       "post": {
         "tags": [
@@ -56,6 +25,37 @@
             "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/SignupRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Auth/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
               }
             }
           }
@@ -112,17 +112,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Trip"
+                "$ref": "#/components/schemas/TripCreateDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Trip"
+                "$ref": "#/components/schemas/TripCreateDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Trip"
+                "$ref": "#/components/schemas/TripCreateDto"
               }
             }
           }
@@ -152,6 +152,44 @@
       }
     },
     "/api/Trip/{id}": {
+      "get": {
+        "tags": [
+          "Trip"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Trip"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Trip"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Trip"
+                }
+              }
+            }
+          }
+        }
+      },
       "put": {
         "tags": [
           "Trip"
@@ -171,21 +209,42 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Trip"
+                "$ref": "#/components/schemas/TripUpdateDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Trip"
+                "$ref": "#/components/schemas/TripUpdateDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Trip"
+                "$ref": "#/components/schemas/TripUpdateDto"
               }
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Trip"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -196,6 +255,42 @@
   },
   "components": {
     "schemas": {
+      "BudgetDetails": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "food": {
+            "type": "number",
+            "format": "double"
+          },
+          "hotel": {
+            "type": "number",
+            "format": "double"
+          },
+          "tripId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "BudgetDetailsDto": {
+        "type": "object",
+        "properties": {
+          "food": {
+            "type": "number",
+            "format": "double"
+          },
+          "hotel": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
       "LoginRequest": {
         "required": [
           "email",
@@ -238,6 +333,13 @@
         "additionalProperties": false
       },
       "Trip": {
+        "required": [
+          "destination",
+          "endDate",
+          "startDate",
+          "title",
+          "userId"
+        ],
         "type": "object",
         "properties": {
           "id": {
@@ -245,12 +347,12 @@
             "format": "int32"
           },
           "title": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
           "destination": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
           "startDate": {
             "type": "string",
@@ -260,7 +362,15 @@
             "type": "string",
             "format": "date-time"
           },
-          "description": {
+          "budget": {
+            "type": "number",
+            "format": "double"
+          },
+          "travelMode": {
+            "type": "string",
+            "nullable": true
+          },
+          "notes": {
             "type": "string",
             "nullable": true
           },
@@ -268,46 +378,216 @@
             "type": "integer",
             "format": "int32"
           },
-          "user": {
-            "$ref": "#/components/schemas/User"
+          "image": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "duration": {
+            "type": "string",
+            "nullable": true
+          },
+          "bestTime": {
+            "type": "string",
+            "nullable": true
+          },
+          "essentials": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "touristSpots": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "budgetDetails": {
+            "$ref": "#/components/schemas/BudgetDetails"
           }
         },
         "additionalProperties": false
       },
-      "User": {
+      "TripCreateDto": {
         "required": [
-          "email",
-          "name",
-          "password"
+          "destination",
+          "endDate",
+          "startDate",
+          "title",
+          "userId"
         ],
         "type": "object",
         "properties": {
-          "id": {
+          "title": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "destination": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "budget": {
+            "type": "number",
+            "format": "double"
+          },
+          "travelMode": {
+            "type": "string",
+            "nullable": true
+          },
+          "notes": {
+            "type": "string",
+            "nullable": true
+          },
+          "userId": {
             "type": "integer",
             "format": "int32"
           },
-          "name": {
+          "image": {
             "type": "string",
             "nullable": true
           },
-          "email": {
+          "description": {
             "type": "string",
             "nullable": true
           },
-          "password": {
+          "duration": {
             "type": "string",
             "nullable": true
           },
-          "trips": {
+          "bestTime": {
+            "type": "string",
+            "nullable": true
+          },
+          "essentials": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Trip"
+              "type": "string"
             },
             "nullable": true
+          },
+          "touristSpots": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "budgetDetails": {
+            "$ref": "#/components/schemas/BudgetDetailsDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TripUpdateDto": {
+        "required": [
+          "destination",
+          "endDate",
+          "id",
+          "startDate",
+          "title",
+          "userId"
+        ],
+        "type": "object",
+        "properties": {
+          "title": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "destination": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "budget": {
+            "type": "number",
+            "format": "double"
+          },
+          "travelMode": {
+            "type": "string",
+            "nullable": true
+          },
+          "notes": {
+            "type": "string",
+            "nullable": true
+          },
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "image": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "duration": {
+            "type": "string",
+            "nullable": true
+          },
+          "bestTime": {
+            "type": "string",
+            "nullable": true
+          },
+          "essentials": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "touristSpots": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "budgetDetails": {
+            "$ref": "#/components/schemas/BudgetDetailsDto"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
       }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "apiKey",
+        "description": "JWT Authorization header using Bearer scheme. Example: \"Bearer {token}\"",
+        "name": "Authorization",
+        "in": "header"
+      }
     }
-  }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
 }

@@ -1,14 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Identity;
 
 namespace TravelPlannerAPI.Models
 {
-    public class User
+    [Table("users")]
+    public class User : IdentityUser<int>
     {
-        public int Id { get; set; }  // Primary key
-        public required string Name { get; set; }
-        public required string Email { get; set; }
-        public required string Password { get; set; }
+        public string Name { get; set; } = string.Empty;
 
-        public ICollection<Trip> Trips { get; set; }
+        public ICollection<Trip> Trips { get; set; } = new List<Trip>();
     }
 }
