@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,6 +10,9 @@ namespace TravelPlannerAPI.Models.Data
 
         public DbSet<Trip> Trips { get; set; }
         public DbSet<BudgetDetails> BudgetDetails { get; set; }
+
+        public DbSet<Review> Reviews { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -38,6 +41,12 @@ namespace TravelPlannerAPI.Models.Data
 
             modelBuilder.Entity<Trip>().ToTable("trips");
             modelBuilder.Entity<BudgetDetails>().ToTable("budgetdetails");
+
+            // For Reviews
+            modelBuilder.Entity<Review>()
+            .HasIndex(r => new { r.TripId, r.UserId })
+            .IsUnique();
+
         }
     }
 }
