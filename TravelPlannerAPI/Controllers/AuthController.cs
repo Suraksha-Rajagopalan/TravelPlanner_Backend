@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using TravelPlannerAPI.Models;
+using TravelPlannerAPI.Dtos;
 
 namespace TravelPlannerAPI.Controllers
 {
@@ -26,18 +27,6 @@ namespace TravelPlannerAPI.Controllers
             _configuration = configuration;
         }
 
-        public class LoginRequest
-        {
-            public required string Email { get; set; }
-            public required string Password { get; set; }
-        }
-
-        public class SignupRequest
-        {
-            public required string Name { get; set; }
-            public required string Email { get; set; }
-            public required string Password { get; set; }
-        }
 
         // POST: api/auth/signup
         [HttpPost("signup")]
