@@ -1,4 +1,4 @@
-﻿using System.Text;
+using System.Text;
 using System.Text.Json;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -56,7 +56,7 @@ builder.Services.AddAuthentication(options =>
         NameClaimType = "nameid" // Matches your token claim
     };
 
-    // Optional: Add logging for JWT failures
+    // Optional- Add logging for JWT failures
     options.Events = new JwtBearerEvents
     {
         OnAuthenticationFailed = context =>
@@ -112,6 +112,8 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 builder.Services.AddCors();
+builder.Services.AddScoped<EmailService>();
+
 
 
 var app = builder.Build();
