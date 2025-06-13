@@ -13,6 +13,12 @@ namespace TravelPlannerAPI.Models.Data
 
         public DbSet<Review> Reviews { get; set; }
 
+        public DbSet<ItineraryItem> ItineraryItems { get; set; }
+
+        public DbSet<ChecklistItem> ChecklistItems { get; set; }
+
+
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -30,6 +36,7 @@ namespace TravelPlannerAPI.Models.Data
                 .HasForeignKey<BudgetDetails>(b => b.TripId)
                 .OnDelete(DeleteBehavior.Cascade);
 
+
             // Rename Identity tables to lowercase or your preferred names (optional)
             modelBuilder.Entity<User>().ToTable("users");
             modelBuilder.Entity<IdentityRole<int>>().ToTable("role");
@@ -43,9 +50,26 @@ namespace TravelPlannerAPI.Models.Data
             modelBuilder.Entity<BudgetDetails>().ToTable("budgetdetails");
 
             // For Reviews
-            modelBuilder.Entity<Review>()
-            .HasIndex(r => new { r.TripId, r.UserId })
-            .IsUnique();
+            modelBuilder.Entity<Review>(entity =>
+            {
+                // One Trip has many Reviews
+                entity.HasOne(r => r.Trip)
+                      .WithMany(t => t.Reviews)
+                      .HasForeignKey(r => r.TripId)
+                      .OnDelete(DeleteBehavior.Cascade);
+
+                // One User has many Reviews
+                entity.HasOne(r => r.User)
+                      .WithMany(u => u.Reviews)
+                      .HasForeignKey(r => r.UserId)
+                      .OnDelete(DeleteBehavior.Cascade);
+
+                // Unique composite index on TripId + UserId to prevent duplicate reviews by same user on the same trip
+                entity.HasIndex(r => new { r.TripId, r.UserId })
+                      .IsUnique();
+            });
+
+
 
         }
     }
