@@ -1,22 +1,20 @@
 using System.Text;
-using System.Text.Json;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using TravelPlannerAPI.Models.Data;
-using Microsoft.AspNetCore.Identity;
 using TravelPlannerAPI.Models;
-using Microsoft.Extensions.Configuration;
+using TravelPlannerAPI.Models.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add DbContext for MySQL
+// 1. Add DbContext with MySQL
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
         new MySqlServerVersion(new Version(8, 0, 29))));
 
-// Add Identity with int keys
+// 2. Configure Identity with custom User and int as key
 builder.Services.AddIdentity<User, IdentityRole<int>>(options =>
 {
     options.Password.RequireDigit = true;
@@ -25,10 +23,10 @@ builder.Services.AddIdentity<User, IdentityRole<int>>(options =>
     options.Password.RequireNonAlphanumeric = false;
     options.Password.RequiredLength = 6;
 })
-    .AddEntityFrameworkStores<ApplicationDbContext>()
-    .AddDefaultTokenProviders();
+.AddEntityFrameworkStores<ApplicationDbContext>()
+.AddDefaultTokenProviders();
 
-// Configure JWT Authentication
+// 3. Configure JWT Authentication
 var jwtSettings = builder.Configuration.GetSection("Jwt");
 var key = Encoding.UTF8.GetBytes(jwtSettings["Key"]);
 
@@ -43,20 +41,16 @@ builder.Services.AddAuthentication(options =>
     {
         ValidateIssuer = true,
         ValidIssuer = jwtSettings["Issuer"],
-
         ValidateAudience = true,
         ValidAudience = jwtSettings["Audience"],
-
         ValidateIssuerSigningKey = true,
         IssuerSigningKey = new SymmetricSecurityKey(key),
-
         ValidateLifetime = true,
         ClockSkew = TimeSpan.Zero,
-
-        NameClaimType = "nameid" // Matches your token claim
+        NameClaimType = "nameid"
     };
 
-    // Optional- Add logging for JWT failures
+    // Optional logging for debugging
     options.Events = new JwtBearerEvents
     {
         OnAuthenticationFailed = context =>
@@ -66,7 +60,7 @@ builder.Services.AddAuthentication(options =>
         },
         OnTokenValidated = context =>
         {
-            Console.WriteLine($"JWT Token validated for {context.Principal.Identity.Name}");
+            Console.WriteLine($"JWT Token validated for {context.Principal.Identity?.Name}");
             return Task.CompletedTask;
         },
         OnChallenge = context =>
@@ -77,18 +71,14 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-// Add controllers
-builder.Services.AddControllers();
-
-// Configure Swagger with JWT support
-builder.Services.AddEndpointsApiExplorer();
+// 4. Add Swagger with JWT Bearer token support
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Your API", Version = "v1" });
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "TravelPlannerAPI", Version = "v1" });
 
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
-        Description = "JWT Authorization header using Bearer scheme. Example: \"Bearer {token}\"",
+        Description = "Enter 'Bearer' [space] and then your token",
         Name = "Authorization",
         In = ParameterLocation.Header,
         Type = SecuritySchemeType.ApiKey,
@@ -100,42 +90,44 @@ builder.Services.AddSwaggerGen(c =>
         {
             new OpenApiSecurityScheme
             {
-                Reference = new OpenApiReference
-                {
-                    Type = ReferenceType.SecurityScheme,
-                    Id = "Bearer"
-                }
+                Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "Bearer" }
             },
             Array.Empty<string>()
         }
     });
 });
 
-builder.Services.AddCors();
+// 5. Add other services
+builder.Services.AddControllers();
 builder.Services.AddScoped<EmailService>();
 
-
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngularClient", policy =>
+    {
+        policy.WithOrigins("http://localhost:4200")
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+              .AllowCredentials();
+    });
+});
 
 var app = builder.Build();
 
-// Configure middleware pipeline
+// 6. Configure the HTTP request pipeline
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "TravelPlannerAPI v1"));
 }
 
 app.UseHttpsRedirection();
 
-app.UseAuthentication(); 
+app.UseCors("AllowAngularClient");
+
+app.UseAuthentication();
 app.UseAuthorization();
-app.UseCors(policy =>
-    policy.WithOrigins("http://localhost:4200")
-          .AllowAnyHeader()
-          .AllowAnyMethod()
-          .AllowCredentials()
-);
 
 app.MapControllers();
 
