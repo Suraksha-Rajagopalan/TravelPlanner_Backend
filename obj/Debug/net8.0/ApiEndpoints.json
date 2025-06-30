@@ -90,6 +90,32 @@
     ]
   },
   {
+    "ContainingType": "TravelPlannerAPI.Controllers.ItineraryController",
+    "Method": "GetSharedItinerary",
+    "RelativePath": "api/shared/trips/{tripId}/itinerary",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tripId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[TravelPlannerAPI.Models.ItineraryItem, TravelPlannerAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "TravelPlannerAPI.Controllers.TripController",
     "Method": "GetTrips",
     "RelativePath": "api/Trip",

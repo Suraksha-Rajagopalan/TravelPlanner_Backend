@@ -77,6 +77,32 @@ namespace TravelPlannerAPI.Controllers
             await _context.SaveChangesAsync();
             return NoContent();
         }
+
+        [HttpGet("/api/shared/trips/{tripId}/itinerary")]
+        [Authorize]
+        public async Task<ActionResult<IEnumerable<ItineraryItem>>> GetSharedItinerary(int tripId)
+        {
+            var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+
+            var trip = await _context.Trips
+                .Include(t => t.SharedUsers)
+                .FirstOrDefaultAsync(t => t.Id == tripId);
+
+            if (trip == null)
+                return NotFound("Trip not found");
+
+            var isSharedWithUser = trip.SharedUsers
+                .Any(ts => ts.SharedWithUserId == userId);
+
+            if (!isSharedWithUser)
+                return Forbid();
+
+            return await _context.ItineraryItems
+                .Where(i => i.TripId == tripId)
+                .OrderBy(i => i.ScheduledDateTime)
+                .ToListAsync();
+        }
+
     }
 
 }
