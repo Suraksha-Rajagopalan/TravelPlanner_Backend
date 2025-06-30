@@ -147,11 +147,19 @@ public class TripShareController : ControllerBase
                 {
                     s.TripId,
                     s.AccessLevel,
-                    TripName = s.Trip.Title,
-                    TripDescription = s.Trip.Description,
+                    TitleName = s.Trip.Title,
                     Destination = s.Trip.Destination,
                     StartDate = s.Trip.StartDate,
-                    EndDate = s.Trip.EndDate
+                    EndDate = s.Trip.EndDate,
+                    TripDescription = s.Trip.Description,
+                    TravelMode = s.Trip.TravelMode,
+                    TripBudget = s.Trip.Budget,
+                    TripNotes = s.Trip.Notes,
+                    TripImage = s.Trip.Image,
+                    Duration = s.Trip.Duration,
+                    BestTime = s.Trip.BestTime,
+                    Essentials = s.Trip.Essentials ?? new List<string>(),
+                    TouristSpots = s.Trip.TouristSpots ?? new List<string>(),
                 })
                 .ToListAsync();
 

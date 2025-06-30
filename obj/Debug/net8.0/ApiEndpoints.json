@@ -64,6 +64,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "TravelPlannerAPI.Controllers.ChecklistController",
+    "Method": "GetSharedTripChecklist",
+    "RelativePath": "api/shared-trips/{tripId}/checklist",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tripId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "TravelPlannerAPI.Dtos.ChecklistWithAccessDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "TravelPlannerAPI.Controllers.TripController",
     "Method": "GetTrips",
     "RelativePath": "api/Trip",
@@ -236,7 +262,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "ChecklistController",
+    "ContainingType": "TravelPlannerAPI.Controllers.ChecklistController",
     "Method": "GetChecklist",
     "RelativePath": "api/trips/{tripId}/checklist",
     "HttpMethod": "GET",
@@ -251,7 +277,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[TravelPlannerAPI.Models.ChecklistItem, TravelPlannerAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[TravelPlannerAPI.Dtos.ChecklistItemDto, TravelPlannerAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -262,7 +288,7 @@
     ]
   },
   {
-    "ContainingType": "ChecklistController",
+    "ContainingType": "TravelPlannerAPI.Controllers.ChecklistController",
     "Method": "AddItem",
     "RelativePath": "api/trips/{tripId}/checklist",
     "HttpMethod": "POST",
@@ -282,7 +308,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "TravelPlannerAPI.Models.ChecklistItem",
+        "Type": "TravelPlannerAPI.Dtos.ChecklistItemDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -293,7 +319,7 @@
     ]
   },
   {
-    "ContainingType": "ChecklistController",
+    "ContainingType": "TravelPlannerAPI.Controllers.ChecklistController",
     "Method": "UpdateItem",
     "RelativePath": "api/trips/{tripId}/checklist/{id}",
     "HttpMethod": "PUT",
@@ -301,25 +327,25 @@
     "Order": 0,
     "Parameters": [
       {
+        "Name": "tripId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
       },
       {
-        "Name": "item",
-        "Type": "TravelPlannerAPI.Models.ChecklistItem",
-        "IsRequired": true
-      },
-      {
-        "Name": "tripId",
-        "Type": "",
+        "Name": "updateDto",
+        "Type": "TravelPlannerAPI.Dtos.ChecklistItemUpdateDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "ChecklistController",
+    "ContainingType": "TravelPlannerAPI.Controllers.ChecklistController",
     "Method": "DeleteItem",
     "RelativePath": "api/trips/{tripId}/checklist/{id}",
     "HttpMethod": "DELETE",
@@ -327,13 +353,13 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
+        "Name": "tripId",
         "Type": "System.Int32",
         "IsRequired": true
       },
       {
-        "Name": "tripId",
-        "Type": "",
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
