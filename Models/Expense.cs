@@ -23,6 +23,4 @@ namespace TravelPlannerAPI.Models
         [JsonIgnore]
         public Trip Trip { get; set; } = null!;
     }
-
-
 }

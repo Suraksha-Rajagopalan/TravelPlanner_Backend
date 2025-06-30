@@ -276,17 +276,26 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ChecklistWithAccessDto"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ChecklistItemDto"
+                  }
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ChecklistWithAccessDto"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ChecklistItemDto"
+                  }
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ChecklistWithAccessDto"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ChecklistItemDto"
+                  }
                 }
               }
             }
@@ -423,6 +432,29 @@
           },
           {
             "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/trips/{tripId}/shared-expenses": {
+      "get": {
+        "tags": [
+          "Expense"
+        ],
+        "parameters": [
+          {
+            "name": "tripId",
             "in": "path",
             "required": true,
             "schema": {
@@ -1080,23 +1112,6 @@
           },
           "isCompleted": {
             "type": "boolean"
-          }
-        },
-        "additionalProperties": false
-      },
-      "ChecklistWithAccessDto": {
-        "type": "object",
-        "properties": {
-          "items": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ChecklistItemDto"
-            },
-            "nullable": true
-          },
-          "accessLevel": {
-            "type": "string",
-            "nullable": true
           }
         },
         "additionalProperties": false

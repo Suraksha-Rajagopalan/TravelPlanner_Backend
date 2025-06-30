@@ -112,5 +112,43 @@ namespace TravelPlannerAPI.Controllers
 
             return NoContent();
         }
+
+        [HttpGet("/api/trips/{tripId}/shared-expenses")]
+        public async Task<IActionResult> GetSharedExpenses(int tripId)
+        {
+            var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+
+            // Ensure the trip is shared with this user
+            var share = await _context.TripShares
+                .FirstOrDefaultAsync(s => s.TripId == tripId && s.SharedWithUserId == userId);
+
+            if (share == null)
+                return Forbid();
+
+            var expenses = await _context.Expenses
+                .Where(e => e.TripId == tripId)
+                .ToListAsync();
+
+            // Convert to lightweight DTOs
+            var expenseDtos = expenses.Select(e => new
+            {
+                e.Id,
+                e.TripId,
+                e.Category,
+                e.Description,
+                e.Amount,
+                e.Date
+            });
+
+            var summary = expenses
+                .GroupBy(e => e.Category)
+                .Select(g => new { Category = g.Key, Total = g.Sum(x => x.Amount) })
+                .ToList();
+
+            var total = expenses.Sum(e => e.Amount);
+
+            return Ok(new { expenses = expenseDtos, summary, total });
+        }
+
     }
 }
