@@ -6,6 +6,7 @@ using TravelPlannerAPI.Dtos;
 using TravelPlannerAPI.DTOs;
 using TravelPlannerAPI.Models;
 using TravelPlannerAPI.Models.Data;
+using TravelPlannerAPI.Models.Enums;
 
 namespace TravelPlannerAPI.Controllers
 {
@@ -42,7 +43,7 @@ namespace TravelPlannerAPI.Controllers
 
             var trip = await _context.Trips
                 .Include(t => t.BudgetDetails)
-                .FirstOrDefaultAsync(t => t.Id == id && t.UserId == userId);
+                .FirstOrDefaultAsync(t => t.Id == id);
 
             if (trip == null)
                 return NotFound();
@@ -88,6 +89,7 @@ namespace TravelPlannerAPI.Controllers
 
             return CreatedAtAction(nameof(GetTripById), new { id = trip.Id }, trip);
         }
+
 
         // PUT: api/Trip/5
         [HttpPut("{id}")]
@@ -158,6 +160,63 @@ namespace TravelPlannerAPI.Controllers
 
             return NoContent();
         }
+
+        [HttpPut("shared/{id}")]
+        [Authorize]
+        public async Task<IActionResult> UpdateSharedTrip(int id, [FromBody] TripUpdateDto dto)
+        {
+            if (id != dto.Id)
+                return BadRequest("Trip ID mismatch.");
+
+            var userId = GetUserId(); // You already have this helper method
+
+            var trip = await _context.Trips
+                .Include(t => t.BudgetDetails)
+                .Include(t => t.SharedUsers)
+                .FirstOrDefaultAsync(t => t.Id == id);
+
+            if (trip == null)
+                return NotFound("Trip not found.");
+
+            var sharedEntry = trip.SharedUsers
+                .FirstOrDefault(s => s.SharedWithUserId == userId && s.AccessLevel == AccessLevel.Edit);
+
+            if (sharedEntry == null)
+                return Forbid("You do not have edit access to this shared trip.");
+
+            // Update all editable fields
+            trip.Title = dto.Title;
+            trip.Destination = dto.Destination;
+            trip.StartDate = dto.StartDate;
+            trip.EndDate = dto.EndDate;
+            trip.Description = dto.Description;
+            trip.TravelMode = dto.TravelMode;
+            trip.Budget = dto.Budget;
+            trip.Notes = dto.Notes;
+            trip.Image = dto.Image;
+            trip.Duration = dto.Duration;
+            trip.BestTime = dto.BestTime;
+            trip.Essentials = dto.Essentials ?? new List<string>();
+            trip.TouristSpots = dto.TouristSpots ?? new List<string>();
+
+            // Handle nested BudgetDetails
+            if (dto.BudgetDetails != null)
+            {
+                if (trip.BudgetDetails == null)
+                    trip.BudgetDetails = new BudgetDetails();
+
+                trip.BudgetDetails.Food = dto.BudgetDetails.Food;
+                trip.BudgetDetails.Hotel = dto.BudgetDetails.Hotel;
+            }
+            else if (trip.BudgetDetails != null)
+            {
+                _context.BudgetDetails.Remove(trip.BudgetDetails);
+            }
+
+            await _context.SaveChangesAsync();
+            return NoContent();
+        }
+
 
         // POST: api/Trip/5/review
         [HttpPost("{tripId}/review")]

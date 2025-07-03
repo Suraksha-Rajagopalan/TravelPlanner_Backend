@@ -272,6 +272,27 @@
     ]
   },
   {
+    "ContainingType": "TravelPlannerAPI.Controllers.TripController",
+    "Method": "UpdateSharedTrip",
+    "RelativePath": "api/Trip/shared/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "TravelPlannerAPI.DTOs.TripUpdateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "TravelPlannerAPI.Controllers.TripReviewsController",
     "Method": "SearchTripReviews",
     "RelativePath": "api/TripReviews/search",
