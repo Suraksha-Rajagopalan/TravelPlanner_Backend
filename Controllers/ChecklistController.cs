@@ -26,15 +26,16 @@ namespace TravelPlannerAPI.Controllers
             var trip = await _context.Trips.FindAsync(tripId);
             if (trip == null) return (false, false);
 
-            if (trip.UserId == userId) return (true, true);
+            if (trip.UserId == userId)
+                return (true, true);
 
-            var sharedAccess = await _context.TripShares
+            var share = await _context.TripShares
                 .FirstOrDefaultAsync(s => s.TripId == tripId && s.SharedWithUserId == userId);
 
-            if (sharedAccess == null)
+            if (share == null)
                 return (false, false);
 
-            return (true, sharedAccess.AccessLevel == AccessLevel.Edit);
+            return (true, share.AccessLevel == AccessLevel.Edit);
         }
 
         [HttpGet]
@@ -48,7 +49,7 @@ namespace TravelPlannerAPI.Controllers
             if (!canView) return Forbid();
 
             var items = await _context.ChecklistItems
-                .Where(item => item.TripId == tripId && item.UserId == userId)
+                .Where(item => item.TripId == tripId)
                 .Select(item => new ChecklistItemDto
                 {
                     Id = item.Id,
@@ -92,13 +93,15 @@ namespace TravelPlannerAPI.Controllers
             var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
             var item = await _context.ChecklistItems.FindAsync(id);
-            if (item == null || item.TripId != tripId) return NotFound();
+            if (item == null || item.TripId != tripId)
+                return NotFound();
 
             var (_, canEdit) = await GetAccess(tripId, userId);
             if (!canEdit) return Forbid();
 
             item.Text = updateDto.Description;
             item.IsCompleted = updateDto.IsCompleted;
+            item.UserId = userId;
 
             await _context.SaveChangesAsync();
             return NoContent();
@@ -110,7 +113,8 @@ namespace TravelPlannerAPI.Controllers
             var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
             var item = await _context.ChecklistItems.FindAsync(id);
-            if (item == null || item.TripId != tripId) return NotFound();
+            if (item == null || item.TripId != tripId)
+                return NotFound();
 
             var (_, canEdit) = await GetAccess(tripId, userId);
             if (!canEdit) return Forbid();
@@ -121,14 +125,16 @@ namespace TravelPlannerAPI.Controllers
             return NoContent();
         }
 
+        //Read-only checklist for shared users with view access
         [HttpGet("/api/shared-trips/{tripId}/checklist")]
         public async Task<ActionResult<IEnumerable<ChecklistItemDto>>> GetSharedTripChecklist(int tripId)
         {
             var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+
             var share = await _context.TripShares
                 .FirstOrDefaultAsync(s => s.TripId == tripId && s.SharedWithUserId == userId);
 
-            if (share == null)
+            if (share == null || share.AccessLevel != AccessLevel.View)
                 return Forbid();
 
             var items = await _context.ChecklistItems
@@ -145,6 +151,5 @@ namespace TravelPlannerAPI.Controllers
 
             return Ok(items);
         }
-
     }
 }

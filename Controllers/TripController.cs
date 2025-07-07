@@ -102,7 +102,7 @@ namespace TravelPlannerAPI.Controllers
 
             var trip = await _context.Trips
                 .Include(t => t.BudgetDetails)
-                .FirstOrDefaultAsync(t => t.Id == id && t.UserId == userId);
+                .FirstOrDefaultAsync(t => t.Id == id);
 
             if (trip == null)
                 return NotFound("Trip not found or unauthorized.");
