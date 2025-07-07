@@ -137,4 +137,62 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+// Seed the admin user and role
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    try
+    {
+        await SeedAdminUser(services); // Make sure the method is defined below
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Error seeding admin user: {ex.Message}");
+    }
+}
+
+
 app.Run();
+
+static async Task SeedAdminUser(IServiceProvider serviceProvider)
+{
+    var userManager = serviceProvider.GetRequiredService<UserManager<User>>();
+    var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole<int>>>();
+
+    // Ensure the Admin role exists
+    if (!await roleManager.RoleExistsAsync("Admin"))
+    {
+        await roleManager.CreateAsync(new IdentityRole<int>("Admin"));
+    }
+
+    // Ensure the Admin user exists
+    var adminEmail = "admin@gmail.com";
+    var adminUser = await userManager.FindByEmailAsync(adminEmail);
+
+    if (adminUser == null)
+    {
+        adminUser = new User
+        {
+            UserName = adminEmail,
+            Email = adminEmail,
+            Name = "Admin"
+        };
+
+        var result = await userManager.CreateAsync(adminUser, "Admin@1234");
+
+        if (result.Succeeded)
+        {
+            await userManager.AddToRoleAsync(adminUser, "Admin");
+            Console.WriteLine("Admin user created and role assigned.");
+        }
+        else
+        {
+            Console.WriteLine($"Failed to create admin user: {string.Join(", ", result.Errors.Select(e => e.Description))}");
+        }
+    }
+    else
+    {
+        Console.WriteLine("Admin user already exists.");
+    }
+}
+

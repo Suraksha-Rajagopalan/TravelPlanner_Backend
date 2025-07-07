@@ -95,6 +95,13 @@ namespace TravelPlannerAPI.Models.Data
 
                 entity.HasIndex(r => new { r.TripId, r.UserId }).IsUnique();
             });
+
+            // Admin
+            modelBuilder.Entity<Trip>()
+                 .HasOne(t => t.User)
+                 .WithMany(u => u.Trips)
+                 .HasForeignKey(t => t.UserId);
+
         }
 
     }

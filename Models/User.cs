@@ -9,6 +9,14 @@ namespace TravelPlannerAPI.Models
     {
         public string Name { get; set; } = string.Empty;
 
+        public DateTime LastLoginDate { get; set; } = DateTime.UtcNow;
+
+        public bool IsAdmin { get; set; } = false;
+
+        public string Role { get; set; } = "User"; // Default role
+
+        public bool IsActive { get; set; } = true;
+
         // User-created trips
         public ICollection<Trip> Trips { get; set; } = new List<Trip>();
 
@@ -22,5 +30,6 @@ namespace TravelPlannerAPI.Models
         // Trips this user has received from others
         [InverseProperty("SharedWithUser")]
         public ICollection<TripShare> ReceivedTripShares { get; set; } = new List<TripShare>();
+
     }
 }

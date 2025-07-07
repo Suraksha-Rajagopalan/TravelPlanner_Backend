@@ -42,7 +42,10 @@ namespace TravelPlannerAPI.Controllers
             {
                 UserName = request.Email,
                 Email = request.Email,
-                Name = request.Name
+                Name = request.Name,
+                IsAdmin = false,              
+                Role = "User",                // set role
+                IsActive = true
             };
 
             var result = await _userManager.CreateAsync(newUser, request.Password);
@@ -65,6 +68,10 @@ namespace TravelPlannerAPI.Controllers
                 return Unauthorized(new { message = "Invalid credentials" });
             }
 
+            user.LastLoginDate = DateTime.UtcNow;
+            await _userManager.UpdateAsync(user);
+
+
             var secretKey = _configuration["Jwt:Key"];
             if (string.IsNullOrEmpty(secretKey) || secretKey.Length < 32)
             {
@@ -78,9 +85,10 @@ namespace TravelPlannerAPI.Controllers
             {
                 Subject = new ClaimsIdentity(new[]
                 {
-            new Claim("nameid", user.Id.ToString()),              // 👈 This is what Program.cs expects
+            new Claim("nameid", user.Id.ToString()),              
             new Claim(ClaimTypes.Name, user.Name),
-            new Claim(ClaimTypes.Email, user.Email)
+            new Claim(ClaimTypes.Email, user.Email),
+            new Claim(ClaimTypes.Role, user.Role ?? "User")
         }),
                 Expires = DateTime.UtcNow.AddHours(2),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
