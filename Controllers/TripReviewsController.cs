@@ -38,7 +38,7 @@ namespace TravelPlannerAPI.Controllers
                 {
                     TripId = r.TripId,
                     TripName = r.Trip.Destination,
-                    Username = r.User.UserName,
+                    Username = r.User.Name,
                     Rating = r.Rating,
                     Comment = r.ReviewText
                 })

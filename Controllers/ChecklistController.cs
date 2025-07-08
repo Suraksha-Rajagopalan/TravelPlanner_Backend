@@ -101,7 +101,7 @@ namespace TravelPlannerAPI.Controllers
 
             item.Text = updateDto.Description;
             item.IsCompleted = updateDto.IsCompleted;
-            item.UserId = userId;
+            //item.UserId = userId;
 
             await _context.SaveChangesAsync();
             return NoContent();
