@@ -2,10 +2,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
-using TravelPlannerAPI.Dtos;
-using TravelPlannerAPI.Models;
-using TravelPlannerAPI.Models.Data;
-using TravelPlannerAPI.Models.Enums;
+using TravelPlannerBusiness.Dtos;
+using TravelPlannerBusiness.Models;
+using TravelPlannerBusiness.Models.Data;
+using TravelPlannerBusiness.Models.Enums;
 
 namespace TravelPlannerAPI.Controllers
 {
@@ -55,7 +55,7 @@ namespace TravelPlannerAPI.Controllers
                     Id = item.Id,
                     TripId = item.TripId,
                     Description = item.Text,
-                    Completed = item.IsCompleted,
+                    IsCompleted = item.IsCompleted,
                     UserId = item.UserId
                 })
                 .ToListAsync();
@@ -74,7 +74,7 @@ namespace TravelPlannerAPI.Controllers
             {
                 TripId = tripId,
                 Text = itemDto.Description,
-                IsCompleted = itemDto.Completed,
+                IsCompleted = itemDto.IsCompleted,
                 UserId = userId
             };
 
@@ -144,7 +144,7 @@ namespace TravelPlannerAPI.Controllers
                     Id = item.Id,
                     TripId = item.TripId,
                     Description = item.Text,
-                    Completed = item.IsCompleted,
+                    IsCompleted = item.IsCompleted,
                     UserId = item.UserId
                 })
                 .ToListAsync();

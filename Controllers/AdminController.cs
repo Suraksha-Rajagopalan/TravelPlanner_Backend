@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Threading.Tasks;
-using TravelPlannerAPI.Dtos;
-using TravelPlannerAPI.Models;
-using TravelPlannerAPI.Models.Data;
+using TravelPlannerBusiness.Dtos;
+using TravelPlannerBusiness.Models;
+using TravelPlannerBusiness.Models.Data;
 
 [Route("api/admin")]
 [ApiController]

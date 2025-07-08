@@ -31,6 +31,78 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
+            "projectReferences": {
+              "D:\\HR\\travel-planner\\API\\TravelPlannerAPI\\TravelPlannerBusiness\\TravelPlannerBusiness.csproj": {
+                "projectPath": "D:\\HR\\travel-planner\\API\\TravelPlannerAPI\\TravelPlannerBusiness\\TravelPlannerBusiness.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.200"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\HR\\travel-planner\\API\\TravelPlannerAPI\\TravelPlannerBusiness\\TravelPlannerBusiness.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\HR\\travel-planner\\API\\TravelPlannerAPI\\TravelPlannerBusiness\\TravelPlannerBusiness.csproj",
+        "projectName": "TravelPlannerBusiness",
+        "projectPath": "D:\\HR\\travel-planner\\API\\TravelPlannerAPI\\TravelPlannerBusiness\\TravelPlannerBusiness.csproj",
+        "packagesPath": "C:\\Users\\araku\\.nuget\\packages\\",
+        "outputPath": "D:\\HR\\travel-planner\\API\\TravelPlannerAPI\\TravelPlannerBusiness\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\araku\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -53,10 +125,6 @@
             "BCrypt.Net-Next": {
               "target": "Package",
               "version": "[4.0.3, )"
-            },
-            "Google.Apis.Auth": {
-              "target": "Package",
-              "version": "[1.69.0, )"
             },
             "MailKit": {
               "target": "Package",
@@ -111,9 +179,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

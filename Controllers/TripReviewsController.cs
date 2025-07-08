@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using TravelPlannerAPI.Dtos;
-using TravelPlannerAPI.Models.Data;
-using TravelPlannerAPI.Models;
+using TravelPlannerBusiness.Dtos;
+using TravelPlannerBusiness.Models.Data;
+using TravelPlannerBusiness.Models;
 
 namespace TravelPlannerAPI.Controllers
 {

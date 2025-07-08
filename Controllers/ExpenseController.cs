@@ -2,9 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
-using TravelPlannerAPI.Models;
-using TravelPlannerAPI.Models.Data;
-using TravelPlannerAPI.Models.Enums;
+using TravelPlannerBusiness.Models;
+using TravelPlannerBusiness.Models.Data;
+using TravelPlannerBusiness.Models.Enums;
 
 namespace TravelPlannerAPI.Controllers
 {

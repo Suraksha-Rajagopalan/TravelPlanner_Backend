@@ -2,10 +2,10 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using TravelPlannerAPI.Dtos;
-using TravelPlannerAPI.Models;
-using TravelPlannerAPI.Models.Data;
-using TravelPlannerAPI.Models.Enums;
+using TravelPlannerBusiness.Dtos;
+using TravelPlannerBusiness.Models;
+using TravelPlannerBusiness.Models.Data;
+using TravelPlannerBusiness.Models.Enums;
 using Microsoft.AspNetCore.Identity;
 
 [Authorize]

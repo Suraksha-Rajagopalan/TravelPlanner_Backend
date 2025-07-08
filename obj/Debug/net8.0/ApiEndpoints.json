@@ -35,7 +35,7 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "TravelPlannerAPI.Dtos.LoginRequest",
+        "Type": "TravelPlannerBusiness.Dtos.LoginRequest",
         "IsRequired": true
       }
     ],
@@ -51,7 +51,7 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "TravelPlannerAPI.Dtos.SignupRequest",
+        "Type": "TravelPlannerBusiness.Dtos.SignupRequest",
         "IsRequired": true
       }
     ],
@@ -67,7 +67,7 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "TravelPlannerAPI.Dtos.ReviewDto",
+        "Type": "TravelPlannerBusiness.Dtos.ReviewDto",
         "IsRequired": true
       }
     ],
@@ -105,7 +105,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[TravelPlannerAPI.Dtos.ChecklistItemDto, TravelPlannerAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[TravelPlannerBusiness.Dtos.ChecklistItemDto, TravelPlannerBusiness, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -131,7 +131,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[TravelPlannerAPI.Models.ItineraryItem, TravelPlannerAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[TravelPlannerBusiness.Models.ItineraryItem, TravelPlannerBusiness, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -151,7 +151,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[TravelPlannerAPI.Models.Trip, TravelPlannerAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[TravelPlannerBusiness.Models.Trip, TravelPlannerBusiness, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -171,13 +171,13 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "TravelPlannerAPI.DTOs.TripCreateDto",
+        "Type": "TravelPlannerBusiness.DTOs.TripCreateDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "TravelPlannerAPI.Models.Trip",
+        "Type": "TravelPlannerBusiness.Models.Trip",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -203,7 +203,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "TravelPlannerAPI.Models.Trip",
+        "Type": "TravelPlannerBusiness.Models.Trip",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -228,7 +228,7 @@
       },
       {
         "Name": "dto",
-        "Type": "TravelPlannerAPI.DTOs.TripUpdateDto",
+        "Type": "TravelPlannerBusiness.DTOs.TripUpdateDto",
         "IsRequired": true
       }
     ],
@@ -265,7 +265,7 @@
       },
       {
         "Name": "dto",
-        "Type": "TravelPlannerAPI.Dtos.ReviewDto",
+        "Type": "TravelPlannerBusiness.Dtos.ReviewDto",
         "IsRequired": true
       }
     ],
@@ -287,7 +287,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[TravelPlannerAPI.Models.Review, TravelPlannerAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[TravelPlannerBusiness.Models.Review, TravelPlannerBusiness, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -312,7 +312,7 @@
       },
       {
         "Name": "dto",
-        "Type": "TravelPlannerAPI.DTOs.TripUpdateDto",
+        "Type": "TravelPlannerBusiness.DTOs.TripUpdateDto",
         "IsRequired": true
       }
     ],
@@ -350,7 +350,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[TravelPlannerAPI.Dtos.ChecklistItemDto, TravelPlannerAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[TravelPlannerBusiness.Dtos.ChecklistItemDto, TravelPlannerBusiness, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -375,13 +375,13 @@
       },
       {
         "Name": "itemDto",
-        "Type": "TravelPlannerAPI.Dtos.ChecklistItemDto",
+        "Type": "TravelPlannerBusiness.Dtos.ChecklistItemDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "TravelPlannerAPI.Dtos.ChecklistItemDto",
+        "Type": "TravelPlannerBusiness.Dtos.ChecklistItemDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -411,7 +411,7 @@
       },
       {
         "Name": "updateDto",
-        "Type": "TravelPlannerAPI.Dtos.ChecklistItemUpdateDto",
+        "Type": "TravelPlannerBusiness.Dtos.ChecklistItemUpdateDto",
         "IsRequired": true
       }
     ],
@@ -453,7 +453,7 @@
       },
       {
         "Name": "expense",
-        "Type": "TravelPlannerAPI.Models.Expense",
+        "Type": "TravelPlannerBusiness.Models.Expense",
         "IsRequired": true
       }
     ],
@@ -495,7 +495,7 @@
       },
       {
         "Name": "updatedExpense",
-        "Type": "TravelPlannerAPI.Models.Expense",
+        "Type": "TravelPlannerBusiness.Models.Expense",
         "IsRequired": true
       }
     ],
@@ -538,7 +538,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[TravelPlannerAPI.Models.ItineraryItem, TravelPlannerAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[TravelPlannerBusiness.Models.ItineraryItem, TravelPlannerBusiness, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -563,7 +563,7 @@
       },
       {
         "Name": "dto",
-        "Type": "TravelPlannerAPI.Dtos.ItineraryItemCreateDto",
+        "Type": "TravelPlannerBusiness.Dtos.ItineraryItemCreateDto",
         "IsRequired": true
       }
     ],
@@ -584,7 +584,7 @@
       },
       {
         "Name": "item",
-        "Type": "TravelPlannerAPI.Models.ItineraryItem",
+        "Type": "TravelPlannerBusiness.Models.ItineraryItem",
         "IsRequired": true
       },
       {
@@ -642,7 +642,7 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "TravelPlannerAPI.Dtos.TripShareRequestDto",
+        "Type": "TravelPlannerBusiness.Dtos.TripShareRequestDto",
         "IsRequired": true
       }
     ],

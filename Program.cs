@@ -5,8 +5,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using TravelPlannerAPI.Models;
-using TravelPlannerAPI.Models.Data;
+using TravelPlannerBusiness.Models;
+using TravelPlannerBusiness.Models.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
