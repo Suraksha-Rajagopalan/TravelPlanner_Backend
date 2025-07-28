@@ -1,0 +1,99 @@
+﻿using TravelPlannerAPI.Dtos;
+using TravelPlannerAPI.Models;
+using TravelPlannerAPI.Models.Data;
+using TravelPlannerAPI.Models.Enums;
+using TravelPlannerAPI.Repository.Interfaces;
+using TravelPlannerAPI.Services.Interfaces;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace TravelPlannerAPI.Services.Implementations
+{
+    public class TripShareService : ITripShareService
+    {
+        private readonly ITripShareRepository _repo;
+        private readonly ApplicationDbContext _context;
+
+        public TripShareService(
+            ITripShareRepository repo,
+            ApplicationDbContext context)
+        {
+            _repo = repo;
+            _context = context;
+        }
+
+        public async Task<(bool Success, string ErrorMessage)> ShareTripAsync(
+            int ownerId,
+            TripShareRequestDto request)
+        {
+            // Lookup user by email
+            var sharedWithUser = await _context.Users
+                .FirstOrDefaultAsync(u => u.Email == request.SharedWithEmail);
+            if (sharedWithUser == null)
+                return (false, "User to share with not found.");
+
+            // Prevent self‑share
+            if (sharedWithUser.Id == ownerId)
+                return (false, "You cannot share a trip with yourself.");
+
+            // Validate access level
+            if (!Enum.TryParse<AccessLevel>(
+                    request.AccessLevel,
+                    ignoreCase: true,
+                    out var accessLevel))
+            {
+                return (false, "Invalid access level.");
+            }
+
+            // Ensure trip belongs to owner
+            var trip = await _repo.GetOwnedTripAsync(request.TripId, ownerId);
+            if (trip == null)
+                return (false, "Trip not found or you do not own it.");
+
+            // Prevent duplicate share
+            var exists = await _repo.GetByTripAndUserAsync(request.TripId, sharedWithUser.Id);
+            if (exists != null)
+                return (false, "This trip is already shared with the user.");
+
+            // Create & persist
+            var share = new TripShare
+            {
+                TripId = request.TripId,
+                OwnerId = ownerId,
+                SharedWithUserId = sharedWithUser.Id,
+                AccessLevel = accessLevel
+            };
+
+            await _repo.AddAsync(share);
+            await _repo.SaveAsync();
+            return (true, null);
+        }
+
+        public async Task<IEnumerable<SharedTripDto>> GetTripsSharedWithUserAsync(int userId)
+        {
+            var shares = await _repo.GetSharesForUserAsync(userId);
+
+            return shares.Select(s => new SharedTripDto
+            {
+                TripId = s.TripId,
+                AccessLevel = s.AccessLevel,
+                Title = s.Trip.Title,
+                Destination = s.Trip.Destination,
+                StartDate = s.Trip.StartDate,
+                EndDate = s.Trip.EndDate,
+                Description = s.Trip.Description,
+                TravelMode = s.Trip.TravelMode,
+                Budget = s.Trip.Budget,
+                Notes = s.Trip.Notes,
+                Image = s.Trip.Image,
+                Duration = s.Trip.Duration,
+                BestTime = s.Trip.BestTime,
+                Essentials = s.Trip.Essentials ?? new List<string>(),
+                TouristSpots = s.Trip.TouristSpots ?? new List<string>()
+            }).ToList();
+        }
+    }
+}

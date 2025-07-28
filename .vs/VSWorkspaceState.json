@@ -1,0 +1,10 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\TravelPlannerAPI",
+    "\\TravelPlannerAPI\\Services",
+    "\\TravelPlannerAPI\\Services\\Implementations"
+  ],
+  "SelectedNode": "\\TravelPlannerAPI\\Services\\Implementations\\TripService.cs",
+  "PreviewInSolutionExplorer": false
+}

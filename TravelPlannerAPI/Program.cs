@@ -1,13 +1,20 @@
-﻿using BusinessAPI.Models;
-using BusinessAPI.Models.Data;
-using BusinessAPI.Services;
-using BusinessAPI.Services.Implementations;
-using BusinessAPI.Services.Interfaces;
+﻿using AutoWrapper;
+using TravelPlannerAPI.Generic;
+using TravelPlannerAPI.Models;
+using TravelPlannerAPI.Models.Data;
+using TravelPlannerAPI.Repositories.Implementations;
+using TravelPlannerAPI.Repositories.Interfaces;
+using TravelPlannerAPI.Repository.Implementations;
+using TravelPlannerAPI.Repository.Interfaces;
+using TravelPlannerAPI.Services;
+using TravelPlannerAPI.Services.Implementations;
+using TravelPlannerAPI.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Serilog;
 using System.Text;
 using System.Text.Json.Serialization;
 
@@ -74,14 +81,45 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+// Adding Services
+
+builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+
+// Auth
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IAuthRepository, AuthRepository>();
+
 builder.Services.AddScoped<IChecklistService, ChecklistService>();
 builder.Services.AddScoped<IExpenseService, ExpenseService>();
+
+//Itinerary
 builder.Services.AddScoped<IItineraryService, ItineraryService>();
-builder.Services.AddScoped<IReviewService, ReviewService>();
-builder.Services.AddScoped<IAccessService, AccessService>();
+builder.Services.AddScoped<IItineraryRepository, ItineraryRepository>();
+
+//Reviews
+builder.Services.AddScoped<IReviewRepository, ReviewRepository>();
 builder.Services.AddScoped<ITripReviewService, TripReviewService>();
+
+//TripShare
+builder.Services.AddScoped<ITripShareRepository, TripShareRepository>();
 builder.Services.AddScoped<ITripShareService, TripShareService>();
+
+//Trip
+builder.Services.AddScoped<ITripRepository, TripRepository>();
+builder.Services.AddScoped<ITripService, TripService>();
+
+//Checklist
+builder.Services.AddScoped<IChecklistRepository, ChecklistRepository>();
+builder.Services.AddScoped<IChecklistService, ChecklistService>();
+
+//Access
+builder.Services.AddScoped<IAccessRepository, AccessRepository>();
+builder.Services.AddScoped<IAccessService, AccessService>();
+
+//Expense
+builder.Services.AddScoped<IExpenseRepository, ExpenseRepository>();
+builder.Services.AddScoped<IExpenseService, ExpenseService>();
+
 
 
 // 4. Add Swagger with JWT Bearer token support
@@ -130,6 +168,18 @@ builder.Services.AddCors(options =>
     });
 });
 
+// AutoMap Registration
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+
+// Configure Serilog
+Log.Logger = new LoggerConfiguration()
+    .ReadFrom.Configuration(builder.Configuration)
+    .CreateLogger();
+
+builder.Host.UseSerilog();
+
+
 var app = builder.Build();
 
 // 6. Configure the HTTP request pipeline
@@ -139,6 +189,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "TravelPlannerAPI v1"));
 }
+
+//app.UseApiResponseAndExceptionWrapper();
 
 app.UseHttpsRedirection();
 
@@ -207,4 +259,3 @@ static async Task SeedAdminUser(IServiceProvider serviceProvider)
         Console.WriteLine("Admin user already exists.");
     }
 }
-
