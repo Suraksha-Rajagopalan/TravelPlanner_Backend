@@ -1,25 +1,29 @@
 ﻿using TravelPlannerAPI.Generic;
 using TravelPlannerAPI.Models;
 using TravelPlannerAPI.Models.Data;
-using TravelPlannerAPI.Repository.Interfaces;
+using TravelPlannerAPI.Repository.Interface;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TravelPlannerAPI.UoW;
 
-namespace TravelPlannerAPI.Repository.Implementations
+namespace TravelPlannerAPI.Repository.Implementation
 {
     public class ItineraryRepository : IItineraryRepository
     {
         private readonly ApplicationDbContext _context;
         private readonly IGenericRepository<ItineraryItem> _generic;
+        private readonly IUnitOfWork _unitOfWork;
 
         public ItineraryRepository(
             ApplicationDbContext context,
-            IGenericRepository<ItineraryItem> genericRepository)
+            IGenericRepository<ItineraryItem> genericRepository,
+            IUnitOfWork unitOfWork)
         {
             _context = context;
             _generic = genericRepository;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<IEnumerable<ItineraryItem>> GetByTripIdAsync(int tripId)
@@ -36,19 +40,19 @@ namespace TravelPlannerAPI.Repository.Implementations
         public async Task AddAsync(ItineraryItem item)
         {
             await _generic.AddAsync(item);
-            await _generic.SaveAsync();
+            await _unitOfWork.CompleteAsync();
         }
 
         public async Task UpdateAsync(ItineraryItem item)
         {
             _generic.Update(item);
-            await _generic.SaveAsync();
+            await _unitOfWork.CompleteAsync();
         }
 
         public async Task DeleteAsync(ItineraryItem item)
         {
             _generic.Delete(item);
-            await _generic.SaveAsync();
+            await _unitOfWork.CompleteAsync();
         }
 
         public async Task<bool> ExistsAsync(int id)

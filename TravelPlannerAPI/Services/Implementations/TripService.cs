@@ -1,10 +1,11 @@
 ﻿using AutoMapper;
 using TravelPlannerAPI.Dtos;
 using TravelPlannerAPI.Models;
-using TravelPlannerAPI.Repository.Interfaces;
+using TravelPlannerAPI.Repository.Interface;
 using TravelPlannerAPI.Services.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using TravelPlannerAPI.UoW;
 
 namespace TravelPlannerAPI.Services.Implementations
 {
@@ -13,15 +14,17 @@ namespace TravelPlannerAPI.Services.Implementations
         private readonly ITripRepository _repo;
         private readonly IAccessService _access;
         private readonly IMapper _mapper;
+        private readonly IUnitOfWork _unitOfwork;
 
         public TripService(
             ITripRepository repo,
             IAccessService accessService,
-            IMapper mapper)
+            IMapper mapper, IUnitOfWork unitOfWork)
         {
             _repo = repo;
             _access = accessService;
             _mapper = mapper;
+            _unitOfwork = unitOfWork;
         }
 
         public Task<IEnumerable<Trip>> GetTripsAsync(int userId)
@@ -42,7 +45,7 @@ namespace TravelPlannerAPI.Services.Implementations
             trip.UserId = userId;
             // Persist
             await _repo.AddAsync(trip);
-            await _repo.SaveAsync();
+            await _unitOfwork.CompleteAsync();
             return trip;
         }
 
@@ -54,7 +57,7 @@ namespace TravelPlannerAPI.Services.Implementations
 
             // Map changes
             _mapper.Map(dto, existing);
-            await _repo.SaveAsync();
+            await _unitOfwork.CompleteAsync();
             return true;
         }
 
@@ -65,7 +68,7 @@ namespace TravelPlannerAPI.Services.Implementations
                 return false;
 
             _repo.Delete(trip);
-            await _repo.SaveAsync();
+            await _unitOfwork.CompleteAsync();
             return true;
         }
     }

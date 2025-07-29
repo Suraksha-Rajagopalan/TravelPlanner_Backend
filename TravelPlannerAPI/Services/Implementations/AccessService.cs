@@ -1,4 +1,4 @@
-﻿using TravelPlannerAPI.Repository.Interfaces;
+﻿using TravelPlannerAPI.Repository.Interface;
 using TravelPlannerAPI.Services.Interfaces;
 using System.Threading.Tasks;
 

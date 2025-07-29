@@ -24,6 +24,8 @@ namespace TravelPlannerAPI.Mappings
             CreateMap<ChecklistItemUpdateDto, ChecklistItem>()
                 .ForMember(d => d.Text, o => o.MapFrom(s => s.Description))
                 .ForMember(d => d.UserId, o => o.Ignore());
+
+            CreateMap<ItineraryItemCreateDto, ItineraryItem>();
         }
     }
 }

@@ -1,13 +1,13 @@
 ﻿using TravelPlannerAPI.Generic;
 using TravelPlannerAPI.Models;
 using TravelPlannerAPI.Models.Data;
-using TravelPlannerAPI.Repository.Interfaces;
+using TravelPlannerAPI.Repository.Interface;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TravelPlannerAPI.Repository.Implementations
+namespace TravelPlannerAPI.Repository.Implementation
 {
     public class TripRepository : GenericRepository<Trip>, ITripRepository
     {

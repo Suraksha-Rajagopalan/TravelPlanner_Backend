@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 
-namespace TravelPlannerAPI.Repositories.Interfaces
+namespace TravelPlannerAPI.Repository.Interface
 {
     public interface IAuthRepository
     {

@@ -10,7 +10,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-using TravelPlannerAPI.Repositories.Interfaces;
+using TravelPlannerAPI.Repository.Interface;
 
 public class AuthService : IAuthService
 {

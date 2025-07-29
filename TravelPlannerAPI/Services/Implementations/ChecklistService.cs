@@ -1,7 +1,8 @@
 ﻿using AutoMapper;
 using TravelPlannerAPI.Dtos;
 using TravelPlannerAPI.Models;
-using TravelPlannerAPI.Repository.Interfaces;
+using TravelPlannerAPI.Repository.Interface;
+using TravelPlannerAPI.UoW;
 using TravelPlannerAPI.Services.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -14,15 +15,18 @@ namespace TravelPlannerAPI.Services.Implementations
         private readonly IChecklistRepository _repo;
         private readonly IAccessService _access;
         private readonly IMapper _mapper;
+        private readonly IUnitOfWork _unitOfWork;
 
         public ChecklistService(
             IChecklistRepository repo,
             IAccessService accessService,
-            IMapper mapper)
+            IMapper mapper,
+            IUnitOfWork unitOfWork)
         {
             _repo = repo;
             _access = accessService;
             _mapper = mapper;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<ChecklistWithAccessDto> GetChecklistAsync(int tripId, int userId)
@@ -48,7 +52,7 @@ namespace TravelPlannerAPI.Services.Implementations
             entity.UserId = userId;
 
             await _repo.AddAsync(entity);
-            await _repo.SaveAsync();
+            await _unitOfWork.CompleteAsync();
 
             return _mapper.Map<ChecklistItemDto>(entity);
         }
@@ -64,7 +68,7 @@ namespace TravelPlannerAPI.Services.Implementations
             item.IsCompleted = dto.IsCompleted;
 
             _repo.Update(item);
-            await _repo.SaveAsync();
+            await _unitOfWork.CompleteAsync();
 
             return _mapper.Map<ChecklistItemDto>(item);
         }
@@ -77,7 +81,7 @@ namespace TravelPlannerAPI.Services.Implementations
                 return false;
 
             _repo.Delete(item);
-            await _repo.SaveAsync();
+            await _unitOfWork.CompleteAsync();
             return true;
         }
 
@@ -90,7 +94,7 @@ namespace TravelPlannerAPI.Services.Implementations
 
             item.IsCompleted = !item.IsCompleted;
             _repo.Update(item);
-            await _repo.SaveAsync();
+            await _unitOfWork.CompleteAsync();
 
             return _mapper.Map<ChecklistItemDto>(item);
         }

@@ -2,7 +2,7 @@
 using TravelPlannerAPI.Models;
 using System.Threading.Tasks;
 
-namespace TravelPlannerAPI.Repository.Interfaces
+namespace TravelPlannerAPI.Repository.Interface
 {
     public interface IReviewRepository : IGenericRepository<Review>
     {

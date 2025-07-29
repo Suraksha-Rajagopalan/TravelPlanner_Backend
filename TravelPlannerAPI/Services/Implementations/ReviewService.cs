@@ -1,18 +1,21 @@
 ﻿using TravelPlannerAPI.Dtos;
 using TravelPlannerAPI.Models;
-using TravelPlannerAPI.Repository.Interfaces;
+using TravelPlannerAPI.Repository.Interface;
 using TravelPlannerAPI.Services.Interfaces;
 using System.Threading.Tasks;
+using TravelPlannerAPI.UoW;
 
 namespace TravelPlannerAPI.Services.Implementations
 {
     public class ReviewService : IReviewService
     {
         private readonly IReviewRepository _repo;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public ReviewService(IReviewRepository repo)
+        public ReviewService(IReviewRepository repo, IUnitOfWork unitOfWork)
         {
             _repo = repo;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<bool> SubmitReviewAsync(ReviewDto dto, int userId)
@@ -36,7 +39,7 @@ namespace TravelPlannerAPI.Services.Implementations
             };
 
             await _repo.AddAsync(review);
-            await _repo.SaveAsync();      // commit via generic
+            await _unitOfWork.CompleteAsync();      // commit via generic
             return true;
         }
 

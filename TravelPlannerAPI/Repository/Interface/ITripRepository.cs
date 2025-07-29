@@ -3,7 +3,7 @@ using TravelPlannerAPI.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace TravelPlannerAPI.Repository.Interfaces
+namespace TravelPlannerAPI.Repository.Interface
 {
     public interface ITripRepository : IGenericRepository<Trip>
     {

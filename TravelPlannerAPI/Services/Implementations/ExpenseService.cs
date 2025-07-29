@@ -1,9 +1,10 @@
 ﻿using TravelPlannerAPI.Generic;
 using TravelPlannerAPI.Models;
-using TravelPlannerAPI.Repository.Interfaces;
+using TravelPlannerAPI.Repository.Interface;
 using TravelPlannerAPI.Services.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using TravelPlannerAPI.UoW;
 
 namespace TravelPlannerAPI.Services.Implementations
 {
@@ -11,13 +12,16 @@ namespace TravelPlannerAPI.Services.Implementations
     {
         private readonly IExpenseRepository _expenseRepo;
         private readonly IGenericRepository<Expense> _genericRepo;
+        private readonly IUnitOfWork _unitOfWork;
 
         public ExpenseService(
             IExpenseRepository expenseRepo,
-            IGenericRepository<Expense> genericRepo)
+            IGenericRepository<Expense> genericRepo,
+            IUnitOfWork unitOfWork)
         {
             _expenseRepo = expenseRepo;
             _genericRepo = genericRepo;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<Expense> AddExpenseAsync(int tripId, Expense dto, int userId)
@@ -26,7 +30,7 @@ namespace TravelPlannerAPI.Services.Implementations
             //dto.UserId = userId;
 
             await _genericRepo.AddAsync(dto);
-            await _genericRepo.SaveAsync();
+            await _unitOfWork.CompleteAsync();
 
             return dto;
         }
@@ -48,7 +52,7 @@ namespace TravelPlannerAPI.Services.Implementations
             expense.Category = dto.Category;
 
             _genericRepo.Update(expense);
-            await _genericRepo.SaveAsync();
+            await _unitOfWork.CompleteAsync();
 
             return expense;
         }
@@ -60,7 +64,7 @@ namespace TravelPlannerAPI.Services.Implementations
                 return false;
 
             _genericRepo.Delete(expense);
-            await _genericRepo.SaveAsync();
+            await _unitOfWork.CompleteAsync();
 
             return true;
         }

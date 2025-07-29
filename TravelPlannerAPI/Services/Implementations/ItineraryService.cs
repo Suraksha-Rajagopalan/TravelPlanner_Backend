@@ -1,10 +1,11 @@
 ﻿using AutoMapper;
 using TravelPlannerAPI.Dtos;
 using TravelPlannerAPI.Models;
-using TravelPlannerAPI.Repository.Interfaces;
+using TravelPlannerAPI.Repository.Interface;
 using TravelPlannerAPI.Services.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using TravelPlannerAPI.UoW;
 
 namespace TravelPlannerAPI.Services.Implementations
 {
@@ -12,13 +13,16 @@ namespace TravelPlannerAPI.Services.Implementations
     {
         private readonly IItineraryRepository _repo;
         private readonly IMapper _mapper;
+        private readonly IUnitOfWork _unitOfWork;
 
         public ItineraryService(
             IItineraryRepository repository,
-            IMapper mapper)
+            IMapper mapper,
+            IUnitOfWork unitOfWork)
         {
             _repo = repository;
             _mapper = mapper;
+            _unitOfWork = unitOfWork;
         }
 
         public Task<IEnumerable<ItineraryItem>> GetItineraryItemsByTripIdAsync(int tripId)

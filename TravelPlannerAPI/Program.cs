@@ -2,10 +2,8 @@
 using TravelPlannerAPI.Generic;
 using TravelPlannerAPI.Models;
 using TravelPlannerAPI.Models.Data;
-using TravelPlannerAPI.Repositories.Implementations;
-using TravelPlannerAPI.Repositories.Interfaces;
-using TravelPlannerAPI.Repository.Implementations;
-using TravelPlannerAPI.Repository.Interfaces;
+using TravelPlannerAPI.Repository.Implementation;
+using TravelPlannerAPI.Repository.Interface;
 using TravelPlannerAPI.Services;
 using TravelPlannerAPI.Services.Implementations;
 using TravelPlannerAPI.Services.Interfaces;
@@ -17,6 +15,7 @@ using Microsoft.OpenApi.Models;
 using Serilog;
 using System.Text;
 using System.Text.Json.Serialization;
+using TravelPlannerAPI.UoW; 
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -85,6 +84,8 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
 // Auth
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IAuthRepository, AuthRepository>();
@@ -98,7 +99,7 @@ builder.Services.AddScoped<IItineraryRepository, ItineraryRepository>();
 
 //Reviews
 builder.Services.AddScoped<IReviewRepository, ReviewRepository>();
-builder.Services.AddScoped<ITripReviewService, TripReviewService>();
+builder.Services.AddScoped<IReviewService, ReviewService>();
 
 //TripShare
 builder.Services.AddScoped<ITripShareRepository, TripShareRepository>();
@@ -119,6 +120,19 @@ builder.Services.AddScoped<IAccessService, AccessService>();
 //Expense
 builder.Services.AddScoped<IExpenseRepository, ExpenseRepository>();
 builder.Services.AddScoped<IExpenseService, ExpenseService>();
+
+//TripReview Search
+builder.Services.AddScoped<ITripReviewRepository, TripReviewRepository>();
+builder.Services.AddScoped<ITripReviewService, TripReviewService>();
+
+//Admin
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IAdminService, AdminService>();
+
+//Access
+builder.Services.AddScoped<IAccessRepository,  AccessRepository>();
+builder.Services.AddScoped<IAccessService, AccessService>();
+
 
 
 
@@ -190,7 +204,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "TravelPlannerAPI v1"));
 }
 
-//app.UseApiResponseAndExceptionWrapper();
+app.UseApiResponseAndExceptionWrapper();
 
 app.UseHttpsRedirection();
 

@@ -1,14 +1,15 @@
-﻿using TravelPlannerAPI.Dtos;
-using TravelPlannerAPI.Models;
-using TravelPlannerAPI.Models.Data;
-using TravelPlannerAPI.Models.Enums;
-using TravelPlannerAPI.Repository.Interfaces;
-using TravelPlannerAPI.Services.Interfaces;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TravelPlannerAPI.Dtos;
+using TravelPlannerAPI.Models;
+using TravelPlannerAPI.Models.Data;
+using TravelPlannerAPI.Models.Enums;
+using TravelPlannerAPI.Repository.Interface;
+using TravelPlannerAPI.Services.Interfaces;
+using TravelPlannerAPI.UoW;
 
 namespace TravelPlannerAPI.Services.Implementations
 {
@@ -16,13 +17,16 @@ namespace TravelPlannerAPI.Services.Implementations
     {
         private readonly ITripShareRepository _repo;
         private readonly ApplicationDbContext _context;
+        private readonly IUnitOfWork _unitOfWork;
 
         public TripShareService(
             ITripShareRepository repo,
-            ApplicationDbContext context)
+            ApplicationDbContext context,
+            IUnitOfWork unitOfWork)
         {
             _repo = repo;
             _context = context;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<(bool Success, string ErrorMessage)> ShareTripAsync(
@@ -68,7 +72,7 @@ namespace TravelPlannerAPI.Services.Implementations
             };
 
             await _repo.AddAsync(share);
-            await _repo.SaveAsync();
+            await _unitOfWork.CompleteAsync();
             return (true, null);
         }
 

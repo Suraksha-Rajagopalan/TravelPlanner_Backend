@@ -1,9 +1,9 @@
 ﻿using TravelPlannerAPI.Models;
-using TravelPlannerAPI.Repositories.Interfaces;
+using TravelPlannerAPI.Repository.Interface;
 using TravelPlannerAPI.Generic;
 using Microsoft.AspNetCore.Identity;
 
-namespace TravelPlannerAPI.Repositories.Implementations
+namespace TravelPlannerAPI.Repository.Implementation
 {
     public class AuthRepository : IAuthRepository
     {

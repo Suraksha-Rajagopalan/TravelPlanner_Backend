@@ -1,47 +1,31 @@
-﻿using TravelPlannerAPI.Dtos;
-using TravelPlannerAPI.Models;
-using TravelPlannerAPI.Models.Data;
-using TravelPlannerAPI.Services.Interfaces;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TravelPlannerAPI.Dtos;
+using TravelPlannerAPI.Models;
+using TravelPlannerAPI.Models.Data;
+using TravelPlannerAPI.Services.Interfaces;
+using TravelPlannerAPI.UoW;
 
 namespace TravelPlannerAPI.Services.Implementations
 {
     public class AdminService : IAdminService
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly UserManager<User> _userManager;
 
-        public AdminService(ApplicationDbContext context, UserManager<User> userManager)
+        public AdminService(IUnitOfWork unitOfWork, UserManager<User> userManager)
         {
-            _context = context;
+            _unitOfWork = unitOfWork;
             _userManager = userManager;
         }
 
         public async Task<List<AdminUserDto>> GetAllUsersAsync()
         {
-            var sixMonthsAgo = DateTime.UtcNow.AddMonths(-6);
-
-            var users = await _context.Users
-                .Include(u => u.Trips)
-                .Select(u => new AdminUserDto
-                {
-                    Id = u.Id,
-                    Name = u.UserName ?? "",
-                    Email = u.Email ?? "",
-                    LastLoginDate = u.LastLoginDate,
-                    IsActive = u.LastLoginDate == null || u.LastLoginDate > sixMonthsAgo,
-                    NumberOfTrips = u.Trips.Count,
-                    TripTitles = u.Trips.Select(t => t.Title).ToList(),
-                    Role = u.Role
-                })
-                .ToListAsync();
-
-            return users;
+            return await _unitOfWork.Users.GetAllAdminUserDtosAsync();
         }
 
         public async Task<bool> DeleteUserAsync(int id)
@@ -53,4 +37,5 @@ namespace TravelPlannerAPI.Services.Implementations
             return result.Succeeded;
         }
     }
+
 }
