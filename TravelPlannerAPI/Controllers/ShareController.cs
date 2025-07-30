@@ -8,8 +8,10 @@ using System.Threading.Tasks;
 
 namespace TravelPlannerAPI.Controllers
 {
+    [ApiVersion("1.0")]
+    //[ApiVersion("2.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
-    [Route("api/tripshare")]
     [Authorize]
     public class TripShareController : ControllerBase
     {
@@ -24,6 +26,7 @@ namespace TravelPlannerAPI.Controllers
             _logger = logger;
         }
 
+        [MapToApiVersion("1.0")]
         [HttpPost("share")]
         public async Task<IActionResult> ShareTrip([FromBody] TripShareRequestDto request)
         {
@@ -38,6 +41,7 @@ namespace TravelPlannerAPI.Controllers
             return Ok("Trip shared successfully.");
         }
 
+        [MapToApiVersion("1.0")]
         [HttpGet("shared-with-me")]
         public async Task<IActionResult> GetTripsSharedWithMe()
         {

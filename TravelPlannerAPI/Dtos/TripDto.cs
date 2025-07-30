@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using TravelPlannerAPI.Attributes;
 
 namespace TravelPlannerAPI.Dtos
 {
@@ -17,7 +18,7 @@ namespace TravelPlannerAPI.Dtos
         [StringLength(100, ErrorMessage = "Destination cannot exceed 100 characters.")]
         public string Destination { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Start date is required.")]
+        [SmartRequired(ErrorMessage = "Start date is required.")]
         public DateTime StartDate { get; set; }
 
         [Required(ErrorMessage = "End date is required.")]

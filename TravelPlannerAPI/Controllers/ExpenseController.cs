@@ -9,8 +9,10 @@ using System.Threading.Tasks;
 namespace BusinessAPI.Controllers
 {
     [Authorize]
+    [ApiVersion("1.0")]
+    //[ApiVersion("2.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
-    [Route("api/trips/{tripId}/expenses")]
     public class ExpenseController : ControllerBase
     {
         private readonly IExpenseService _expenseService;
@@ -25,6 +27,7 @@ namespace BusinessAPI.Controllers
             return int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
         }
 
+        [MapToApiVersion("1.0")]
         [HttpPost]
         public async Task<IActionResult> AddExpense(int tripId, [FromBody] Expense dto)
         {
@@ -32,6 +35,7 @@ namespace BusinessAPI.Controllers
             return Ok(result);
         }
 
+        [MapToApiVersion("1.0")]
         [HttpGet]
         public async Task<IActionResult> GetExpenses(int tripId)
         {
@@ -39,6 +43,7 @@ namespace BusinessAPI.Controllers
             return Ok(result);
         }
 
+        [MapToApiVersion("1.0")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateExpense(int tripId, int id, [FromBody] Expense dto)
         {
@@ -48,6 +53,7 @@ namespace BusinessAPI.Controllers
             return Ok(result);
         }
 
+        [MapToApiVersion("1.0")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteExpense(int tripId, int id)
         {

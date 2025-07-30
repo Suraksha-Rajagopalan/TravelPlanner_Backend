@@ -1,12 +1,13 @@
 ﻿using AutoMapper;
-using TravelPlannerAPI.Dtos;
-using TravelPlannerAPI.Models;
-using TravelPlannerAPI.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using TravelPlannerAPI.Dtos;
+using TravelPlannerAPI.Models;
+using TravelPlannerAPI.Services.Implementations;
+using TravelPlannerAPI.Services.Interfaces;
 
 namespace TravelPlannerAPI.Controllers
 {
@@ -34,6 +35,14 @@ namespace TravelPlannerAPI.Controllers
             var trips = await _service.GetTripsAsync(UserId);
             return Ok(_mapper.Map<IEnumerable<TripDto>>(trips));
         }
+
+        [HttpGet("page")]
+        public async Task<IActionResult> GetTrips([FromQuery] PaginationParamsDto paginationParams)
+        {
+            var pagedResult = await _service.GetPaginatedTripsAsync(paginationParams);
+            return Ok(pagedResult);
+        }
+
 
         [HttpGet("{id}")]
         public async Task<ActionResult<TripDto>> GetTrip(int id)

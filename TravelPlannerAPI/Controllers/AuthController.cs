@@ -11,8 +11,10 @@ using TravelPlannerAPI.Generic;
 using TravelPlannerAPI.Models;
 using TravelPlannerAPI.Services.Interfaces;
 
+[ApiVersion("1.0")]
+//[ApiVersion("2.0")]
+[Route("api/v{version:apiVersion}/[controller]")]
 [ApiController]
-[Route("api/[controller]")]
 public class AuthController : ControllerBase
 {
     private readonly UserManager<User> _userManager;
@@ -41,7 +43,7 @@ public class AuthController : ControllerBase
         _authService = authService;
     }
 
-
+    [MapToApiVersion("1.0")]
     [HttpPost("signup")]
     public async Task<IActionResult> Signup([FromBody] SignupRequest request)
     {
@@ -66,6 +68,7 @@ public class AuthController : ControllerBase
         return Ok(new { message = $"User {request.Name} registered successfully!" });
     }
 
+    [MapToApiVersion("1.0")]
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] LoginRequestDto request)
     {
@@ -94,6 +97,7 @@ public class AuthController : ControllerBase
         });
     }
 
+    [MapToApiVersion("1.0")]
     [HttpPost("refresh")]
     public async Task<IActionResult> Refresh([FromBody] TokenRefreshRequestDto request)
     {

@@ -4,8 +4,10 @@ using TravelPlannerAPI.Services.Interfaces;
 
 namespace TravelPlannerAPI.Controllers
 {
+    [ApiVersion("1.0")]
+    //[ApiVersion("2.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
-    [Route("api/[controller]")]
     public class TripReviewsController : ControllerBase
     {
         private readonly ITripReviewService _tripReviewService;
@@ -17,6 +19,7 @@ namespace TravelPlannerAPI.Controllers
             _logger = logger;
         }
 
+        [MapToApiVersion("1.0")]
         [HttpGet("search")]
         public async Task<IActionResult> SearchTripReviews([FromQuery] string destination)
         {

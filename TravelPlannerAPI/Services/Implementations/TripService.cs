@@ -1,10 +1,13 @@
 ﻿using AutoMapper;
-using TravelPlannerAPI.Dtos;
-using TravelPlannerAPI.Models;
-using TravelPlannerAPI.Repository.Interface;
-using TravelPlannerAPI.Services.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using TravelPlannerAPI.Dtos;
+using TravelPlannerAPI.Helpers;
+using TravelPlannerAPI.Models;
+using TravelPlannerAPI.Repository.Implementation;
+using TravelPlannerAPI.Repository.Interface;
+using TravelPlannerAPI.Services.Interfaces;
 using TravelPlannerAPI.UoW;
 
 namespace TravelPlannerAPI.Services.Implementations
@@ -29,6 +32,20 @@ namespace TravelPlannerAPI.Services.Implementations
 
         public Task<IEnumerable<Trip>> GetTripsAsync(int userId)
             => _repo.GetByUserAsync(userId);
+
+        public async Task<PaginatedResult<TripDto>> GetPaginatedTripsAsync(PaginationParamsDto pagination)
+        {
+            var paginatedEntities = await _repo.GetPaginatedTripsAsync(pagination);
+
+            var mappedDtos = _mapper.Map<List<TripDto>>(paginatedEntities.Items);
+
+            return new PaginatedResult<TripDto>(
+                mappedDtos,
+                paginatedEntities.TotalCount,
+                pagination.PageNumber,
+                pagination.PageSize
+            );
+        }
 
         public async Task<Trip> GetTripByIdAsync(int id, int userId)
         {

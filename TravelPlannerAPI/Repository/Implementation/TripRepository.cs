@@ -1,11 +1,13 @@
-﻿using TravelPlannerAPI.Generic;
-using TravelPlannerAPI.Models;
-using TravelPlannerAPI.Models.Data;
-using TravelPlannerAPI.Repository.Interface;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TravelPlannerAPI.Dtos;
+using TravelPlannerAPI.Generic;
+using TravelPlannerAPI.Helpers;
+using TravelPlannerAPI.Models;
+using TravelPlannerAPI.Models.Data;
+using TravelPlannerAPI.Repository.Interface;
 
 namespace TravelPlannerAPI.Repository.Implementation
 {
@@ -35,5 +37,20 @@ namespace TravelPlannerAPI.Repository.Implementation
                 .Include(t => t.SharedUsers)
                 .FirstOrDefaultAsync(t => t.Id == id);
         }
+
+    public async Task<PaginatedResult<Trip>> GetPaginatedTripsAsync(PaginationParamsDto pagination)
+        {
+            var query = _context.Trips.AsQueryable();
+
+            var totalCount = await query.CountAsync();
+
+            var items = await query
+                .Skip((pagination.PageNumber - 1) * pagination.PageSize)
+                .Take(pagination.PageSize)
+                .ToListAsync();
+
+            return new PaginatedResult<Trip>(items, totalCount, pagination.PageNumber, pagination.PageSize);
+        }
+
     }
 }

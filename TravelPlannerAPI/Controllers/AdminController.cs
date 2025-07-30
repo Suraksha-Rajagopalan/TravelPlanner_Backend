@@ -4,7 +4,10 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using TravelPlannerAPI.Controllers;
 
-[Route("api/admin")]
+
+[ApiVersion("1.0")]
+//[ApiVersion("2.0")]
+[Route("api/v{version:apiVersion}/[controller]")]
 [ApiController]
 [Authorize(Roles = "Admin")]
 public class AdminController : ControllerBase
@@ -18,6 +21,7 @@ public class AdminController : ControllerBase
         _logger = logger;
     }
 
+    [MapToApiVersion("1.0")]
     [HttpGet("users")]
     public async Task<IActionResult> GetAllUsers()
     {
@@ -25,6 +29,7 @@ public class AdminController : ControllerBase
         return Ok(users);
     }
 
+    [MapToApiVersion("1.0")]
     [HttpDelete("delete-user/{id}")]
     public async Task<IActionResult> DeleteUser(int id)
     {

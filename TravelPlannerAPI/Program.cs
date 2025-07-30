@@ -1,5 +1,17 @@
 ﻿using AutoWrapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Versioning;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
+using Serilog;
+using System.Text;
+using System.Text.Json.Serialization;
+using TravelPlannerAPI.Filters;
 using TravelPlannerAPI.Generic;
+using TravelPlannerAPI.Middleware;
 using TravelPlannerAPI.Models;
 using TravelPlannerAPI.Models.Data;
 using TravelPlannerAPI.Repository.Implementation;
@@ -7,17 +19,7 @@ using TravelPlannerAPI.Repository.Interface;
 using TravelPlannerAPI.Services;
 using TravelPlannerAPI.Services.Implementations;
 using TravelPlannerAPI.Services.Interfaces;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi.Models;
-using Serilog;
-using System.Text;
-using System.Text.Json.Serialization;
 using TravelPlannerAPI.UoW;
-using TravelPlannerAPI.Filters;
-using TravelPlannerAPI.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -197,6 +199,21 @@ builder.Services.AddCors(options =>
 
 // AutoMap Registration
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+builder.Services.AddApiVersioning(options =>
+{
+    options.DefaultApiVersion = new ApiVersion(1, 0); // Default version = v1.0
+    options.AssumeDefaultVersionWhenUnspecified = true;
+    options.ReportApiVersions = true; // Adds API-Supported and API-Depricated headers
+
+    // Choose one of these versioning strategies
+    options.ApiVersionReader = ApiVersionReader.Combine(
+        new QueryStringApiVersionReader("api-version"),            // /api/values?api-version=1.0
+        new HeaderApiVersionReader("X-Version"),                   // Custom header
+        new MediaTypeApiVersionReader("ver")                       // Accept: application/json; ver=1.0
+    );
+});
+
 
 
 // Configure Serilog

@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace TravelPlannerAPI.Controllers
 {
+    [ApiVersion("1.0")]
+    //[ApiVersion("2.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
-    [Route("api/[controller]")]
     [Authorize]
     public class ChecklistController : ControllerBase
     {
@@ -22,6 +24,7 @@ namespace TravelPlannerAPI.Controllers
         private int UserId =>
             int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
 
+        [MapToApiVersion("1.0")]
         [HttpGet("{tripId}")]
         public async Task<IActionResult> GetChecklist(int tripId)
         {
@@ -30,6 +33,7 @@ namespace TravelPlannerAPI.Controllers
             return Ok(dto);
         }
 
+        [MapToApiVersion("1.0")]
         [HttpPost]
         public async Task<IActionResult> AddItem([FromBody] ChecklistItemDto dto)
         {
@@ -38,6 +42,7 @@ namespace TravelPlannerAPI.Controllers
             return Ok(result);
         }
 
+        [MapToApiVersion("1.0")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateItem(int id, [FromBody] ChecklistItemUpdateDto dto)
         {
@@ -46,6 +51,7 @@ namespace TravelPlannerAPI.Controllers
             return Ok(result);
         }
 
+        [MapToApiVersion("1.0")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteItem(int id)
         {
@@ -54,6 +60,7 @@ namespace TravelPlannerAPI.Controllers
             return NoContent();
         }
 
+        [MapToApiVersion("1.0")]
         [HttpPatch("{id}/toggle")]
         public async Task<IActionResult> ToggleCompletion(int id)
         {

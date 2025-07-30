@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace TravelPlannerAPI.Controllers
 {
+    [ApiVersion("1.0")]
+    //[ApiVersion("2.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
-    [Route("api/[controller]")]
     public class ReviewsController : ControllerBase
     {
         private readonly IReviewService _reviewService;
@@ -22,6 +24,7 @@ namespace TravelPlannerAPI.Controllers
             _logger = logger;
         }
 
+        [MapToApiVersion("1.0")]
         [HttpPost]
         //[Authorize]
         public async Task<IActionResult> SubmitReview([FromBody] ReviewDto dto)
@@ -37,8 +40,9 @@ namespace TravelPlannerAPI.Controllers
             return Ok();
         }
 
+        [MapToApiVersion("1.0")]
         [HttpGet("{tripId}")]
-        [Authorize]
+        //[Authorize]
         public async Task<IActionResult> GetReview(int tripId)
         {
             var userIdString = User.FindFirstValue(ClaimTypes.NameIdentifier);
