@@ -23,7 +23,7 @@ namespace TravelPlannerAPI.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        //[Authorize]
         public async Task<IActionResult> SubmitReview([FromBody] ReviewDto dto)
         {
             var userIdString = User.FindFirstValue(ClaimTypes.NameIdentifier);

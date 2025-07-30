@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TravelPlannerAPI.Dtos
 {
-    public class TripCreateDto
+    public record TripCreateDto
     {
         [Required]
         public string Title { get; set; } = string.Empty;

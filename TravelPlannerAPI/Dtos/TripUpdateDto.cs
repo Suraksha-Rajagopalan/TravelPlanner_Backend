@@ -2,7 +2,7 @@
 
 namespace TravelPlannerAPI.Dtos
 {
-    public class TripUpdateDto : TripCreateDto
+    public record TripUpdateDto : TripCreateDto
     {
         [Required]
         public int Id { get; set; }

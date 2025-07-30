@@ -1,6 +1,6 @@
 ﻿namespace TravelPlannerAPI.Dtos
 {
-    public class AuthResponseDto
+    public record AuthResponseDto
     {
         public bool Success { get; set; }
         public string? Message { get; set; }

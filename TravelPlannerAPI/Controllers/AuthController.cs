@@ -1,7 +1,4 @@
-﻿using TravelPlannerAPI.Dtos;
-using TravelPlannerAPI.Models;
-using TravelPlannerAPI.Generic;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -9,6 +6,10 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using TravelPlannerAPI.Controllers;
+using TravelPlannerAPI.Dtos;
+using TravelPlannerAPI.Generic;
+using TravelPlannerAPI.Models;
+using TravelPlannerAPI.Services.Interfaces;
 
 [ApiController]
 [Route("api/[controller]")]
@@ -19,19 +20,25 @@ public class AuthController : ControllerBase
     private readonly IConfiguration _configuration;
     private readonly ILogger<AuthController> _logger;
     private readonly IGenericRepository<User> _userRepository;
+    private readonly ITokenService _tokenService;
+    private readonly IAuthService _authService;
 
     public AuthController(
         UserManager<User> userManager,
         SignInManager<User> signInManager,
         IConfiguration configuration,
         ILogger<AuthController> logger,
-        IGenericRepository<User> userRepository)
+        IGenericRepository<User> userRepository,
+        ITokenService tokenService,
+        IAuthService authService)
     {
         _userManager = userManager;
         _signInManager = signInManager;
         _configuration = configuration;
         _logger = logger;
         _userRepository = userRepository;
+        _tokenService = tokenService;
+        _authService = authService;
     }
 
 
@@ -60,7 +67,7 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("login")]
-    public async Task<IActionResult> Login([FromBody] LoginRequest request)
+    public async Task<IActionResult> Login([FromBody] LoginRequestDto request)
     {
         var user = await _userManager.FindByEmailAsync(request.Email);
         if (user == null || !await _userManager.CheckPasswordAsync(user, request.Password))
@@ -69,10 +76,9 @@ public class AuthController : ControllerBase
         user.LastLoginDate = DateTime.UtcNow;
         await _userManager.UpdateAsync(user);
 
-        var accessToken = GenerateJwtToken(user);
-        var refreshToken = GenerateRefreshToken(user);
+        var accessToken = _authService.GenerateJwtToken(user);
+        var refreshToken = _tokenService.GenerateRefreshToken(user);
 
-        // Optionally save refreshToken to DB
 
         return Ok(new
         {
@@ -88,54 +94,55 @@ public class AuthController : ControllerBase
         });
     }
 
-    private string GenerateJwtToken(User user)
+    [HttpPost("refresh")]
+    public async Task<IActionResult> Refresh([FromBody] TokenRefreshRequestDto request)
     {
-        var key = Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]);
-        var tokenHandler = new JwtSecurityTokenHandler();
+        // Get tokens
+        var accessToken = request.AccessToken;
+        var refreshToken = HttpContext.Request.Cookies["refreshToken"]; // Only from cookie
 
-        var claims = new[]
+        if (string.IsNullOrEmpty(refreshToken))
+            return Unauthorized(new { message = "Refresh token is missing from cookies." });
+
+        var principal = _tokenService.GetPrincipalFromExpiredToken(accessToken, false);
+        var refreshPrincipal = _tokenService.GetPrincipalFromExpiredToken(refreshToken, true);
+
+        if (principal == null || refreshPrincipal == null)
+            return Unauthorized(new { message = "Invalid token(s)" });
+
+        var userId = principal.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        var refreshUserId = refreshPrincipal.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+        if (userId != refreshUserId)
+            return Unauthorized(new { message = "Token mismatch" });
+
+        var user = await _userManager.FindByIdAsync(userId);
+        if (user == null)
+            return Unauthorized(new { message = "User not found" });
+
+        var newAccessToken = _tokenService.GenerateAccessToken(user);
+        var newRefreshToken = _tokenService.GenerateRefreshToken(user);
+
+        Response.Cookies.Append("refreshToken", newRefreshToken, new CookieOptions
         {
-            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-            new Claim(ClaimTypes.Name, user.Name ?? ""),
-            new Claim(ClaimTypes.Email, user.Email ?? ""),
-            new Claim(ClaimTypes.Role, user.Role ?? "User")
-        };
+            SameSite = SameSiteMode.Lax,
+            Expires = DateTimeOffset.UtcNow.AddDays(7)
+        });
 
-        var tokenDescriptor = new SecurityTokenDescriptor
+        Response.Cookies.Append("jwtToken", newAccessToken, new CookieOptions
         {
-            Subject = new ClaimsIdentity(claims),
-            Expires = DateTime.UtcNow.AddMinutes(15),
-            SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
-            Issuer = _configuration["Jwt:Issuer"],
-            Audience = _configuration["Jwt:Audience"]
-        };
+            SameSite = SameSiteMode.Lax,
+            Expires = DateTimeOffset.UtcNow.AddMinutes(1)
+        });
 
-        var token = tokenHandler.CreateToken(tokenDescriptor);
-        return tokenHandler.WriteToken(token);
+        return Ok(new
+        {
+            accessToken = newAccessToken,
+            refreshToken = newRefreshToken 
+        });
     }
 
-    private string GenerateRefreshToken(User user)
-    {
-        var key = Encoding.UTF8.GetBytes(_configuration["Jwt:RefreshKey"]);
-        var tokenHandler = new JwtSecurityTokenHandler();
 
-        var claims = new[]
-        {
-        new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-        new Claim(ClaimTypes.Email, user.Email ?? "")
-    };
 
-        var tokenDescriptor = new SecurityTokenDescriptor
-        {
-            Subject = new ClaimsIdentity(claims),
-            Expires = DateTime.UtcNow.AddDays(7),
-            SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
-            Issuer = _configuration["Jwt:Issuer"],
-            Audience = _configuration["Jwt:Audience"]
-        };
-
-        var token = tokenHandler.CreateToken(tokenDescriptor);
-        return tokenHandler.WriteToken(token);
-    }
 
 }

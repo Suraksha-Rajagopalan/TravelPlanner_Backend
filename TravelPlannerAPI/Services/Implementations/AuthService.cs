@@ -50,7 +50,7 @@ public class AuthService : IAuthService
         return new AuthResponseDto { Success = true, Message = $"User {request.Name} registered successfully!" };
     }
 
-    public async Task<AuthResponseDto> LoginAsync(LoginRequest request)
+    public async Task<AuthResponseDto> LoginAsync(LoginRequestDto request)
     {
         var user = await _authRepository.GetByEmailAsync(request.Email);
         if (user == null || !await _authRepository.CheckPasswordAsync(user, request.Password))
@@ -79,24 +79,24 @@ public class AuthService : IAuthService
         };
     }
 
-    private string GenerateJwtToken(User user)
+    public string GenerateJwtToken(User user)
     {
         var key = Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]);
         var tokenHandler = new JwtSecurityTokenHandler();
 
         var claims = new[]
         {
-                new Claim("nameid", user.Id.ToString()),
-                new Claim(ClaimTypes.Name, user.Name ?? ""),
-                new Claim(ClaimTypes.Email, user.Email ?? ""),
-                new Claim(ClaimTypes.Role, user.Role ?? "User")
-            };
+            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+            new Claim(ClaimTypes.Name, user.Name ?? ""),
+            new Claim(ClaimTypes.Email, user.Email ?? ""),
+            new Claim(ClaimTypes.Role, user.Role ?? "User")
+        };
 
         var tokenDescriptor = new SecurityTokenDescriptor
         {
             Subject = new ClaimsIdentity(claims),
-            Expires = DateTime.UtcNow.AddHours(2),
-            SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256),
+            Expires = DateTime.UtcNow.AddMinutes(1),
+            SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
             Issuer = _configuration["Jwt:Issuer"],
             Audience = _configuration["Jwt:Audience"]
         };

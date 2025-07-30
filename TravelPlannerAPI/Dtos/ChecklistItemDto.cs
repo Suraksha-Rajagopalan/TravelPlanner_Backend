@@ -1,12 +1,20 @@
-﻿namespace TravelPlannerAPI.Dtos
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace TravelPlannerAPI.Dtos
 {
-    public class ChecklistItemDto
+    public record ChecklistItemDto
     {
         public int Id { get; set; }
-        public int TripId { get; set; }
-        public string Description { get; set; }
-        public bool IsCompleted { get; set; }
-        public int? UserId { get; set; } // must match logged-in user
-    }
 
+        [Required]
+        public int TripId { get; set; }
+
+        [Required]
+        [StringLength(300, ErrorMessage = "Description can't be longer than 200 characters.")]
+        public string Description { get; set; } = string.Empty;
+
+        public bool IsCompleted { get; set; }
+
+        public int? UserId { get; set; } // you can validate this in controller/service using user context
+    }
 }

@@ -1,10 +1,14 @@
 {
   "ExpandedNodes": [
     "",
+    "\\.github",
     "\\TravelPlannerAPI",
+    "\\TravelPlannerAPI\\Controllers",
+    "\\TravelPlannerAPI\\Filters",
+    "\\TravelPlannerAPI\\Middleware",
     "\\TravelPlannerAPI\\Services",
     "\\TravelPlannerAPI\\Services\\Implementations"
   ],
-  "SelectedNode": "\\TravelPlannerAPI\\Services\\Implementations\\TripService.cs",
+  "SelectedNode": "\\TravelPlannerAPI\\Middleware\\GlobalExceptionMiddleware.cs",
   "PreviewInSolutionExplorer": false
 }

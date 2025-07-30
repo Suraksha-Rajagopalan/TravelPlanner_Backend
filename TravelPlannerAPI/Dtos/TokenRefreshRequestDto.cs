@@ -1,7 +1,8 @@
 ﻿namespace TravelPlannerAPI.Dtos
 {
-    public class TokenRefreshRequestDto
+    public record TokenRefreshRequestDto
     {
+        public string AccessToken { get; set; }
         public string RefreshToken { get; set; }
     }
 }

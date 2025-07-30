@@ -15,7 +15,9 @@ using Microsoft.OpenApi.Models;
 using Serilog;
 using System.Text;
 using System.Text.Json.Serialization;
-using TravelPlannerAPI.UoW; 
+using TravelPlannerAPI.UoW;
+using TravelPlannerAPI.Filters;
+using TravelPlannerAPI.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -133,7 +135,18 @@ builder.Services.AddScoped<IAdminService, AdminService>();
 builder.Services.AddScoped<IAccessRepository,  AccessRepository>();
 builder.Services.AddScoped<IAccessService, AccessService>();
 
+//Refresh Token
+builder.Services.AddScoped<ITokenService, TokenService>();
 
+
+//Filter
+builder.Services.AddScoped<ApiExceptionFilter>();
+
+//Global Exception Handler
+builder.Services.AddControllers(options =>
+{
+    options.Filters.Add<ApiExceptionFilter>();
+});
 
 
 // 4. Add Swagger with JWT Bearer token support

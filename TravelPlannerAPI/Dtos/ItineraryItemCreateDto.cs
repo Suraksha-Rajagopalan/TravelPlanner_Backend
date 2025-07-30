@@ -2,10 +2,12 @@
 
 namespace TravelPlannerAPI.Dtos
 {
-    public class ItineraryItemCreateDto
+    public record ItineraryItemCreateDto
     {
         [Required]
         public string Title { get; set; }
+
+        [StringLength(300, ErrorMessage = "Description can't be longer than 200 characters.")]
 
         public string Description { get; set; }
 

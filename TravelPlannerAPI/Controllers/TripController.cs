@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace TravelPlannerAPI.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class TripController : ControllerBase
