@@ -2,8 +2,8 @@
 {
     public record ChecklistWithAccessDto
     {
-        public List<ChecklistItemDto> Items { get; set; }
-        public string AccessLevel { get; set; }
+        public List<ChecklistItemDto?> Items { get; set; } = new();
+        public string AccessLevel { get; set; } = string.Empty;
     }
 
 }

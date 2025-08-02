@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace TravelPlannerAPI.Models
 {
-    public class Expense
+    public class ExpenseModel
     {
         public int Id { get; set; }
 
@@ -21,6 +21,6 @@ namespace TravelPlannerAPI.Models
 
         [ValidateNever]
         [JsonIgnore]
-        public Trip Trip { get; set; } = null!;
+        public TripModel Trip { get; set; } = null!;
     }
 }

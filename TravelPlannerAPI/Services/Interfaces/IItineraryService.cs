@@ -7,11 +7,11 @@ namespace TravelPlannerAPI.Services.Interfaces
 {
     public interface IItineraryService
     {
-        Task<IEnumerable<ItineraryItem>> GetItineraryItemsByTripIdAsync(int tripId);
-        Task<ItineraryItem> GetItineraryItemByIdAsync(int id);
-        Task<ItineraryItem> AddItineraryItemAsync(int tripId, ItineraryItemCreateDto dto);
+        Task<IEnumerable<ItineraryItemsModel>> GetItineraryItemsByTripIdAsync(int tripId);
+        Task<ItineraryItemsModel?> GetItineraryItemByIdAsync(int id);
+        Task<ItineraryItemsModel> AddItineraryItemAsync(int tripId, ItineraryItemCreateDto dto);
         Task<bool> UpdateItineraryItemAsync(int id, ItineraryItemCreateDto dto);
         Task<bool> DeleteItineraryItemAsync(int id);
-        Task<IEnumerable<ItineraryItem>> GetSharedItineraryAsync(int tripId, int userId);
+        Task<IEnumerable<ItineraryItemsModel>> GetSharedItineraryAsync(int tripId, int userId);
     }
 }

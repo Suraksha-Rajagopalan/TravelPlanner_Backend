@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace TravelPlannerAPI.Repository.Interface
 {
-    public interface IReviewRepository : IGenericRepository<Review>
+    public interface IReviewRepository : IGenericRepository<ReviewModel>
     {
         /// <summary>
         /// Can this user access (own or be shared) the given trip?
@@ -14,6 +14,6 @@ namespace TravelPlannerAPI.Repository.Interface
         /// <summary>
         /// Fetch the single review by trip & user (or null).
         /// </summary>
-        Task<Review> GetByTripAndUserAsync(int tripId, int userId);
+        Task<ReviewModel?> GetByTripAndUserAsync(int tripId, int userId);
     }
 }

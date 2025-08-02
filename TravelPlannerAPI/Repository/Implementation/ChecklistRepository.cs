@@ -10,23 +10,24 @@ using System.Threading.Tasks;
 namespace TravelPlannerAPI.Repository.Implementation
 {
     public class ChecklistRepository
-        : GenericRepository<ChecklistItem>, IChecklistRepository
+        : GenericRepository<ChecklistItemModel>, IChecklistRepository
     {
         private readonly ApplicationDbContext _context;
 
         public ChecklistRepository(
             ApplicationDbContext context,
-            IGenericRepository<ChecklistItem> genericRepo)
+            IGenericRepository<ChecklistItemModel> genericRepo)
             : base(context)
         {
             _context = context;
         }
 
-        public async Task<IEnumerable<ChecklistItem>> GetByTripAndUserAsync(int tripId, int userId)
+        public async Task<IEnumerable<ChecklistItemModel?>> GetByTripAndUserAsync(int tripId, int userId)
         {
             return await _context.ChecklistItems
                 .Where(i => i.TripId == tripId && i.UserId == userId)
                 .ToListAsync();
+
         }
     }
 }

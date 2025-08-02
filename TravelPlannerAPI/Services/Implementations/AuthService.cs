@@ -31,7 +31,7 @@ public class AuthService : IAuthService
             return new AuthResponseDto { Success = false, Message = "Email already registered" };
         }
 
-        var newUser = new User
+        var newUser = new UserModel
         {
             UserName = request.Email,
             Email = request.Email,
@@ -79,9 +79,9 @@ public class AuthService : IAuthService
         };
     }
 
-    public string GenerateJwtToken(User user)
+    public string GenerateJwtToken(UserModel user)
     {
-        var key = Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]);
+        var key = Encoding.UTF8.GetBytes(_configuration["Jwt:Key"] ?? "");
         var tokenHandler = new JwtSecurityTokenHandler();
 
         var claims = new[]

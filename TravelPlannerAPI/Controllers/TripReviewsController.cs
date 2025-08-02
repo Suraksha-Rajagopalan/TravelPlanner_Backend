@@ -19,7 +19,7 @@ namespace TravelPlannerAPI.Controllers
             _logger = logger;
         }
 
-        [MapToApiVersion("1.0")]
+        
         [HttpGet("search")]
         public async Task<IActionResult> SearchTripReviews([FromQuery] string destination)
         {

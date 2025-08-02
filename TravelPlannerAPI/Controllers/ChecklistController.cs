@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.SignalR;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace TravelPlannerAPI.Controllers
 {
@@ -21,50 +23,75 @@ namespace TravelPlannerAPI.Controllers
             _service = service;
         }
 
-        private int UserId =>
-            int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+        private int? UserId
+        {
+            get
+            {
+                var claim = User.FindFirst(ClaimTypes.NameIdentifier);
+                if (claim == null) return null;               // handle missing claim
+                if (int.TryParse(claim.Value, out var id))
+                    return id;                                // valid integer
+                return null;                                  // parse failed
+            }
+        }
 
-        [MapToApiVersion("1.0")]
+
+        
         [HttpGet("{tripId}")]
         public async Task<IActionResult> GetChecklist(int tripId)
         {
-            var dto = await _service.GetChecklistAsync(tripId, UserId);
+            if (UserId == null)
+                return BadRequest(new { message = "UserId cannot be null" });
+
+            var dto = await _service.GetChecklistAsync(tripId, UserId.Value);
             if (dto == null) return Forbid();
             return Ok(dto);
         }
 
-        [MapToApiVersion("1.0")]
+        
         [HttpPost]
         public async Task<IActionResult> AddItem([FromBody] ChecklistItemDto dto)
         {
-            var result = await _service.AddItemAsync(dto, UserId);
+            if (UserId == null)
+                return BadRequest(new { message = "UserId cannot be null" });
+
+            var result = await _service.AddItemAsync(dto, UserId.Value);
             if (result == null) return Forbid();
             return Ok(result);
         }
 
-        [MapToApiVersion("1.0")]
+        
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateItem(int id, [FromBody] ChecklistItemUpdateDto dto)
         {
-            var result = await _service.UpdateItemAsync(id, dto, UserId);
+            if (UserId == null)
+                return BadRequest(new { message = "UserId cannot be null" });
+
+            var result = await _service.UpdateItemAsync(id, dto, UserId.Value);
             if (result == null) return NotFound();
             return Ok(result);
         }
 
-        [MapToApiVersion("1.0")]
+        
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteItem(int id)
         {
-            if (!await _service.DeleteItemAsync(id, UserId))
+            if (UserId == null)
+                return BadRequest(new { message = "UserId cannot be null" });
+
+            if (!await _service.DeleteItemAsync(id, UserId.Value))
                 return NotFound();
             return NoContent();
         }
 
-        [MapToApiVersion("1.0")]
+        
         [HttpPatch("{id}/toggle")]
         public async Task<IActionResult> ToggleCompletion(int id)
         {
-            var result = await _service.ToggleCompletionAsync(id, UserId);
+            if (UserId == null)
+                return BadRequest(new { message = "UserId cannot be null" });
+
+            var result = await _service.ToggleCompletionAsync(id, UserId.Value);
             if (result == null) return NotFound();
             return Ok(result);
         }

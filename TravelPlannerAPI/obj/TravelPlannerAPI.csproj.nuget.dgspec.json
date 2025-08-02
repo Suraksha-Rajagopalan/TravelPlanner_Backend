@@ -67,6 +67,10 @@
               "target": "Package",
               "version": "[4.0.3, )"
             },
+            "FluentAssertions": {
+              "target": "Package",
+              "version": "[8.5.0, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[8.0.5, )"
@@ -102,6 +106,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[8.0.13, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.20.72, )"
             },
             "Serilog.AspNetCore": {
               "target": "Package",

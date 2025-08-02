@@ -12,8 +12,10 @@ using TravelPlannerAPI.Services.Interfaces;
 namespace TravelPlannerAPI.Controllers
 {
     [Authorize]
+    [ApiVersion("1.0")]
+    //[ApiVersion("2.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
-    [Route("api/[controller]")]
     public class TripController : ControllerBase
     {
         private readonly ITripService _service;
@@ -29,6 +31,7 @@ namespace TravelPlannerAPI.Controllers
             int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out var id)
             ? id : 0;
 
+        
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TripDto>>> GetTrips()
         {
@@ -36,6 +39,7 @@ namespace TravelPlannerAPI.Controllers
             return Ok(_mapper.Map<IEnumerable<TripDto>>(trips));
         }
 
+        
         [HttpGet("page")]
         public async Task<IActionResult> GetTrips([FromQuery] PaginationParamsDto paginationParams)
         {
@@ -43,7 +47,7 @@ namespace TravelPlannerAPI.Controllers
             return Ok(pagedResult);
         }
 
-
+      
         [HttpGet("{id}")]
         public async Task<ActionResult<TripDto>> GetTrip(int id)
         {
@@ -52,6 +56,7 @@ namespace TravelPlannerAPI.Controllers
             return Ok(_mapper.Map<TripDto>(trip));
         }
 
+        
         [HttpPost]
         public async Task<ActionResult<TripDto>> CreateTrip([FromBody] TripCreateDto dto)
         {
@@ -60,6 +65,7 @@ namespace TravelPlannerAPI.Controllers
             return CreatedAtAction(nameof(GetTrip), new { id = trip.Id }, _mapper.Map<TripDto>(trip));
         }
 
+       
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateTrip(int id, [FromBody] TripUpdateDto dto)
         {
@@ -71,6 +77,7 @@ namespace TravelPlannerAPI.Controllers
             return NoContent();
         }
 
+        
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTrip(int id)
         {

@@ -6,24 +6,24 @@ using TravelPlannerAPI.Controllers;
 
 namespace TravelPlannerAPI.Models.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<User, IdentityRole<int>, int>
+    public class ApplicationDbContext : IdentityDbContext<UserModel, IdentityRole<int>, int>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
-        public DbSet<Trip> Trips { get; set; }
-        public DbSet<BudgetDetails> BudgetDetails { get; set; }
-        public DbSet<Review> Reviews { get; set; }
-        public DbSet<ItineraryItem> ItineraryItems { get; set; }
-        public DbSet<ChecklistItem> ChecklistItems { get; set; }
-        public DbSet<Expense> Expenses { get; set; }
-        public DbSet<TripShare> TripShares { get; set; }
+        public DbSet<TripModel> Trips { get; set; }
+        public DbSet<BudgetDetailsModel> BudgetDetails { get; set; }
+        public DbSet<ReviewModel> Reviews { get; set; }
+        public DbSet<ItineraryItemsModel> ItineraryItems { get; set; }
+        public DbSet<ChecklistItemModel> ChecklistItems { get; set; }
+        public DbSet<ExpenseModel> Expenses { get; set; }
+        public DbSet<TripShareModel> TripShares { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
             // Identity table renaming
-            modelBuilder.Entity<User>().ToTable("Users");
+            modelBuilder.Entity<UserModel>().ToTable("Users");
             modelBuilder.Entity<IdentityRole<int>>().ToTable("role");
             modelBuilder.Entity<IdentityUserRole<int>>().ToTable("user_roles");
             modelBuilder.Entity<IdentityUserClaim<int>>().ToTable("user_claims");
@@ -32,58 +32,58 @@ namespace TravelPlannerAPI.Models.Data
             modelBuilder.Entity<IdentityUserToken<int>>().ToTable("user_tokens");
 
             // Table names
-            modelBuilder.Entity<Trip>().ToTable("Trips");
-            modelBuilder.Entity<BudgetDetails>().ToTable("budgetdetails");
+            modelBuilder.Entity<TripModel>().ToTable("Trips");
+            modelBuilder.Entity<BudgetDetailsModel>().ToTable("budgetdetails");
 
             // Trip → User
-            modelBuilder.Entity<Trip>()
+            modelBuilder.Entity<TripModel>()
                 .HasOne(t => t.User)
                 .WithMany(u => u.Trips)
                 .HasForeignKey(t => t.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             // Trip → BudgetDetails
-            modelBuilder.Entity<Trip>()
+            modelBuilder.Entity<TripModel>()
                 .HasOne(t => t.BudgetDetails)
                 .WithOne(b => b.Trip)
-                .HasForeignKey<BudgetDetails>(b => b.TripId)
+                .HasForeignKey<BudgetDetailsModel>(b => b.TripId)
                 .OnDelete(DeleteBehavior.Cascade);
 
             // ChecklistItem → User
-            modelBuilder.Entity<ChecklistItem>()
+            modelBuilder.Entity<ChecklistItemModel>()
                 .HasOne(c => c.User)
                 .WithMany()
                 .HasForeignKey(c => c.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             // TripShare → Trip
-            modelBuilder.Entity<TripShare>()
+            modelBuilder.Entity<TripShareModel>()
                 .HasOne(ts => ts.Trip)
                 .WithMany(t => t.SharedUsers)
                 .HasForeignKey(ts => ts.TripId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             // TripShare → Owner
-            modelBuilder.Entity<TripShare>()
+            modelBuilder.Entity<TripShareModel>()
                 .HasOne(ts => ts.Owner)
                 .WithMany(u => u.OwnedTripShares)
                 .HasForeignKey(ts => ts.OwnerId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             // TripShare → SharedWithUser
-            modelBuilder.Entity<TripShare>()
+            modelBuilder.Entity<TripShareModel>()
                 .HasOne(ts => ts.SharedWithUser)
                 .WithMany(u => u.ReceivedTripShares)
                 .HasForeignKey(ts => ts.SharedWithUserId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             // TripShare Unique Constraint
-            modelBuilder.Entity<TripShare>()
+            modelBuilder.Entity<TripShareModel>()
                 .HasIndex(ts => new { ts.TripId, ts.SharedWithUserId })
                 .IsUnique();
 
             // Reviews
-            modelBuilder.Entity<Review>(entity =>
+            modelBuilder.Entity<ReviewModel>(entity =>
             {
                 entity.HasOne(r => r.Trip)
                       .WithMany(t => t.Reviews)
@@ -99,7 +99,7 @@ namespace TravelPlannerAPI.Models.Data
             });
 
             // Admin
-            modelBuilder.Entity<Trip>()
+            modelBuilder.Entity<TripModel>()
                  .HasOne(t => t.User)
                  .WithMany(u => u.Trips)
                  .HasForeignKey(t => t.UserId);

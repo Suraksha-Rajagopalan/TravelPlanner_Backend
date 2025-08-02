@@ -1,6 +1,7 @@
-﻿using TravelPlannerAPI.Repository.Interface;
+﻿using System.Threading.Tasks;
+using TravelPlannerAPI.Models.Enums;
+using TravelPlannerAPI.Repository.Interface;
 using TravelPlannerAPI.Services.Interfaces;
-using System.Threading.Tasks;
 
 namespace TravelPlannerAPI.Services.Implementations
 {
@@ -21,18 +22,16 @@ namespace TravelPlannerAPI.Services.Implementations
             return await _repo.IsSharedAsync(tripId, userId);
         }
 
-        public async Task<string> GetAccessLevelAsync(int tripId, int userId)
+        public async Task<AccessLevel?> GetAccessLevelAsync(int tripId, int userId)
         {
-            // Owner can edit
             if (await _repo.IsOwnerAsync(tripId, userId))
-                return "Edit";
+                return AccessLevel.Edit;
 
-            // Shared users only view
             if (await _repo.IsSharedAsync(tripId, userId))
-                return "View";
+                return AccessLevel.View;
 
-            // No access
-            return "None";
+            return null; // No access
         }
+
     }
 }

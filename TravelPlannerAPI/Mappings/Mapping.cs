@@ -8,24 +8,24 @@ namespace TravelPlannerAPI.Mappings
     {
         public TripProfile()
         {
-            CreateMap<Trip, TripDto>().ReverseMap();
-            CreateMap<TripCreateDto, Trip>();
-            CreateMap<TripUpdateDto, Trip>()
+            CreateMap<TripModel, TripDto>().ReverseMap();
+            CreateMap<TripCreateDto, TripModel>();
+            CreateMap<TripUpdateDto, TripModel>()
     .ForMember(dest => dest.Reviews, opt => opt.Ignore())
     .ForMember(dest => dest.SharedUsers, opt => opt.Ignore());
-            CreateMap<Trip, TripCreateDto>();
-            CreateMap<Trip, TripUpdateDto>();
-            CreateMap<BudgetDetails, BudgetDetailsDto>().ReverseMap();
-            CreateMap<ChecklistItem, ChecklistItemDto>()
-                .ForMember(d => d.Description, o => o.MapFrom(s => s.Text));
-            CreateMap<ChecklistItemDto, ChecklistItem>()
-                .ForMember(d => d.Text, o => o.MapFrom(s => s.Description))
+            CreateMap<TripModel, TripCreateDto>();
+            CreateMap<TripModel, TripUpdateDto>();
+            CreateMap<BudgetDetailsModel, BudgetDetailsDto>().ReverseMap();
+            CreateMap<ChecklistItemModel, ChecklistItemDto>()
+                .ForMember(d => d.Description, o => o.MapFrom(s => s.Description));
+            CreateMap<ChecklistItemDto, ChecklistItemModel>()
+                .ForMember(d => d.Description, o => o.MapFrom(s => s.Description))
                 .ForMember(d => d.UserId, o => o.Ignore()); // set in service
-            CreateMap<ChecklistItemUpdateDto, ChecklistItem>()
-                .ForMember(d => d.Text, o => o.MapFrom(s => s.Description))
+            CreateMap<ChecklistItemUpdateDto, ChecklistItemModel>()
+                .ForMember(d => d.Description, o => o.MapFrom(s => s.Description))
                 .ForMember(d => d.UserId, o => o.Ignore());
 
-            CreateMap<ItineraryItemCreateDto, ItineraryItem>();
+            CreateMap<ItineraryItemCreateDto, ItineraryItemsModel>();
         }
     }
 }

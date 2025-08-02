@@ -4,7 +4,7 @@ using TravelPlannerAPI.Models;
 
 namespace TravelPlannerAPI.Repository.Interface
 {
-    public interface IUserRepository : IGenericRepository<User>
+    public interface IUserRepository : IGenericRepository<UserModel>
     {
         Task<List<AdminUserDto>> GetAllAdminUserDtosAsync();
     }

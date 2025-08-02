@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace TravelPlannerAPI.Repository.Interface
 {
-    public interface IExpenseRepository : IGenericRepository<Expense>
+    public interface IExpenseRepository : IGenericRepository<ExpenseModel>
     {
-        Task<IEnumerable<Expense>> GetByTripAsync(int tripId);
+        Task<IEnumerable<ExpenseModel?>> GetByTripAsync(int tripId);
     }
 }

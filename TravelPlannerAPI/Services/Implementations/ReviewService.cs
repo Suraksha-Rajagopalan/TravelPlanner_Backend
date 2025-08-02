@@ -30,7 +30,7 @@ namespace TravelPlannerAPI.Services.Implementations
                 return false;
 
             // 3. Create
-            var review = new Review
+            var review = new ReviewModel
             {
                 TripId = dto.TripId,
                 UserId = userId,
@@ -43,7 +43,7 @@ namespace TravelPlannerAPI.Services.Implementations
             return true;
         }
 
-        public async Task<ReviewDto> GetReviewAsync(int tripId, int userId)
+        public async Task<ReviewDto?> GetReviewAsync(int tripId, int userId)
         {
             // 1. Access check
             if (!await _repo.HasAccessAsync(tripId, userId))

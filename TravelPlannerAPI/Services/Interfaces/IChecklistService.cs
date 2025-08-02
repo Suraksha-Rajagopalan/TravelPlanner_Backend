@@ -6,10 +6,10 @@ namespace TravelPlannerAPI.Services.Interfaces
 {
     public interface IChecklistService
     {
-        Task<ChecklistWithAccessDto> GetChecklistAsync(int tripId, int userId);
-        Task<ChecklistItemDto> AddItemAsync(ChecklistItemDto dto, int userId);
-        Task<ChecklistItemDto> UpdateItemAsync(int id, ChecklistItemUpdateDto dto, int userId);
+        Task<ChecklistWithAccessDto?> GetChecklistAsync(int tripId, int userId);
+        Task<ChecklistItemDto?> AddItemAsync(ChecklistItemDto dto, int userId);
+        Task<ChecklistItemDto?> UpdateItemAsync(int id, ChecklistItemUpdateDto dto, int userId);
         Task<bool> DeleteItemAsync(int id, int userId);
-        Task<ChecklistItemDto> ToggleCompletionAsync(int id, int userId);
+        Task<ChecklistItemDto?> ToggleCompletionAsync(int id, int userId);
     }
 }

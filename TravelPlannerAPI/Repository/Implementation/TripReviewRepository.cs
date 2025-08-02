@@ -25,17 +25,16 @@ namespace TravelPlannerAPI.Repository.Implementation
             var reviews = await _context.Reviews
                 .Include(r => r.Trip)
                 .Include(r => r.User)
-                .Where(r => EF.Functions.Like(r.Trip.Destination, $"%{destination}%"))
+                .Where(r => r.Trip != null && EF.Functions.Like(r.Trip.Destination!, $"%{destination}%"))
                 .Select(r => new TripReviewDto
                 {
                     TripId = r.TripId,
-                    TripName = r.Trip.Destination,
-                    Username = r.User.Name,
+                    TripName = r.Trip != null ? r.Trip.Destination : "Unknown Trip",
+                    Username = r.User != null ? r.User.Name : "Unknown User",
                     Rating = r.Rating,
                     Comment = r.ReviewText
                 })
                 .ToListAsync();
-
             return reviews;
         }
     }

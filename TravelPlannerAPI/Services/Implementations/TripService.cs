@@ -30,7 +30,7 @@ namespace TravelPlannerAPI.Services.Implementations
             _unitOfwork = unitOfWork;
         }
 
-        public Task<IEnumerable<Trip>> GetTripsAsync(int userId)
+        public Task<IEnumerable<TripModel>> GetTripsAsync(int userId)
             => _repo.GetByUserAsync(userId);
 
         public async Task<PaginatedResult<TripDto>> GetPaginatedTripsAsync(PaginationParamsDto pagination)
@@ -47,7 +47,7 @@ namespace TravelPlannerAPI.Services.Implementations
             );
         }
 
-        public async Task<Trip> GetTripByIdAsync(int id, int userId)
+        public async Task<TripModel?> GetTripByIdAsync(int id, int userId)
         {
             var trip = await _repo.GetByIdWithIncludesAsync(id);
             if (trip == null || !await _access.HasAccessToTripAsync(id, userId))
@@ -55,10 +55,10 @@ namespace TravelPlannerAPI.Services.Implementations
             return trip;
         }
 
-        public async Task<Trip> CreateTripAsync(TripCreateDto dto, int userId)
+        public async Task<TripModel> CreateTripAsync(TripCreateDto dto, int userId)
         {
             // Map DTO → entity
-            var trip = _mapper.Map<Trip>(dto);
+            var trip = _mapper.Map<TripModel>(dto);
             trip.UserId = userId;
             // Persist
             await _repo.AddAsync(trip);

@@ -28,7 +28,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // 2. Configure Identity with custom User and int as key
-builder.Services.AddIdentity<User, IdentityRole<int>>(options =>
+builder.Services.AddIdentity<UserModel, IdentityRole<int>>(options =>
 {
     options.Password.RequireDigit = true;
     options.Password.RequireLowercase = true;
@@ -41,7 +41,7 @@ builder.Services.AddIdentity<User, IdentityRole<int>>(options =>
 
 // 3. Configure JWT Authentication
 var jwtSettings = builder.Configuration.GetSection("Jwt");
-var key = Encoding.UTF8.GetBytes(jwtSettings["Key"]);
+var key = Encoding.UTF8.GetBytes(jwtSettings["Key"] ?? "");
 
 builder.Services.AddAuthentication(options =>
 {
@@ -73,7 +73,7 @@ builder.Services.AddAuthentication(options =>
         },
         OnTokenValidated = context =>
         {
-            Console.WriteLine($"JWT Token validated for {context.Principal.Identity?.Name}");
+            Console.WriteLine($"JWT Token validated for {context.Principal?.Identity?.Name}");
             return Task.CompletedTask;
         },
         OnChallenge = context =>
@@ -200,6 +200,8 @@ builder.Services.AddCors(options =>
 // AutoMap Registration
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
+
+//Api Versioning
 builder.Services.AddApiVersioning(options =>
 {
     options.DefaultApiVersion = new ApiVersion(1, 0); // Default version = v1.0
@@ -264,7 +266,7 @@ app.Run();
 
 static async Task SeedAdminUser(IServiceProvider serviceProvider)
 {
-    var userManager = serviceProvider.GetRequiredService<UserManager<User>>();
+    var userManager = serviceProvider.GetRequiredService<UserManager<UserModel>>();
     var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole<int>>>();
 
     // Ensure the Admin role exists
@@ -279,7 +281,7 @@ static async Task SeedAdminUser(IServiceProvider serviceProvider)
 
     if (adminUser == null)
     {
-        adminUser = new User
+        adminUser = new UserModel
         {
             UserName = adminEmail,
             Email = adminEmail,

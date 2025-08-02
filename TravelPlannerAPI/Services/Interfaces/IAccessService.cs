@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using TravelPlannerAPI.Models.Enums;
 
 namespace TravelPlannerAPI.Services.Interfaces
 {
@@ -9,6 +10,6 @@ namespace TravelPlannerAPI.Services.Interfaces
         /// <summary>
         /// Returns "Edit" if the user is the owner, otherwise "View".
         /// </summary>
-        Task<string> GetAccessLevelAsync(int tripId, int userId);
+        Task<AccessLevel?> GetAccessLevelAsync(int tripId, int userId);
     }
 }

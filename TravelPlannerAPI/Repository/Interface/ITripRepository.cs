@@ -7,10 +7,10 @@ using TravelPlannerAPI.Helpers;
 
 namespace TravelPlannerAPI.Repository.Interface
 {
-    public interface ITripRepository : IGenericRepository<Trip>
+    public interface ITripRepository : IGenericRepository<TripModel>
     {
-        Task<IEnumerable<Trip>> GetByUserAsync(int userId);
-        Task<Trip> GetByIdWithIncludesAsync(int id);
-        Task<PaginatedResult<Trip>> GetPaginatedTripsAsync(PaginationParamsDto pagination);
+        Task<IEnumerable<TripModel>> GetByUserAsync(int userId);
+        Task<TripModel?> GetByIdWithIncludesAsync(int id);
+        Task<PaginatedResult<TripModel>> GetPaginatedTripsAsync(PaginationParamsDto pagination);
     }
 }

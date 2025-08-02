@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace TravelPlannerAPI.Repository.Interface
 {
-    public interface IChecklistRepository : IGenericRepository<ChecklistItem>
+    public interface IChecklistRepository : IGenericRepository<ChecklistItemModel>
     {
-        Task<IEnumerable<ChecklistItem>> GetByTripAndUserAsync(int tripId, int userId);
+        Task<IEnumerable<ChecklistItemModel?>> GetByTripAndUserAsync(int tripId, int userId);
     }
 }

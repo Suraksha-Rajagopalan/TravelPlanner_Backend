@@ -11,12 +11,12 @@ namespace TravelPlannerAPI.Services.Implementations
     public class ExpenseService : IExpenseService
     {
         private readonly IExpenseRepository _expenseRepo;
-        private readonly IGenericRepository<Expense> _genericRepo;
+        private readonly IGenericRepository<ExpenseModel> _genericRepo;
         private readonly IUnitOfWork _unitOfWork;
 
         public ExpenseService(
             IExpenseRepository expenseRepo,
-            IGenericRepository<Expense> genericRepo,
+            IGenericRepository<ExpenseModel> genericRepo,
             IUnitOfWork unitOfWork)
         {
             _expenseRepo = expenseRepo;
@@ -24,8 +24,11 @@ namespace TravelPlannerAPI.Services.Implementations
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<Expense> AddExpenseAsync(int tripId, Expense dto, int userId)
+        public async Task<ExpenseModel?> AddExpenseAsync(int tripId, ExpenseModel dto, int userId)
         {
+            if (dto == null)
+                return null;
+
             dto.TripId = tripId;
             //dto.UserId = userId;
 
@@ -35,13 +38,13 @@ namespace TravelPlannerAPI.Services.Implementations
             return dto;
         }
 
-        public async Task<IEnumerable<Expense>> GetExpensesAsync(int tripId, int userId)
+        public async Task<IEnumerable<ExpenseModel?>> GetExpensesAsync(int tripId, int userId)
         {
             // Optionally filter by userId as well
             return await _expenseRepo.GetByTripAsync(tripId);
         }
 
-        public async Task<Expense> UpdateExpenseAsync(int tripId, int id, Expense dto, int userId)
+        public async Task<ExpenseModel?> UpdateExpenseAsync(int tripId, int id, ExpenseModel dto, int userId)
         {
             var expense = await _genericRepo.GetByIdAsync(id);
             if (expense == null || expense.TripId != tripId)

@@ -22,42 +22,63 @@ namespace BusinessAPI.Controllers
             _expenseService = expenseService;
         }
 
-        private int GetUserId()
+        private int? UserId
         {
-            return int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            get
+            {
+                var claim = User.FindFirst(ClaimTypes.NameIdentifier);
+                if (claim == null) return null;
+
+                if (int.TryParse(claim.Value, out var id))
+                    return id;
+
+                return null;
+            }
         }
 
-        [MapToApiVersion("1.0")]
+
         [HttpPost]
-        public async Task<IActionResult> AddExpense(int tripId, [FromBody] Expense dto)
+        public async Task<IActionResult> AddExpense(int tripId, [FromBody] ExpenseModel dto)
         {
-            var result = await _expenseService.AddExpenseAsync(tripId, dto, GetUserId());
+            if (UserId == null)
+                return BadRequest(new { message = "User ID is missing or invalid." });
+
+            var result = await _expenseService.AddExpenseAsync(tripId, dto, UserId.Value);
             return Ok(result);
         }
 
-        [MapToApiVersion("1.0")]
+        
         [HttpGet]
         public async Task<IActionResult> GetExpenses(int tripId)
         {
-            var result = await _expenseService.GetExpensesAsync(tripId, GetUserId());
+            if (UserId == null)
+                return BadRequest(new { message = "User ID is missing or invalid." });
+
+            var result = await _expenseService.GetExpensesAsync(tripId, UserId.Value);
             return Ok(result);
         }
 
-        [MapToApiVersion("1.0")]
+        
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateExpense(int tripId, int id, [FromBody] Expense dto)
+        public async Task<IActionResult> UpdateExpense(int tripId, int id, [FromBody] ExpenseModel dto)
         {
-            var result = await _expenseService.UpdateExpenseAsync(tripId, id, dto, GetUserId());
+            if (UserId == null)
+                return BadRequest(new { message = "User ID is missing or invalid." });
+
+            var result = await _expenseService.UpdateExpenseAsync(tripId, id, dto, UserId.Value);
             if (result == null)
                 return NotFound("Expense not found or you don't have permission.");
             return Ok(result);
         }
 
-        [MapToApiVersion("1.0")]
+        
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteExpense(int tripId, int id)
         {
-            var success = await _expenseService.DeleteExpenseAsync(tripId, id, GetUserId());
+            if (UserId == null)
+                return BadRequest(new { message = "User ID is missing or invalid." });
+
+            var success = await _expenseService.DeleteExpenseAsync(tripId, id, UserId.Value);
             if (!success)
                 return NotFound("Expense not found or you don't have permission.");
             return NoContent();

@@ -12,6 +12,8 @@ C:\Prejoining_Project\Backend\TravelPlannerAPI\TravelPlannerAPI\bin\Debug\net8.0
 C:\Prejoining_Project\Backend\TravelPlannerAPI\TravelPlannerAPI\bin\Debug\net8.0\Azure.Core.dll
 C:\Prejoining_Project\Backend\TravelPlannerAPI\TravelPlannerAPI\bin\Debug\net8.0\Azure.Identity.dll
 C:\Prejoining_Project\Backend\TravelPlannerAPI\TravelPlannerAPI\bin\Debug\net8.0\BCrypt.Net-Next.dll
+C:\Prejoining_Project\Backend\TravelPlannerAPI\TravelPlannerAPI\bin\Debug\net8.0\Castle.Core.dll
+C:\Prejoining_Project\Backend\TravelPlannerAPI\TravelPlannerAPI\bin\Debug\net8.0\FluentAssertions.dll
 C:\Prejoining_Project\Backend\TravelPlannerAPI\TravelPlannerAPI\bin\Debug\net8.0\Humanizer.dll
 C:\Prejoining_Project\Backend\TravelPlannerAPI\TravelPlannerAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Prejoining_Project\Backend\TravelPlannerAPI\TravelPlannerAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
@@ -56,6 +58,7 @@ C:\Prejoining_Project\Backend\TravelPlannerAPI\TravelPlannerAPI\bin\Debug\net8.0
 C:\Prejoining_Project\Backend\TravelPlannerAPI\TravelPlannerAPI\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
 C:\Prejoining_Project\Backend\TravelPlannerAPI\TravelPlannerAPI\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
 C:\Prejoining_Project\Backend\TravelPlannerAPI\TravelPlannerAPI\bin\Debug\net8.0\Mono.TextTemplating.dll
+C:\Prejoining_Project\Backend\TravelPlannerAPI\TravelPlannerAPI\bin\Debug\net8.0\Moq.dll
 C:\Prejoining_Project\Backend\TravelPlannerAPI\TravelPlannerAPI\bin\Debug\net8.0\Newtonsoft.Json.dll
 C:\Prejoining_Project\Backend\TravelPlannerAPI\TravelPlannerAPI\bin\Debug\net8.0\Serilog.dll
 C:\Prejoining_Project\Backend\TravelPlannerAPI\TravelPlannerAPI\bin\Debug\net8.0\Serilog.AspNetCore.dll

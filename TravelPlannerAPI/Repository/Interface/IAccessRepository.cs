@@ -1,4 +1,6 @@
 ﻿using System.Threading.Tasks;
+using TravelPlannerAPI.Generic;
+using TravelPlannerAPI.Models;
 
 namespace TravelPlannerAPI.Repository.Interface
 {

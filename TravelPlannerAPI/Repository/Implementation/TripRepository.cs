@@ -11,26 +11,26 @@ using TravelPlannerAPI.Repository.Interface;
 
 namespace TravelPlannerAPI.Repository.Implementation
 {
-    public class TripRepository : GenericRepository<Trip>, ITripRepository
+    public class TripRepository : GenericRepository<TripModel>, ITripRepository
     {
         private readonly ApplicationDbContext _context;
 
         public TripRepository(
             ApplicationDbContext context,
-            IGenericRepository<Trip> genericRepo
+            IGenericRepository<TripModel> genericRepo
         ) : base(context)
         {
             _context = context;
         }
 
-        public async Task<IEnumerable<Trip>> GetByUserAsync(int userId)
+        public async Task<IEnumerable<TripModel>> GetByUserAsync(int userId)
         {
             return await _context.Trips
                 .Where(t => t.UserId == userId)
                 .ToListAsync();
         }
 
-        public async Task<Trip> GetByIdWithIncludesAsync(int id)
+        public async Task<TripModel?> GetByIdWithIncludesAsync(int id)
         {
             return await _context.Trips
                 .Include(t => t.Reviews)
@@ -38,7 +38,7 @@ namespace TravelPlannerAPI.Repository.Implementation
                 .FirstOrDefaultAsync(t => t.Id == id);
         }
 
-    public async Task<PaginatedResult<Trip>> GetPaginatedTripsAsync(PaginationParamsDto pagination)
+    public async Task<PaginatedResult<TripModel>> GetPaginatedTripsAsync(PaginationParamsDto pagination)
         {
             var query = _context.Trips.AsQueryable();
 
@@ -49,7 +49,7 @@ namespace TravelPlannerAPI.Repository.Implementation
                 .Take(pagination.PageSize)
                 .ToListAsync();
 
-            return new PaginatedResult<Trip>(items, totalCount, pagination.PageNumber, pagination.PageSize);
+            return new PaginatedResult<TripModel>(items, totalCount, pagination.PageNumber, pagination.PageSize);
         }
 
     }

@@ -8,10 +8,10 @@ namespace TravelPlannerAPI.Services.Interfaces
 {
     public interface ITripService
     {
-        Task<IEnumerable<Trip>> GetTripsAsync(int userId);
+        Task<IEnumerable<TripModel>> GetTripsAsync(int userId);
         Task<PaginatedResult<TripDto>> GetPaginatedTripsAsync(PaginationParamsDto pagination);
-        Task<Trip> GetTripByIdAsync(int id, int userId);
-        Task<Trip> CreateTripAsync(TripCreateDto dto, int userId);
+        Task<TripModel?> GetTripByIdAsync(int id, int userId);
+        Task<TripModel> CreateTripAsync(TripCreateDto dto, int userId);
         Task<bool> UpdateTripAsync(TripUpdateDto dto, int userId);
         Task<bool> DeleteTripAsync(int id, int userId);
     }

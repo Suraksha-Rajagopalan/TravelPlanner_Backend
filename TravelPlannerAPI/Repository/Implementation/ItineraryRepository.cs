@@ -10,23 +10,24 @@ using TravelPlannerAPI.UoW;
 
 namespace TravelPlannerAPI.Repository.Implementation
 {
-    public class ItineraryRepository : IItineraryRepository
+    public class ItineraryRepository : GenericRepository<ItineraryItemsModel>, IItineraryRepository
     {
         private readonly ApplicationDbContext _context;
-        private readonly IGenericRepository<ItineraryItem> _generic;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IGenericRepository<ItineraryItemsModel> _generic;
+
 
         public ItineraryRepository(
             ApplicationDbContext context,
-            IGenericRepository<ItineraryItem> genericRepository,
-            IUnitOfWork unitOfWork)
+            IUnitOfWork unitOfWork,
+            IGenericRepository<ItineraryItemsModel> generic) : base(context)
         {
             _context = context;
-            _generic = genericRepository;
             _unitOfWork = unitOfWork;
+            _generic = generic;
         }
 
-        public async Task<IEnumerable<ItineraryItem>> GetByTripIdAsync(int tripId)
+        public async Task<IEnumerable<ItineraryItemsModel>> GetByTripIdAsync(int tripId)
         {
             return await _context.ItineraryItems
                 .Where(i => i.TripId == tripId)
@@ -34,22 +35,22 @@ namespace TravelPlannerAPI.Repository.Implementation
                 .ToListAsync();
         }
 
-        public Task<ItineraryItem> GetByIdAsync(int id)
+        public Task<ItineraryItemsModel?> GetByIdAsync(int id)
             => _generic.GetByIdAsync(id);
 
-        public async Task AddAsync(ItineraryItem item)
+        public async Task newAddAsync(ItineraryItemsModel item)
         {
             await _generic.AddAsync(item);
             await _unitOfWork.CompleteAsync();
         }
 
-        public async Task UpdateAsync(ItineraryItem item)
+        public async Task UpdateAsync(ItineraryItemsModel item)
         {
             _generic.Update(item);
             await _unitOfWork.CompleteAsync();
         }
 
-        public async Task DeleteAsync(ItineraryItem item)
+        public async Task DeleteAsync(ItineraryItemsModel item)
         {
             _generic.Delete(item);
             await _unitOfWork.CompleteAsync();
@@ -60,19 +61,19 @@ namespace TravelPlannerAPI.Repository.Implementation
             return await _context.ItineraryItems.AnyAsync(i => i.Id == id);
         }
 
-        public async Task<IEnumerable<ItineraryItem>> GetSharedItineraryAsync(int tripId, int userId)
+        public async Task<IEnumerable<ItineraryItemsModel>> GetSharedItineraryAsync(int tripId, int userId)
         {
             var trip = await _context.Trips
                 .Include(t => t.SharedUsers)
                 .FirstOrDefaultAsync(t => t.Id == tripId);
 
-            if (trip == null ||
-                !trip.SharedUsers.Any(s => s.SharedWithUserId == userId))
+            if (trip == null || !trip.SharedUsers.Any(s => s.SharedWithUserId == userId))
             {
-                return null;
+                return Enumerable.Empty<ItineraryItemsModel>();
             }
 
             return await GetByTripIdAsync(tripId);
         }
+
     }
 }

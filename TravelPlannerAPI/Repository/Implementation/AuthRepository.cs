@@ -1,38 +1,40 @@
-﻿using TravelPlannerAPI.Models;
-using TravelPlannerAPI.Repository.Interface;
+﻿using Microsoft.AspNetCore.Identity;
 using TravelPlannerAPI.Generic;
-using Microsoft.AspNetCore.Identity;
+using TravelPlannerAPI.Models;
+using TravelPlannerAPI.Models.Data;
+using TravelPlannerAPI.Repository.Interface;
 
 namespace TravelPlannerAPI.Repository.Implementation
 {
-    public class AuthRepository : IAuthRepository
+    public class AuthRepository : GenericRepository<UserModel> ,IAuthRepository
     {
-        private readonly UserManager<User> _userManager;
-        private readonly IGenericRepository<User> _userRepo;
+        private readonly UserManager<UserModel> _userManager;
+        private readonly ApplicationDbContext _context;
 
-        public AuthRepository(UserManager<User> userManager, IGenericRepository<User> userRepo)
+        public AuthRepository(ApplicationDbContext context, UserManager<UserModel> userManager) : base(context)
         {
+            _context = context;
             _userManager = userManager;
-            _userRepo = userRepo;
         }
 
-        public async Task<User> GetByEmailAsync(string email)
+
+        public async Task<UserModel?> GetByEmailAsync(string email)
         {
             return await _userManager.FindByEmailAsync(email);
         }
 
-        public async Task<bool> CheckPasswordAsync(User user, string password)
+        public async Task<bool> CheckPasswordAsync(UserModel user, string password)
         {
             return await _userManager.CheckPasswordAsync(user, password);
         }
 
-        public async Task<(bool succeeded, IEnumerable<IdentityError> errors)> CreateUserAsync(User user, string password)
+        public async Task<(bool succeeded, IEnumerable<IdentityError> errors)> CreateUserAsync(UserModel user, string password)
         {
             var result = await _userManager.CreateAsync(user, password);
             return (result.Succeeded, result.Errors);
         }
 
-        public async Task UpdateUserAsync(User user)
+        public async Task UpdateUserAsync(UserModel user)
         {
             // Optionally use either one:
             await _userManager.UpdateAsync(user);

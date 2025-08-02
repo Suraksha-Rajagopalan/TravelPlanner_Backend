@@ -8,6 +8,6 @@ namespace TravelPlannerAPI.Services.Interfaces
     {
         Task<AuthResponseDto> SignupAsync(SignupRequest request);
         Task<AuthResponseDto> LoginAsync(LoginRequestDto request);
-        string GenerateJwtToken(User user);
+        string GenerateJwtToken(UserModel user);
     }
 }

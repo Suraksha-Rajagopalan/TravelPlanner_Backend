@@ -9,6 +9,6 @@ namespace TravelPlannerAPI.Services.Interfaces
         Task<bool> SubmitReviewAsync(ReviewDto dto, int userId);
 
         /// <summary>Get an existing review (null if none or no access).</summary>
-        Task<ReviewDto> GetReviewAsync(int tripId, int userId);
+        Task<ReviewDto?> GetReviewAsync(int tripId, int userId);
     }
 }

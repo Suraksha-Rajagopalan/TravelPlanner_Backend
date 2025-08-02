@@ -17,9 +17,9 @@ namespace TravelPlannerAPI.Services.Implementations
             _configuration = configuration;
         }
 
-        public string GenerateAccessToken(User user)
+        public string GenerateAccessToken(UserModel user)
         {
-            var key = Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]);
+            var key = Encoding.UTF8.GetBytes(_configuration["Jwt:Key"] ?? "");
             var claims = new[]
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
@@ -42,9 +42,9 @@ namespace TravelPlannerAPI.Services.Implementations
             return tokenHandler.WriteToken(token);
         }
 
-        public string GenerateRefreshToken(User user)
+        public string GenerateRefreshToken(UserModel user)
         {
-            var key = Encoding.UTF8.GetBytes(_configuration["Jwt:RefreshKey"]);
+            var key = Encoding.UTF8.GetBytes(_configuration["Jwt:RefreshKey"] ?? "");
             var claims = new[]
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
@@ -67,8 +67,7 @@ namespace TravelPlannerAPI.Services.Implementations
 
         public ClaimsPrincipal? GetPrincipalFromExpiredToken(string token, bool isRefreshToken)
         {
-            var key = Encoding.UTF8.GetBytes(
-                isRefreshToken ? _configuration["Jwt:RefreshKey"] : _configuration["Jwt:Key"]);
+            var key = Encoding.UTF8.GetBytes(_configuration["Jwt:RefreshKey"] ?? "");
 
             var tokenValidationParameters = new TokenValidationParameters
             {

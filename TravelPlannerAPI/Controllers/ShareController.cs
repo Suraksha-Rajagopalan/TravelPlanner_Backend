@@ -26,7 +26,7 @@ namespace TravelPlannerAPI.Controllers
             _logger = logger;
         }
 
-        [MapToApiVersion("1.0")]
+        
         [HttpPost("share")]
         public async Task<IActionResult> ShareTrip([FromBody] TripShareRequestDto request)
         {
@@ -41,7 +41,7 @@ namespace TravelPlannerAPI.Controllers
             return Ok("Trip shared successfully.");
         }
 
-        [MapToApiVersion("1.0")]
+        
         [HttpGet("shared-with-me")]
         public async Task<IActionResult> GetTripsSharedWithMe()
         {

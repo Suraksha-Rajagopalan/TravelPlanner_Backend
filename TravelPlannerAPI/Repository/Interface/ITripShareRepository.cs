@@ -5,10 +5,11 @@ using System.Threading.Tasks;
 
 namespace TravelPlannerAPI.Repository.Interface
 {
-    public interface ITripShareRepository : IGenericRepository<TripShare>
+    public interface ITripShareRepository : IGenericRepository<TripShareModel>
     {
-        Task<TripShare> GetByTripAndUserAsync(int tripId, int sharedWithUserId);
-        Task<Trip> GetOwnedTripAsync(int tripId, int ownerId);
-        Task<List<TripShare>> GetSharesForUserAsync(int sharedWithUserId);
+        Task<TripShareModel?> GetByTripAndUserAsync(int tripId, int sharedWithUserId);
+        Task<TripModel?> GetOwnedTripAsync(int tripId, int ownerId);
+        Task<List<TripShareModel>> GetSharesForUserAsync(int sharedWithUserId);
+        Task<UserModel?> GetUserByEmailAsync(string email);
     }
 }

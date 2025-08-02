@@ -1,14 +1,15 @@
-﻿using TravelPlannerAPI.Models;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
+using TravelPlannerAPI.Generic;
+using TravelPlannerAPI.Models;
 
 namespace TravelPlannerAPI.Repository.Interface
 {
-    public interface IAuthRepository
+    public interface IAuthRepository : IGenericRepository<UserModel>
     {
-        Task<User> GetByEmailAsync(string email);
-        Task<bool> CheckPasswordAsync(User user, string password);
-        Task<(bool succeeded, IEnumerable<IdentityError> errors)> CreateUserAsync(User user, string password);
-        Task UpdateUserAsync(User user);
+        Task<UserModel?> GetByEmailAsync(string email);
+        Task<bool> CheckPasswordAsync(UserModel user, string password);
+        Task<(bool succeeded, IEnumerable<IdentityError> errors)> CreateUserAsync(UserModel user, string password);
+        Task UpdateUserAsync(UserModel user);
     }
 }

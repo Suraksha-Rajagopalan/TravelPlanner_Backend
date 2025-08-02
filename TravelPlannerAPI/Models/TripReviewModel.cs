@@ -1,6 +1,6 @@
 ﻿namespace TravelPlannerAPI.Models
 {
-    public class TripReview
+    public class TripReviewModel
     {
         public int Id { get; set; }
         public int TripId { get; set; }
@@ -8,8 +8,8 @@
         public int Rating { get; set; }
         public string? Comment { get; set; }
 
-        public Trip Trip { get; set; } = null!;
-        public User User { get; set; } = null!;
+        public TripModel Trip { get; set; } = null!;
+        public UserModel User { get; set; } = null!;
     }
 
 }

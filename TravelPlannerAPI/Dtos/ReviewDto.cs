@@ -12,7 +12,7 @@ namespace TravelPlannerAPI.Dtos
 
         public int Rating { get; set; }
 
-        [StringLength(300, ErrorMessage = "Description can't be longer than 200 characters.")]
+        [StringLength(300, ErrorMessage = "Description can't be longer than 300 characters.")]
         public string Review { get; set; } = string.Empty;
     }
 }

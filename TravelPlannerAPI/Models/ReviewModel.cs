@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace TravelPlannerAPI.Models
 {
     [Table("reviews")]
-    public class Review
+    public class ReviewModel
     {
         public int Id { get; set; }               // Primary key
         public int TripId { get; set; }           // Foreign key to Trip
@@ -15,9 +15,9 @@ namespace TravelPlannerAPI.Models
         [Column("review")]
         public string ReviewText { get; set; } = string.Empty;
 
-        public Trip? Trip { get; set; }           // Navigation property
+        public TripModel? Trip { get; set; }           // Navigation property
 
-        public User? User { get; set; }
+        public UserModel? User { get; set; }
 
     }
 

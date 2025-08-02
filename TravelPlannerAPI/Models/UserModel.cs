@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace TravelPlannerAPI.Models
 {
     [Table("users")]
-    public class User : IdentityUser<int>
+    public class UserModel : IdentityUser<int>
     {
         public string Name { get; set; } = string.Empty;
 
@@ -18,18 +18,18 @@ namespace TravelPlannerAPI.Models
         public bool IsActive { get; set; } = true;
 
         // User-created trips
-        public ICollection<Trip> Trips { get; set; } = new List<Trip>();
+        public ICollection<TripModel> Trips { get; set; } = new List<TripModel>();
 
         // User reviews
-        public ICollection<Review> Reviews { get; set; } = new List<Review>();
+        public ICollection<ReviewModel> Reviews { get; set; } = new List<ReviewModel>();
 
         // Trips this user has shared with others
         [InverseProperty("Owner")]
-        public ICollection<TripShare> OwnedTripShares { get; set; } = new List<TripShare>();
+        public ICollection<TripShareModel> OwnedTripShares { get; set; } = new List<TripShareModel>();
 
         // Trips this user has received from others
         [InverseProperty("SharedWithUser")]
-        public ICollection<TripShare> ReceivedTripShares { get; set; } = new List<TripShare>();
+        public ICollection<TripShareModel> ReceivedTripShares { get; set; } = new List<TripShareModel>();
 
 
     }

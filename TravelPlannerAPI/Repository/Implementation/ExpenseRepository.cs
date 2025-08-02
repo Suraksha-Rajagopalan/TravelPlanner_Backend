@@ -10,19 +10,18 @@ using System.Threading.Tasks;
 namespace TravelPlannerAPI.Repository.Implementation
 {
     public class ExpenseRepository
-        : GenericRepository<Expense>, IExpenseRepository
+        : GenericRepository<ExpenseModel>, IExpenseRepository
     {
         private readonly ApplicationDbContext _context;
 
         public ExpenseRepository(
-            ApplicationDbContext context,
-            IGenericRepository<Expense> genericRepo
+            ApplicationDbContext context
         ) : base(context)
         {
             _context = context;
         }
 
-        public async Task<IEnumerable<Expense>> GetByTripAsync(int tripId)
+        public async Task<IEnumerable<ExpenseModel?>> GetByTripAsync(int tripId)
         {
             return await _context.Expenses
                 .Where(e => e.TripId == tripId)

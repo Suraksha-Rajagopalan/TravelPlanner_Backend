@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace TravelPlannerAPI.Repository.Implementation
 {
-    public class ReviewRepository : GenericRepository<Review>, IReviewRepository
+    public class ReviewRepository : GenericRepository<ReviewModel>, IReviewRepository
     {
         private readonly ApplicationDbContext _context;
 
         public ReviewRepository(
             ApplicationDbContext context,
-            IGenericRepository<Review> genericRepository)
+            IGenericRepository<ReviewModel> genericRepository)
             : base(context)
         {
             _context = context;
@@ -31,7 +31,7 @@ namespace TravelPlannerAPI.Repository.Implementation
                 .AnyAsync(s => s.TripId == tripId && s.SharedWithUserId == userId);
         }
 
-        public async Task<Review> GetByTripAndUserAsync(int tripId, int userId)
+        public async Task<ReviewModel?> GetByTripAndUserAsync(int tripId, int userId)
         {
             return await _context.Reviews
                 .FirstOrDefaultAsync(r => r.TripId == tripId && r.UserId == userId);

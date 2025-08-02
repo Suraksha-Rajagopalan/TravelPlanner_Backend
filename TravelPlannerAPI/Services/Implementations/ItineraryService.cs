@@ -25,15 +25,15 @@ namespace TravelPlannerAPI.Services.Implementations
             _unitOfWork = unitOfWork;
         }
 
-        public Task<IEnumerable<ItineraryItem>> GetItineraryItemsByTripIdAsync(int tripId)
+        public Task<IEnumerable<ItineraryItemsModel>> GetItineraryItemsByTripIdAsync(int tripId)
             => _repo.GetByTripIdAsync(tripId);
 
-        public Task<ItineraryItem> GetItineraryItemByIdAsync(int id)
+        public Task<ItineraryItemsModel?> GetItineraryItemByIdAsync(int id)
             => _repo.GetByIdAsync(id);
 
-        public async Task<ItineraryItem> AddItineraryItemAsync(int tripId, ItineraryItemCreateDto dto)
+        public async Task<ItineraryItemsModel> AddItineraryItemAsync(int tripId, ItineraryItemCreateDto dto)
         {
-            var item = _mapper.Map<ItineraryItem>(dto);
+            var item = _mapper.Map<ItineraryItemsModel>(dto);
             item.TripId = tripId;
 
             await _repo.AddAsync(item);
@@ -48,8 +48,14 @@ namespace TravelPlannerAPI.Services.Implementations
             var item = await _repo.GetByIdAsync(id);
             _mapper.Map(dto, item);
 
-            await _repo.UpdateAsync(item);
-            return true;
+            if (item!=null)
+            {
+                await _repo.UpdateAsync(item);
+                return true;
+            }
+            return false;
+
+            
         }
 
         public async Task<bool> DeleteItineraryItemAsync(int id)
@@ -61,7 +67,7 @@ namespace TravelPlannerAPI.Services.Implementations
             return true;
         }
 
-        public Task<IEnumerable<ItineraryItem>> GetSharedItineraryAsync(int tripId, int userId)
+        public Task<IEnumerable<ItineraryItemsModel>> GetSharedItineraryAsync(int tripId, int userId)
             => _repo.GetSharedItineraryAsync(tripId, userId);
     }
 }

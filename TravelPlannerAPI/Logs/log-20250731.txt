@@ -1,0 +1,1333 @@
+2025-07-31 10:34:54.115 +05:30 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.Versioning.ApiVersionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2025-07-31 10:34:54.296 +05:30 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2025-07-31 10:34:54.347 +05:30 [INF] User profile is available. Using 'C:\Users\A2832856\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-07-31 10:34:54.885 +05:30 [DBG] The index {'UserId'} was not created on entity type 'IdentityUserRole<int>' as the properties are already covered by the index {'UserId', 'RoleId'}.
+2025-07-31 10:34:54.896 +05:30 [DBG] The index {'UserId'} was not created on entity type 'IdentityUserToken<int>' as the properties are already covered by the index {'UserId', 'LoginProvider', 'Name'}.
+2025-07-31 10:34:54.898 +05:30 [DBG] The index {'TripId'} was not created on entity type 'Review' as the properties are already covered by the index {'TripId', 'UserId'}.
+2025-07-31 10:34:54.902 +05:30 [DBG] The index {'TripId'} was not created on entity type 'TripShare' as the properties are already covered by the index {'TripId', 'SharedWithUserId'}.
+2025-07-31 10:34:55.136 +05:30 [WRN] No store type was specified for the decimal property 'Food' on entity type 'BudgetDetails'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-07-31 10:34:55.236 +05:30 [WRN] No store type was specified for the decimal property 'Hotel' on entity type 'BudgetDetails'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-07-31 10:34:55.705 +05:30 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Expense'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-07-31 10:34:56.108 +05:30 [WRN] No store type was specified for the decimal property 'Budget' on entity type 'Trip'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-07-31 10:34:56.323 +05:30 [DBG] Entity Framework Core 8.0.13 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.13' with options: None
+2025-07-31 10:34:56.834 +05:30 [DBG] Compiling query expression: 
+'DbSet<IdentityRole<int>>()
+    .FirstOrDefault(r => r.NormalizedName == __normalizedName_0)'
+2025-07-31 10:34:57.203 +05:30 [DBG] Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<IdentityRole<int>>(
+    asyncEnumerable: new SingleQueryingEnumerable<IdentityRole<int>>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.QueryExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: IdentityRole<int>.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: IdentityRole<int>.ConcurrencyStamp (string) Concurrency, 1], [Property: IdentityRole<int>.Name (string) MaxLength(256), 2], [Property: IdentityRole<int>.NormalizedName (string) Index MaxLength(256), 3] }
+            SELECT TOP(1) r.Id, r.ConcurrencyStamp, r.Name, r.NormalizedName
+            FROM role AS r
+            WHERE r.NormalizedName == @__normalizedName_0), 
+        null, 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, IdentityRole<int>>, 
+        TravelPlannerAPI.Models.Data.ApplicationDbContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+2025-07-31 10:34:57.256 +05:30 [DBG] Creating DbConnection.
+2025-07-31 10:34:57.289 +05:30 [DBG] Created DbConnection. (30ms).
+2025-07-31 10:34:57.297 +05:30 [DBG] Opening connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:34:57.680 +05:30 [DBG] Opened connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:34:57.717 +05:30 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-07-31 10:34:57.758 +05:30 [DBG] Created DbCommand for 'ExecuteReader' (38ms).
+2025-07-31 10:34:57.771 +05:30 [DBG] Initialized DbCommand for 'ExecuteReader' (55ms).
+2025-07-31 10:34:57.786 +05:30 [DBG] Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Name], [r].[NormalizedName]
+FROM [role] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0
+2025-07-31 10:34:57.951 +05:30 [INF] Executed DbCommand (164ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Name], [r].[NormalizedName]
+FROM [role] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0
+2025-07-31 10:34:58.010 +05:30 [DBG] Context 'ApplicationDbContext' started tracking 'IdentityRole' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-07-31 10:34:58.037 +05:30 [DBG] Closing data reader to 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:34:58.049 +05:30 [DBG] A data reader for 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS' is being disposed after spending 79ms reading results.
+2025-07-31 10:34:58.055 +05:30 [DBG] Closing connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:34:58.065 +05:30 [DBG] Closed connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS' (9ms).
+2025-07-31 10:34:58.077 +05:30 [DBG] Compiling query expression: 
+'DbSet<User>()
+    .SingleOrDefault(u => u.NormalizedEmail == __normalizedEmail_0)'
+2025-07-31 10:34:58.091 +05:30 [DBG] Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<User>(
+    asyncEnumerable: new SingleQueryingEnumerable<User>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.QueryExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: User.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: User.AccessFailedCount (int) Required, 1], [Property: User.ConcurrencyStamp (string) Concurrency, 2], [Property: User.Email (string) MaxLength(256), 3], [Property: User.EmailConfirmed (bool) Required, 4], [Property: User.IsActive (bool) Required, 5], [Property: User.IsAdmin (bool) Required, 6], [Property: User.LastLoginDate (DateTime) Required, 7], [Property: User.LockoutEnabled (bool) Required, 8], [Property: User.LockoutEnd (DateTimeOffset?), 9], [Property: User.Name (string) Required, 10], [Property: User.NormalizedEmail (string) Index MaxLength(256), 11], [Property: User.NormalizedUserName (string) Index MaxLength(256), 12], [Property: User.PasswordHash (string), 13], [Property: User.PhoneNumber (string), 14], [Property: User.PhoneNumberConfirmed (bool) Required, 15], [Property: User.Role (string) Required, 16], [Property: User.SecurityStamp (string), 17], [Property: User.TwoFactorEnabled (bool) Required, 18], [Property: User.UserName (string) MaxLength(256), 19] }
+            SELECT TOP(2) u.Id, u.AccessFailedCount, u.ConcurrencyStamp, u.Email, u.EmailConfirmed, u.IsActive, u.IsAdmin, u.LastLoginDate, u.LockoutEnabled, u.LockoutEnd, u.Name, u.NormalizedEmail, u.NormalizedUserName, u.PasswordHash, u.PhoneNumber, u.PhoneNumberConfirmed, u.Role, u.SecurityStamp, u.TwoFactorEnabled, u.UserName
+            FROM Users AS u
+            WHERE u.NormalizedEmail == @__normalizedEmail_0), 
+        null, 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, User>, 
+        TravelPlannerAPI.Models.Data.ApplicationDbContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+2025-07-31 10:34:58.096 +05:30 [DBG] Opening connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:34:58.100 +05:30 [DBG] Opened connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:34:58.103 +05:30 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-07-31 10:34:58.105 +05:30 [DBG] Created DbCommand for 'ExecuteReader' (2ms).
+2025-07-31 10:34:58.108 +05:30 [DBG] Initialized DbCommand for 'ExecuteReader' (5ms).
+2025-07-31 10:34:58.111 +05:30 [DBG] Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[IsActive], [u].[IsAdmin], [u].[LastLoginDate], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[Name], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Role], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0
+2025-07-31 10:34:58.125 +05:30 [INF] Executed DbCommand (14ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[IsActive], [u].[IsAdmin], [u].[LastLoginDate], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[Name], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Role], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0
+2025-07-31 10:34:58.154 +05:30 [DBG] Context 'ApplicationDbContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-07-31 10:34:58.200 +05:30 [DBG] Closing data reader to 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:34:58.203 +05:30 [DBG] A data reader for 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS' is being disposed after spending 72ms reading results.
+2025-07-31 10:34:58.205 +05:30 [DBG] Closing connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:34:58.207 +05:30 [DBG] Closed connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS' (1ms).
+2025-07-31 10:34:58.211 +05:30 [DBG] 'ApplicationDbContext' disposed.
+2025-07-31 10:34:58.214 +05:30 [DBG] Disposing connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:34:58.217 +05:30 [DBG] Disposed connection to database '' on server '' (2ms).
+2025-07-31 10:34:58.222 +05:30 [DBG] Hosting starting
+2025-07-31 10:34:58.232 +05:30 [DBG] Reading data from file 'C:\Users\A2832856\AppData\Local\ASP.NET\DataProtection-Keys\key-b8dbd3f7-4314-4233-bf92-12b3421374e1.xml'.
+2025-07-31 10:34:58.241 +05:30 [DBG] Found key {b8dbd3f7-4314-4233-bf92-12b3421374e1}.
+2025-07-31 10:34:58.252 +05:30 [DBG] Considering key {b8dbd3f7-4314-4233-bf92-12b3421374e1} with expiration date 2025-10-14 14:17:30Z as default key.
+2025-07-31 10:34:58.257 +05:30 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2025-07-31 10:34:58.259 +05:30 [DBG] Decrypting secret element using Windows DPAPI.
+2025-07-31 10:34:58.262 +05:30 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2025-07-31 10:34:58.264 +05:30 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2025-07-31 10:34:58.266 +05:30 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2025-07-31 10:34:58.269 +05:30 [DBG] Using key {b8dbd3f7-4314-4233-bf92-12b3421374e1} as the default key.
+2025-07-31 10:34:58.271 +05:30 [DBG] Key ring with default key {b8dbd3f7-4314-4233-bf92-12b3421374e1} was loaded during application startup.
+2025-07-31 10:34:58.321 +05:30 [INF] Now listening on: http://localhost:5276
+2025-07-31 10:34:58.327 +05:30 [DBG] Loaded hosting startup assembly TravelPlannerAPI
+2025-07-31 10:34:58.329 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-31 10:34:58.330 +05:30 [INF] Hosting environment: Development
+2025-07-31 10:34:58.331 +05:30 [INF] Content root path: C:\Prejoining_Project\Backend\TravelPlannerAPI\TravelPlannerAPI
+2025-07-31 10:34:58.333 +05:30 [DBG] Hosting started
+2025-07-31 10:35:03.012 +05:30 [DBG] Connection id "0HNEFTV7CP4B9" accepted.
+2025-07-31 10:35:03.015 +05:30 [DBG] Connection id "0HNEFTV7CP4B9" started.
+2025-07-31 10:35:03.043 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5276/swagger/v1/swagger.json - null null
+2025-07-31 10:35:03.048 +05:30 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2025-07-31 10:35:03.064 +05:30 [DBG] No candidates found for the request path '/swagger/v1/swagger.json'
+2025-07-31 10:35:03.066 +05:30 [DBG] Request did not match any endpoints
+2025-07-31 10:35:03.161 +05:30 [DBG] Connection id "0HNEFTV7CP4B9" completed keep alive response.
+2025-07-31 10:35:03.165 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5276/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 124.3812ms
+2025-07-31 10:36:10.661 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5276/api/v1/Auth/login - application/json 65
+2025-07-31 10:36:10.672 +05:30 [DBG] 1 candidate(s) found for the request path '/api/v1/Auth/login'
+2025-07-31 10:36:10.676 +05:30 [DBG] Endpoint 'AuthController.Login (TravelPlannerAPI)' with route pattern 'api/v{version:apiVersion}/Auth/login' is valid for the request path '/api/v1/Auth/login'
+2025-07-31 10:36:10.680 +05:30 [DBG] Request matched endpoint 'AuthController.Login (TravelPlannerAPI)'
+2025-07-31 10:36:10.697 +05:30 [DBG] Connection id "0HNEFTV7CP4B9", Request id "0HNEFTV7CP4B9:00000002": started reading request body.
+2025-07-31 10:36:10.699 +05:30 [DBG] Connection id "0HNEFTV7CP4B9", Request id "0HNEFTV7CP4B9:00000002": done reading request body.
+2025-07-31 10:36:10.703 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-07-31 10:36:10.706 +05:30 [DBG] The request has an origin header: 'http://localhost:5276'.
+2025-07-31 10:36:10.707 +05:30 [INF] CORS policy execution failed.
+2025-07-31 10:36:10.709 +05:30 [INF] Request origin http://localhost:5276 does not have permission to access the resource.
+2025-07-31 10:36:10.745 +05:30 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2025-07-31 10:36:10.748 +05:30 [INF] Executing endpoint 'AuthController.Login (TravelPlannerAPI)'
+2025-07-31 10:36:10.770 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(TravelPlannerAPI.Dtos.LoginRequestDto) on controller AuthController (TravelPlannerAPI).
+2025-07-31 10:36:10.775 +05:30 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2025-07-31 10:36:10.777 +05:30 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2025-07-31 10:36:10.780 +05:30 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)","Microsoft.AspNetCore.Mvc.ReportApiVersionsAttribute (Order: 0)","Microsoft.AspNetCore.Mvc.Versioning.ApplyContentTypeVersionActionFilter"]
+2025-07-31 10:36:10.784 +05:30 [DBG] Execution plan of exception filters (in the following order): ["TravelPlannerAPI.Filters.ApiExceptionFilter"]
+2025-07-31 10:36:10.786 +05:30 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)","Microsoft.AspNetCore.Mvc.ReportApiVersionsAttribute (Order: 0)"]
+2025-07-31 10:36:10.790 +05:30 [DBG] Executing controller factory for controller AuthController (TravelPlannerAPI)
+2025-07-31 10:36:10.832 +05:30 [DBG] Entity Framework Core 8.0.13 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.13' with options: None
+2025-07-31 10:36:10.836 +05:30 [DBG] Executed controller factory for controller AuthController (TravelPlannerAPI)
+2025-07-31 10:36:10.841 +05:30 [DBG] Attempting to bind parameter 'request' of type 'TravelPlannerAPI.Dtos.LoginRequestDto' ...
+2025-07-31 10:36:10.845 +05:30 [DBG] Attempting to bind parameter 'request' of type 'TravelPlannerAPI.Dtos.LoginRequestDto' using the name '' in request data ...
+2025-07-31 10:36:10.847 +05:30 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2025-07-31 10:36:10.885 +05:30 [DBG] JSON input formatter succeeded, deserializing to type 'TravelPlannerAPI.Dtos.LoginRequestDto'
+2025-07-31 10:36:10.887 +05:30 [DBG] Done attempting to bind parameter 'request' of type 'TravelPlannerAPI.Dtos.LoginRequestDto'.
+2025-07-31 10:36:10.889 +05:30 [DBG] Done attempting to bind parameter 'request' of type 'TravelPlannerAPI.Dtos.LoginRequestDto'.
+2025-07-31 10:36:10.892 +05:30 [DBG] Attempting to validate the bound parameter 'request' of type 'TravelPlannerAPI.Dtos.LoginRequestDto' ...
+2025-07-31 10:36:10.899 +05:30 [DBG] Done attempting to validate the bound parameter 'request' of type 'TravelPlannerAPI.Dtos.LoginRequestDto'.
+2025-07-31 10:36:10.907 +05:30 [DBG] Creating DbConnection.
+2025-07-31 10:36:10.909 +05:30 [DBG] Created DbConnection. (1ms).
+2025-07-31 10:36:10.911 +05:30 [DBG] Opening connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:36:10.913 +05:30 [DBG] Opened connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:36:10.915 +05:30 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-07-31 10:36:10.916 +05:30 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2025-07-31 10:36:10.917 +05:30 [DBG] Initialized DbCommand for 'ExecuteReader' (2ms).
+2025-07-31 10:36:10.919 +05:30 [DBG] Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[IsActive], [u].[IsAdmin], [u].[LastLoginDate], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[Name], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Role], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0
+2025-07-31 10:36:10.925 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[IsActive], [u].[IsAdmin], [u].[LastLoginDate], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[Name], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Role], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0
+2025-07-31 10:36:10.929 +05:30 [DBG] Context 'ApplicationDbContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-07-31 10:36:10.931 +05:30 [DBG] Closing data reader to 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:36:10.933 +05:30 [DBG] A data reader for 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS' is being disposed after spending 4ms reading results.
+2025-07-31 10:36:10.935 +05:30 [DBG] Closing connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:36:10.936 +05:30 [DBG] Closed connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS' (1ms).
+2025-07-31 10:36:10.997 +05:30 [DBG] Compiling query expression: 
+'DbSet<User>()
+    .FirstOrDefault(u => u.NormalizedUserName == __normalizedUserName_0)'
+2025-07-31 10:36:11.004 +05:30 [DBG] Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<User>(
+    asyncEnumerable: new SingleQueryingEnumerable<User>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.QueryExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: User.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: User.AccessFailedCount (int) Required, 1], [Property: User.ConcurrencyStamp (string) Concurrency, 2], [Property: User.Email (string) MaxLength(256), 3], [Property: User.EmailConfirmed (bool) Required, 4], [Property: User.IsActive (bool) Required, 5], [Property: User.IsAdmin (bool) Required, 6], [Property: User.LastLoginDate (DateTime) Required, 7], [Property: User.LockoutEnabled (bool) Required, 8], [Property: User.LockoutEnd (DateTimeOffset?), 9], [Property: User.Name (string) Required, 10], [Property: User.NormalizedEmail (string) Index MaxLength(256), 11], [Property: User.NormalizedUserName (string) Index MaxLength(256), 12], [Property: User.PasswordHash (string), 13], [Property: User.PhoneNumber (string), 14], [Property: User.PhoneNumberConfirmed (bool) Required, 15], [Property: User.Role (string) Required, 16], [Property: User.SecurityStamp (string), 17], [Property: User.TwoFactorEnabled (bool) Required, 18], [Property: User.UserName (string) MaxLength(256), 19] }
+            SELECT TOP(1) u.Id, u.AccessFailedCount, u.ConcurrencyStamp, u.Email, u.EmailConfirmed, u.IsActive, u.IsAdmin, u.LastLoginDate, u.LockoutEnabled, u.LockoutEnd, u.Name, u.NormalizedEmail, u.NormalizedUserName, u.PasswordHash, u.PhoneNumber, u.PhoneNumberConfirmed, u.Role, u.SecurityStamp, u.TwoFactorEnabled, u.UserName
+            FROM Users AS u
+            WHERE u.NormalizedUserName == @__normalizedUserName_0), 
+        null, 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, User>, 
+        TravelPlannerAPI.Models.Data.ApplicationDbContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+2025-07-31 10:36:11.006 +05:30 [DBG] Opening connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:36:11.008 +05:30 [DBG] Opened connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:36:11.010 +05:30 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-07-31 10:36:11.012 +05:30 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2025-07-31 10:36:11.014 +05:30 [DBG] Initialized DbCommand for 'ExecuteReader' (3ms).
+2025-07-31 10:36:11.016 +05:30 [DBG] Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[IsActive], [u].[IsAdmin], [u].[LastLoginDate], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[Name], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Role], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2025-07-31 10:36:11.022 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[IsActive], [u].[IsAdmin], [u].[LastLoginDate], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[Name], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Role], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2025-07-31 10:36:11.026 +05:30 [DBG] Closing data reader to 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:36:11.028 +05:30 [DBG] A data reader for 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS' is being disposed after spending 2ms reading results.
+2025-07-31 10:36:11.030 +05:30 [DBG] Closing connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:36:11.032 +05:30 [DBG] Closed connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS' (2ms).
+2025-07-31 10:36:11.047 +05:30 [DBG] An entity of type 'User' tracked by 'ApplicationDbContext' changed state from '"Unchanged"' to '"Modified"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-07-31 10:36:11.051 +05:30 [DBG] SaveChanges starting for 'ApplicationDbContext'.
+2025-07-31 10:36:11.055 +05:30 [DBG] DetectChanges starting for 'ApplicationDbContext'.
+2025-07-31 10:36:11.067 +05:30 [DBG] DetectChanges completed for 'ApplicationDbContext'.
+2025-07-31 10:36:11.121 +05:30 [DBG] Opening connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:36:11.125 +05:30 [DBG] Opened connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:36:11.130 +05:30 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-07-31 10:36:11.132 +05:30 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2025-07-31 10:36:11.134 +05:30 [DBG] Initialized DbCommand for 'ExecuteReader' (4ms).
+2025-07-31 10:36:11.136 +05:30 [DBG] Executing DbCommand [Parameters=[@p19='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p20='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = Boolean), @p6='?' (DbType = DateTime2), @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTimeOffset), @p9='?' (Size = 4000), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 4000), @p16='?' (Size = 4000), @p17='?' (DbType = Boolean), @p18='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [AccessFailedCount] = @p0, [ConcurrencyStamp] = @p1, [Email] = @p2, [EmailConfirmed] = @p3, [IsActive] = @p4, [IsAdmin] = @p5, [LastLoginDate] = @p6, [LockoutEnabled] = @p7, [LockoutEnd] = @p8, [Name] = @p9, [NormalizedEmail] = @p10, [NormalizedUserName] = @p11, [PasswordHash] = @p12, [PhoneNumber] = @p13, [PhoneNumberConfirmed] = @p14, [Role] = @p15, [SecurityStamp] = @p16, [TwoFactorEnabled] = @p17, [UserName] = @p18
+OUTPUT 1
+WHERE [Id] = @p19 AND [ConcurrencyStamp] = @p20;
+2025-07-31 10:36:11.150 +05:30 [INF] Executed DbCommand (14ms) [Parameters=[@p19='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p20='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = Boolean), @p6='?' (DbType = DateTime2), @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTimeOffset), @p9='?' (Size = 4000), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 4000), @p16='?' (Size = 4000), @p17='?' (DbType = Boolean), @p18='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [AccessFailedCount] = @p0, [ConcurrencyStamp] = @p1, [Email] = @p2, [EmailConfirmed] = @p3, [IsActive] = @p4, [IsAdmin] = @p5, [LastLoginDate] = @p6, [LockoutEnabled] = @p7, [LockoutEnd] = @p8, [Name] = @p9, [NormalizedEmail] = @p10, [NormalizedUserName] = @p11, [PasswordHash] = @p12, [PhoneNumber] = @p13, [PhoneNumberConfirmed] = @p14, [Role] = @p15, [SecurityStamp] = @p16, [TwoFactorEnabled] = @p17, [UserName] = @p18
+OUTPUT 1
+WHERE [Id] = @p19 AND [ConcurrencyStamp] = @p20;
+2025-07-31 10:36:11.158 +05:30 [DBG] Closing data reader to 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:36:11.160 +05:30 [DBG] A data reader for 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS' is being disposed after spending 7ms reading results.
+2025-07-31 10:36:11.163 +05:30 [DBG] Closing connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:36:11.165 +05:30 [DBG] Closed connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS' (2ms).
+2025-07-31 10:36:11.169 +05:30 [DBG] An entity of type 'User' tracked by 'ApplicationDbContext' changed state from '"Modified"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-07-31 10:36:11.173 +05:30 [DBG] SaveChanges completed for 'ApplicationDbContext' with 1 entities written to the database.
+2025-07-31 10:36:11.197 +05:30 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2025-07-31 10:36:11.201 +05:30 [DBG] No information found on request to perform content negotiation.
+2025-07-31 10:36:11.202 +05:30 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2025-07-31 10:36:11.203 +05:30 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2025-07-31 10:36:11.205 +05:30 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2025-07-31 10:36:11.207 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`3[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[<>f__AnonymousType2`4[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], TravelPlannerAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-31 10:36:11.232 +05:30 [INF] Executed action AuthController.Login (TravelPlannerAPI) in 440.7426ms
+2025-07-31 10:36:11.234 +05:30 [INF] Executed endpoint 'AuthController.Login (TravelPlannerAPI)'
+2025-07-31 10:36:11.378 +05:30 [INF] Source:[::1] Request: POST http localhost:5276/api/v1/Auth/login  {
+  "email": "suraksha@gmail.com",
+  "password": "Password@123"
+} Responded with [200] in 675ms
+2025-07-31 10:36:11.381 +05:30 [DBG] Connection id "0HNEFTV7CP4B9" completed keep alive response.
+2025-07-31 10:36:11.384 +05:30 [DBG] 'ApplicationDbContext' disposed.
+2025-07-31 10:36:11.387 +05:30 [DBG] Disposing connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:36:11.389 +05:30 [DBG] Disposed connection to database '' on server '' (2ms).
+2025-07-31 10:36:11.392 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5276/api/v1/Auth/login - 200 850 application/json; ver=1 731.0919ms
+2025-07-31 10:38:21.855 +05:30 [DBG] Connection id "0HNEFTV7CP4B9" disconnecting.
+2025-07-31 10:38:21.858 +05:30 [DBG] Connection id "0HNEFTV7CP4B9" stopped.
+2025-07-31 10:38:21.863 +05:30 [DBG] Connection id "0HNEFTV7CP4B9" sending FIN because: "The Socket transport's send loop completed gracefully."
+2025-07-31 10:53:01.740 +05:30 [DBG] Connection id "0HNEFTV7CP4BA" accepted.
+2025-07-31 10:53:01.742 +05:30 [DBG] Connection id "0HNEFTV7CP4BA" started.
+2025-07-31 10:53:01.752 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5276/api/Trip/page?PageNumber=1&PageSize=3 - null null
+2025-07-31 10:53:01.755 +05:30 [DBG] 2 candidate(s) found for the request path '/api/Trip/page'
+2025-07-31 10:53:01.756 +05:30 [DBG] Endpoint 'TravelPlannerAPI.Controllers.TripController.GetTrips (TravelPlannerAPI)' with route pattern 'api/Trip/page' is valid for the request path '/api/Trip/page'
+2025-07-31 10:53:01.759 +05:30 [DBG] Endpoint 'TravelPlannerAPI.Controllers.TripController.GetTrip (TravelPlannerAPI)' with route pattern 'api/Trip/{id}' is valid for the request path '/api/Trip/page'
+2025-07-31 10:53:01.765 +05:30 [DBG] Request matched endpoint 'TravelPlannerAPI.Controllers.TripController.GetTrips (TravelPlannerAPI)'
+2025-07-31 10:53:01.790 +05:30 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '7/31/2025 5:07:11 AM', Current time (UTC): '7/31/2025 5:23:01 AM'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-07-31 10:53:01.799 +05:30 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '7/31/2025 5:07:11 AM', Current time (UTC): '7/31/2025 5:23:01 AM'.
+2025-07-31 10:53:01.802 +05:30 [DBG] Policy authentication schemes  did not succeed
+2025-07-31 10:53:01.805 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-07-31 10:53:01.810 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2025-07-31 10:53:01.816 +05:30 [INF] Source:[::1] Request: GET http localhost:5276/api/Trip/page ?PageNumber=1&PageSize=3  Responded with [401] in 48ms
+2025-07-31 10:53:01.817 +05:30 [DBG] Connection id "0HNEFTV7CP4BA" completed keep alive response.
+2025-07-31 10:53:01.818 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5276/api/Trip/page?PageNumber=1&PageSize=3 - 401 119 application/json 66.3429ms
+2025-07-31 10:53:06.948 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5276/swagger/index.html - null null
+2025-07-31 10:53:06.950 +05:30 [DBG] Connection id "0HNEFTV7CP4BB" accepted.
+2025-07-31 10:53:06.951 +05:30 [DBG] No candidates found for the request path '/swagger/index.html'
+2025-07-31 10:53:06.952 +05:30 [DBG] Connection id "0HNEFTV7CP4BB" started.
+2025-07-31 10:53:06.953 +05:30 [DBG] Request did not match any endpoints
+2025-07-31 10:53:06.984 +05:30 [DBG] Connection id "0HNEFTV7CP4BA" completed keep alive response.
+2025-07-31 10:53:06.986 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5276/swagger/index.html - 200 null text/html;charset=utf-8 38.6354ms
+2025-07-31 10:53:07.094 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5276/swagger/v1/swagger.json - null null
+2025-07-31 10:53:07.097 +05:30 [DBG] No candidates found for the request path '/swagger/v1/swagger.json'
+2025-07-31 10:53:07.099 +05:30 [DBG] Request did not match any endpoints
+2025-07-31 10:53:07.107 +05:30 [DBG] Connection id "0HNEFTV7CP4BA" completed keep alive response.
+2025-07-31 10:53:07.108 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5276/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 14.5062ms
+2025-07-31 10:53:43.050 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5276/api/v1/Auth/login - application/json 64
+2025-07-31 10:53:43.057 +05:30 [DBG] 1 candidate(s) found for the request path '/api/v1/Auth/login'
+2025-07-31 10:53:43.059 +05:30 [DBG] Endpoint 'AuthController.Login (TravelPlannerAPI)' with route pattern 'api/v{version:apiVersion}/Auth/login' is valid for the request path '/api/v1/Auth/login'
+2025-07-31 10:53:43.063 +05:30 [DBG] Request matched endpoint 'AuthController.Login (TravelPlannerAPI)'
+2025-07-31 10:53:43.064 +05:30 [DBG] Connection id "0HNEFTV7CP4BA", Request id "0HNEFTV7CP4BA:00000004": started reading request body.
+2025-07-31 10:53:43.065 +05:30 [DBG] Connection id "0HNEFTV7CP4BA", Request id "0HNEFTV7CP4BA:00000004": done reading request body.
+2025-07-31 10:53:43.067 +05:30 [DBG] The request has an origin header: 'http://localhost:5276'.
+2025-07-31 10:53:43.068 +05:30 [INF] CORS policy execution failed.
+2025-07-31 10:53:43.069 +05:30 [INF] Request origin http://localhost:5276 does not have permission to access the resource.
+2025-07-31 10:53:43.071 +05:30 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2025-07-31 10:53:43.073 +05:30 [INF] Executing endpoint 'AuthController.Login (TravelPlannerAPI)'
+2025-07-31 10:53:43.074 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(TravelPlannerAPI.Dtos.LoginRequestDto) on controller AuthController (TravelPlannerAPI).
+2025-07-31 10:53:43.076 +05:30 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2025-07-31 10:53:43.078 +05:30 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2025-07-31 10:53:43.080 +05:30 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)","Microsoft.AspNetCore.Mvc.ReportApiVersionsAttribute (Order: 0)","Microsoft.AspNetCore.Mvc.Versioning.ApplyContentTypeVersionActionFilter"]
+2025-07-31 10:53:43.083 +05:30 [DBG] Execution plan of exception filters (in the following order): ["TravelPlannerAPI.Filters.ApiExceptionFilter"]
+2025-07-31 10:53:43.084 +05:30 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)","Microsoft.AspNetCore.Mvc.ReportApiVersionsAttribute (Order: 0)"]
+2025-07-31 10:53:43.086 +05:30 [DBG] Executing controller factory for controller AuthController (TravelPlannerAPI)
+2025-07-31 10:53:43.099 +05:30 [DBG] Entity Framework Core 8.0.13 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.13' with options: None
+2025-07-31 10:53:43.102 +05:30 [DBG] Executed controller factory for controller AuthController (TravelPlannerAPI)
+2025-07-31 10:53:43.104 +05:30 [DBG] Attempting to bind parameter 'request' of type 'TravelPlannerAPI.Dtos.LoginRequestDto' ...
+2025-07-31 10:53:43.105 +05:30 [DBG] Attempting to bind parameter 'request' of type 'TravelPlannerAPI.Dtos.LoginRequestDto' using the name '' in request data ...
+2025-07-31 10:53:43.107 +05:30 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2025-07-31 10:53:43.109 +05:30 [DBG] JSON input formatter succeeded, deserializing to type 'TravelPlannerAPI.Dtos.LoginRequestDto'
+2025-07-31 10:53:43.110 +05:30 [DBG] Done attempting to bind parameter 'request' of type 'TravelPlannerAPI.Dtos.LoginRequestDto'.
+2025-07-31 10:53:43.111 +05:30 [DBG] Done attempting to bind parameter 'request' of type 'TravelPlannerAPI.Dtos.LoginRequestDto'.
+2025-07-31 10:53:43.113 +05:30 [DBG] Attempting to validate the bound parameter 'request' of type 'TravelPlannerAPI.Dtos.LoginRequestDto' ...
+2025-07-31 10:53:43.114 +05:30 [DBG] Done attempting to validate the bound parameter 'request' of type 'TravelPlannerAPI.Dtos.LoginRequestDto'.
+2025-07-31 10:53:43.117 +05:30 [DBG] Creating DbConnection.
+2025-07-31 10:53:43.118 +05:30 [DBG] Created DbConnection. (0ms).
+2025-07-31 10:53:43.120 +05:30 [DBG] Opening connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:53:43.126 +05:30 [DBG] Opened connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:53:43.128 +05:30 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-07-31 10:53:43.129 +05:30 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2025-07-31 10:53:43.131 +05:30 [DBG] Initialized DbCommand for 'ExecuteReader' (2ms).
+2025-07-31 10:53:43.132 +05:30 [DBG] Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[IsActive], [u].[IsAdmin], [u].[LastLoginDate], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[Name], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Role], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0
+2025-07-31 10:53:43.138 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[IsActive], [u].[IsAdmin], [u].[LastLoginDate], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[Name], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Role], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0
+2025-07-31 10:53:43.141 +05:30 [DBG] Context 'ApplicationDbContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-07-31 10:53:43.142 +05:30 [DBG] Closing data reader to 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:53:43.144 +05:30 [DBG] A data reader for 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS' is being disposed after spending 3ms reading results.
+2025-07-31 10:53:43.146 +05:30 [DBG] Closing connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:53:43.147 +05:30 [DBG] Closed connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS' (1ms).
+2025-07-31 10:53:43.191 +05:30 [DBG] Opening connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:53:43.193 +05:30 [DBG] Opened connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:53:43.195 +05:30 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-07-31 10:53:43.196 +05:30 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2025-07-31 10:53:43.197 +05:30 [DBG] Initialized DbCommand for 'ExecuteReader' (2ms).
+2025-07-31 10:53:43.199 +05:30 [DBG] Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[IsActive], [u].[IsAdmin], [u].[LastLoginDate], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[Name], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Role], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2025-07-31 10:53:43.204 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[IsActive], [u].[IsAdmin], [u].[LastLoginDate], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[Name], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Role], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2025-07-31 10:53:43.206 +05:30 [DBG] Closing data reader to 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:53:43.208 +05:30 [DBG] A data reader for 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS' is being disposed after spending 1ms reading results.
+2025-07-31 10:53:43.209 +05:30 [DBG] Closing connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:53:43.211 +05:30 [DBG] Closed connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS' (1ms).
+2025-07-31 10:53:43.213 +05:30 [DBG] An entity of type 'User' tracked by 'ApplicationDbContext' changed state from '"Unchanged"' to '"Modified"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-07-31 10:53:43.215 +05:30 [DBG] SaveChanges starting for 'ApplicationDbContext'.
+2025-07-31 10:53:43.216 +05:30 [DBG] DetectChanges starting for 'ApplicationDbContext'.
+2025-07-31 10:53:43.217 +05:30 [DBG] DetectChanges completed for 'ApplicationDbContext'.
+2025-07-31 10:53:43.220 +05:30 [DBG] Opening connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:53:43.221 +05:30 [DBG] Opened connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:53:43.223 +05:30 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-07-31 10:53:43.224 +05:30 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2025-07-31 10:53:43.225 +05:30 [DBG] Initialized DbCommand for 'ExecuteReader' (2ms).
+2025-07-31 10:53:43.227 +05:30 [DBG] Executing DbCommand [Parameters=[@p19='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p20='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = Boolean), @p6='?' (DbType = DateTime2), @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTimeOffset), @p9='?' (Size = 4000), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 4000), @p16='?' (Size = 4000), @p17='?' (DbType = Boolean), @p18='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [AccessFailedCount] = @p0, [ConcurrencyStamp] = @p1, [Email] = @p2, [EmailConfirmed] = @p3, [IsActive] = @p4, [IsAdmin] = @p5, [LastLoginDate] = @p6, [LockoutEnabled] = @p7, [LockoutEnd] = @p8, [Name] = @p9, [NormalizedEmail] = @p10, [NormalizedUserName] = @p11, [PasswordHash] = @p12, [PhoneNumber] = @p13, [PhoneNumberConfirmed] = @p14, [Role] = @p15, [SecurityStamp] = @p16, [TwoFactorEnabled] = @p17, [UserName] = @p18
+OUTPUT 1
+WHERE [Id] = @p19 AND [ConcurrencyStamp] = @p20;
+2025-07-31 10:53:43.235 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[@p19='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p20='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = Boolean), @p6='?' (DbType = DateTime2), @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTimeOffset), @p9='?' (Size = 4000), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 4000), @p16='?' (Size = 4000), @p17='?' (DbType = Boolean), @p18='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [AccessFailedCount] = @p0, [ConcurrencyStamp] = @p1, [Email] = @p2, [EmailConfirmed] = @p3, [IsActive] = @p4, [IsAdmin] = @p5, [LastLoginDate] = @p6, [LockoutEnabled] = @p7, [LockoutEnd] = @p8, [Name] = @p9, [NormalizedEmail] = @p10, [NormalizedUserName] = @p11, [PasswordHash] = @p12, [PhoneNumber] = @p13, [PhoneNumberConfirmed] = @p14, [Role] = @p15, [SecurityStamp] = @p16, [TwoFactorEnabled] = @p17, [UserName] = @p18
+OUTPUT 1
+WHERE [Id] = @p19 AND [ConcurrencyStamp] = @p20;
+2025-07-31 10:53:43.238 +05:30 [DBG] Closing data reader to 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:53:43.240 +05:30 [DBG] A data reader for 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS' is being disposed after spending 1ms reading results.
+2025-07-31 10:53:43.241 +05:30 [DBG] Closing connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:53:43.243 +05:30 [DBG] Closed connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS' (1ms).
+2025-07-31 10:53:43.245 +05:30 [DBG] An entity of type 'User' tracked by 'ApplicationDbContext' changed state from '"Modified"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-07-31 10:53:43.247 +05:30 [DBG] SaveChanges completed for 'ApplicationDbContext' with 1 entities written to the database.
+2025-07-31 10:53:43.249 +05:30 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2025-07-31 10:53:43.251 +05:30 [DBG] No information found on request to perform content negotiation.
+2025-07-31 10:53:43.252 +05:30 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2025-07-31 10:53:43.253 +05:30 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2025-07-31 10:53:43.254 +05:30 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2025-07-31 10:53:43.255 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`3[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[<>f__AnonymousType2`4[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], TravelPlannerAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-31 10:53:43.257 +05:30 [INF] Executed action AuthController.Login (TravelPlannerAPI) in 170.5894ms
+2025-07-31 10:53:43.258 +05:30 [INF] Executed endpoint 'AuthController.Login (TravelPlannerAPI)'
+2025-07-31 10:53:43.260 +05:30 [INF] Source:[::1] Request: POST http localhost:5276/api/v1/Auth/login  {
+  "email": "meghana@gmail.com",
+  "password": "Password@123"
+} Responded with [200] in 196ms
+2025-07-31 10:53:43.262 +05:30 [DBG] Connection id "0HNEFTV7CP4BA" completed keep alive response.
+2025-07-31 10:53:43.264 +05:30 [DBG] 'ApplicationDbContext' disposed.
+2025-07-31 10:53:43.265 +05:30 [DBG] Disposing connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:53:43.267 +05:30 [DBG] Disposed connection to database '' on server '' (1ms).
+2025-07-31 10:53:43.268 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5276/api/v1/Auth/login - 200 845 application/json; ver=1 218.5357ms
+2025-07-31 10:54:10.153 +05:30 [DBG] Connection id "0HNEFTV7CP4BB" received FIN.
+2025-07-31 10:54:10.154 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5276/api/Trip/page?PageNumber=1&PageSize=3 - null null
+2025-07-31 10:54:10.160 +05:30 [DBG] 2 candidate(s) found for the request path '/api/Trip/page'
+2025-07-31 10:54:10.155 +05:30 [DBG] Connection id "0HNEFTV7CP4BB" disconnecting.
+2025-07-31 10:54:10.162 +05:30 [DBG] Endpoint 'TravelPlannerAPI.Controllers.TripController.GetTrips (TravelPlannerAPI)' with route pattern 'api/Trip/page' is valid for the request path '/api/Trip/page'
+2025-07-31 10:54:10.164 +05:30 [DBG] Connection id "0HNEFTV7CP4BB" sending FIN because: "The Socket transport's send loop completed gracefully."
+2025-07-31 10:54:10.167 +05:30 [DBG] Endpoint 'TravelPlannerAPI.Controllers.TripController.GetTrip (TravelPlannerAPI)' with route pattern 'api/Trip/{id}' is valid for the request path '/api/Trip/page'
+2025-07-31 10:54:10.170 +05:30 [DBG] Request matched endpoint 'TravelPlannerAPI.Controllers.TripController.GetTrips (TravelPlannerAPI)'
+2025-07-31 10:54:10.176 +05:30 [DBG] Successfully validated the token.
+2025-07-31 10:54:10.178 +05:30 [DBG] Connection id "0HNEFTV7CP4BB" stopped.
+2025-07-31 10:54:10.178 +05:30 [DBG] AuthenticationScheme: Bearer was successfully authenticated.
+2025-07-31 10:54:10.183 +05:30 [DBG] Authorization was successful.
+2025-07-31 10:54:10.185 +05:30 [INF] Executing endpoint 'TravelPlannerAPI.Controllers.TripController.GetTrips (TravelPlannerAPI)'
+2025-07-31 10:54:10.189 +05:30 [INF] Route matched with {action = "GetTrips", controller = "Trip"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetTrips(TravelPlannerAPI.Dtos.PaginationParamsDto) on controller TravelPlannerAPI.Controllers.TripController (TravelPlannerAPI).
+2025-07-31 10:54:10.191 +05:30 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2025-07-31 10:54:10.192 +05:30 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2025-07-31 10:54:10.194 +05:30 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)","Microsoft.AspNetCore.Mvc.ReportApiVersionsAttribute (Order: 0)","Microsoft.AspNetCore.Mvc.Versioning.ApplyContentTypeVersionActionFilter"]
+2025-07-31 10:54:10.197 +05:30 [DBG] Execution plan of exception filters (in the following order): ["TravelPlannerAPI.Filters.ApiExceptionFilter"]
+2025-07-31 10:54:10.199 +05:30 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)","Microsoft.AspNetCore.Mvc.ReportApiVersionsAttribute (Order: 0)"]
+2025-07-31 10:54:10.200 +05:30 [DBG] Executing controller factory for controller TravelPlannerAPI.Controllers.TripController (TravelPlannerAPI)
+2025-07-31 10:54:10.202 +05:30 [DBG] Entity Framework Core 8.0.13 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.13' with options: None
+2025-07-31 10:54:10.284 +05:30 [DBG] Executed controller factory for controller TravelPlannerAPI.Controllers.TripController (TravelPlannerAPI)
+2025-07-31 10:54:10.286 +05:30 [DBG] Attempting to bind parameter 'paginationParams' of type 'TravelPlannerAPI.Dtos.PaginationParamsDto' ...
+2025-07-31 10:54:10.288 +05:30 [DBG] Attempting to bind parameter 'paginationParams' of type 'TravelPlannerAPI.Dtos.PaginationParamsDto' using the name '' in request data ...
+2025-07-31 10:54:10.292 +05:30 [DBG] Attempting to bind property 'TravelPlannerAPI.Dtos.PaginationParamsDto.PageNumber' of type 'System.Int32' using the name 'PageNumber' in request data ...
+2025-07-31 10:54:10.295 +05:30 [DBG] Done attempting to bind property 'TravelPlannerAPI.Dtos.PaginationParamsDto.PageNumber' of type 'System.Int32'.
+2025-07-31 10:54:10.298 +05:30 [DBG] Attempting to bind property 'TravelPlannerAPI.Dtos.PaginationParamsDto.PageSize' of type 'System.Int32' using the name 'PageSize' in request data ...
+2025-07-31 10:54:10.300 +05:30 [DBG] Done attempting to bind property 'TravelPlannerAPI.Dtos.PaginationParamsDto.PageSize' of type 'System.Int32'.
+2025-07-31 10:54:10.301 +05:30 [DBG] Done attempting to bind parameter 'paginationParams' of type 'TravelPlannerAPI.Dtos.PaginationParamsDto'.
+2025-07-31 10:54:10.303 +05:30 [DBG] Done attempting to bind parameter 'paginationParams' of type 'TravelPlannerAPI.Dtos.PaginationParamsDto'.
+2025-07-31 10:54:10.304 +05:30 [DBG] Attempting to validate the bound parameter 'paginationParams' of type 'TravelPlannerAPI.Dtos.PaginationParamsDto' ...
+2025-07-31 10:54:10.306 +05:30 [DBG] Done attempting to validate the bound parameter 'paginationParams' of type 'TravelPlannerAPI.Dtos.PaginationParamsDto'.
+2025-07-31 10:54:10.310 +05:30 [DBG] Compiling query expression: 
+'DbSet<Trip>()
+    .Count()'
+2025-07-31 10:54:10.333 +05:30 [DBG] Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleAsync<int>(
+    asyncEnumerable: new SingleQueryingEnumerable<int>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.QueryExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> 0
+            SELECT COUNT(*)
+            FROM Trips AS t), 
+        null, 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, int>, 
+        TravelPlannerAPI.Models.Data.ApplicationDbContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+2025-07-31 10:54:10.338 +05:30 [DBG] Creating DbConnection.
+2025-07-31 10:54:10.339 +05:30 [DBG] Created DbConnection. (1ms).
+2025-07-31 10:54:10.340 +05:30 [DBG] Opening connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:54:10.342 +05:30 [DBG] Opened connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:54:10.343 +05:30 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-07-31 10:54:10.344 +05:30 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2025-07-31 10:54:10.346 +05:30 [DBG] Initialized DbCommand for 'ExecuteReader' (2ms).
+2025-07-31 10:54:10.348 +05:30 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Trips] AS [t]
+2025-07-31 10:54:10.354 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Trips] AS [t]
+2025-07-31 10:54:10.356 +05:30 [DBG] Closing data reader to 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:54:10.358 +05:30 [DBG] A data reader for 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS' is being disposed after spending 2ms reading results.
+2025-07-31 10:54:10.359 +05:30 [DBG] Closing connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:54:10.361 +05:30 [DBG] Closed connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS' (1ms).
+2025-07-31 10:54:10.365 +05:30 [DBG] Compiling query expression: 
+'DbSet<Trip>()
+    .Skip(__p_0)
+    .Take(__p_1)'
+2025-07-31 10:54:10.368 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-31 10:54:10.370 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-31 10:54:10.374 +05:30 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Trip>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: Trip.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Trip.BestTime (string), 1], [Property: Trip.Budget (decimal) Required, 2], [Property: Trip.Description (string), 3], [Property: Trip.Destination (string) Required, 4], [Property: Trip.Duration (string), 5], [Property: Trip.EndDate (DateTime) Required, 6], [Property: Trip.EssentialsJson (string), 7], [Property: Trip.Image (string), 8], [Property: Trip.Notes (string) Required, 9], [Property: Trip.StartDate (DateTime) Required, 10], [Property: Trip.Title (string) Required, 11], [Property: Trip.TouristSpotsJson (string), 12], [Property: Trip.TravelMode (string) Required, 13], [Property: Trip.UserId (int) Required FK Index, 14] }
+        SELECT t.Id, t.BestTime, t.Budget, t.Description, t.Destination, t.Duration, t.EndDate, t.EssentialsJson, t.Image, t.Notes, t.StartDate, t.Title, t.TouristSpotsJson, t.TravelMode, t.UserId
+        FROM Trips AS t
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Trip>, 
+    TravelPlannerAPI.Models.Data.ApplicationDbContext, 
+    False, 
+    False, 
+    True
+)'
+2025-07-31 10:54:10.377 +05:30 [DBG] Opening connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:54:10.378 +05:30 [DBG] Opened connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:54:10.380 +05:30 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-07-31 10:54:10.381 +05:30 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2025-07-31 10:54:10.383 +05:30 [DBG] Initialized DbCommand for 'ExecuteReader' (2ms).
+2025-07-31 10:54:10.384 +05:30 [DBG] Executing DbCommand [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[BestTime], [t].[Budget], [t].[Description], [t].[Destination], [t].[Duration], [t].[EndDate], [t].[EssentialsJson], [t].[Image], [t].[Notes], [t].[StartDate], [t].[Title], [t].[TouristSpotsJson], [t].[TravelMode], [t].[UserId]
+FROM [Trips] AS [t]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2025-07-31 10:54:10.390 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[BestTime], [t].[Budget], [t].[Description], [t].[Destination], [t].[Duration], [t].[EndDate], [t].[EssentialsJson], [t].[Image], [t].[Notes], [t].[StartDate], [t].[Title], [t].[TouristSpotsJson], [t].[TravelMode], [t].[UserId]
+FROM [Trips] AS [t]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2025-07-31 10:54:10.402 +05:30 [DBG] Context 'ApplicationDbContext' started tracking 'Trip' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-07-31 10:54:10.418 +05:30 [DBG] Context 'ApplicationDbContext' started tracking 'Trip' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-07-31 10:54:10.419 +05:30 [DBG] Context 'ApplicationDbContext' started tracking 'Trip' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-07-31 10:54:10.420 +05:30 [DBG] Closing data reader to 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:54:10.422 +05:30 [DBG] A data reader for 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS' is being disposed after spending 29ms reading results.
+2025-07-31 10:54:10.423 +05:30 [DBG] Closing connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:54:10.425 +05:30 [DBG] Closed connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS' (1ms).
+2025-07-31 10:54:10.437 +05:30 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2025-07-31 10:54:10.439 +05:30 [DBG] No information found on request to perform content negotiation.
+2025-07-31 10:54:10.440 +05:30 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2025-07-31 10:54:10.441 +05:30 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2025-07-31 10:54:10.442 +05:30 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2025-07-31 10:54:10.443 +05:30 [INF] Executing OkObjectResult, writing value of type 'TravelPlannerAPI.Helpers.PaginatedResult`1[[TravelPlannerAPI.Dtos.TripDto, TravelPlannerAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-31 10:54:10.455 +05:30 [INF] Executed action TravelPlannerAPI.Controllers.TripController.GetTrips (TravelPlannerAPI) in 254.4645ms
+2025-07-31 10:54:10.457 +05:30 [INF] Executed endpoint 'TravelPlannerAPI.Controllers.TripController.GetTrips (TravelPlannerAPI)'
+2025-07-31 10:54:10.466 +05:30 [INF] Source:[::1] Request: GET http localhost:5276/api/Trip/page ?PageNumber=1&PageSize=3  Responded with [200] in 295ms
+2025-07-31 10:54:10.467 +05:30 [DBG] Connection id "0HNEFTV7CP4BA" completed keep alive response.
+2025-07-31 10:54:10.469 +05:30 [DBG] 'ApplicationDbContext' disposed.
+2025-07-31 10:54:10.470 +05:30 [DBG] Disposing connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:54:10.471 +05:30 [DBG] Disposed connection to database '' on server '' (1ms).
+2025-07-31 10:54:10.473 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5276/api/Trip/page?PageNumber=1&PageSize=3 - 200 1716 application/json; ver=1.0 318.9567ms
+2025-07-31 10:54:23.346 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5276/api/Trip/page?PageNumber=1&PageSize=6 - null null
+2025-07-31 10:54:23.350 +05:30 [DBG] 2 candidate(s) found for the request path '/api/Trip/page'
+2025-07-31 10:54:23.352 +05:30 [DBG] Endpoint 'TravelPlannerAPI.Controllers.TripController.GetTrips (TravelPlannerAPI)' with route pattern 'api/Trip/page' is valid for the request path '/api/Trip/page'
+2025-07-31 10:54:23.354 +05:30 [DBG] Endpoint 'TravelPlannerAPI.Controllers.TripController.GetTrip (TravelPlannerAPI)' with route pattern 'api/Trip/{id}' is valid for the request path '/api/Trip/page'
+2025-07-31 10:54:23.356 +05:30 [DBG] Request matched endpoint 'TravelPlannerAPI.Controllers.TripController.GetTrips (TravelPlannerAPI)'
+2025-07-31 10:54:23.357 +05:30 [DBG] Successfully validated the token.
+2025-07-31 10:54:23.358 +05:30 [DBG] AuthenticationScheme: Bearer was successfully authenticated.
+2025-07-31 10:54:23.360 +05:30 [DBG] Authorization was successful.
+2025-07-31 10:54:23.361 +05:30 [INF] Executing endpoint 'TravelPlannerAPI.Controllers.TripController.GetTrips (TravelPlannerAPI)'
+2025-07-31 10:54:23.362 +05:30 [INF] Route matched with {action = "GetTrips", controller = "Trip"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetTrips(TravelPlannerAPI.Dtos.PaginationParamsDto) on controller TravelPlannerAPI.Controllers.TripController (TravelPlannerAPI).
+2025-07-31 10:54:23.364 +05:30 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2025-07-31 10:54:23.366 +05:30 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2025-07-31 10:54:23.367 +05:30 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)","Microsoft.AspNetCore.Mvc.ReportApiVersionsAttribute (Order: 0)","Microsoft.AspNetCore.Mvc.Versioning.ApplyContentTypeVersionActionFilter"]
+2025-07-31 10:54:23.370 +05:30 [DBG] Execution plan of exception filters (in the following order): ["TravelPlannerAPI.Filters.ApiExceptionFilter"]
+2025-07-31 10:54:23.371 +05:30 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)","Microsoft.AspNetCore.Mvc.ReportApiVersionsAttribute (Order: 0)"]
+2025-07-31 10:54:23.373 +05:30 [DBG] Executing controller factory for controller TravelPlannerAPI.Controllers.TripController (TravelPlannerAPI)
+2025-07-31 10:54:23.376 +05:30 [DBG] Entity Framework Core 8.0.13 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.13' with options: None
+2025-07-31 10:54:23.379 +05:30 [DBG] Executed controller factory for controller TravelPlannerAPI.Controllers.TripController (TravelPlannerAPI)
+2025-07-31 10:54:23.381 +05:30 [DBG] Attempting to bind parameter 'paginationParams' of type 'TravelPlannerAPI.Dtos.PaginationParamsDto' ...
+2025-07-31 10:54:23.382 +05:30 [DBG] Attempting to bind parameter 'paginationParams' of type 'TravelPlannerAPI.Dtos.PaginationParamsDto' using the name '' in request data ...
+2025-07-31 10:54:23.384 +05:30 [DBG] Attempting to bind property 'TravelPlannerAPI.Dtos.PaginationParamsDto.PageNumber' of type 'System.Int32' using the name 'PageNumber' in request data ...
+2025-07-31 10:54:23.386 +05:30 [DBG] Done attempting to bind property 'TravelPlannerAPI.Dtos.PaginationParamsDto.PageNumber' of type 'System.Int32'.
+2025-07-31 10:54:23.387 +05:30 [DBG] Attempting to bind property 'TravelPlannerAPI.Dtos.PaginationParamsDto.PageSize' of type 'System.Int32' using the name 'PageSize' in request data ...
+2025-07-31 10:54:23.389 +05:30 [DBG] Done attempting to bind property 'TravelPlannerAPI.Dtos.PaginationParamsDto.PageSize' of type 'System.Int32'.
+2025-07-31 10:54:23.390 +05:30 [DBG] Done attempting to bind parameter 'paginationParams' of type 'TravelPlannerAPI.Dtos.PaginationParamsDto'.
+2025-07-31 10:54:23.392 +05:30 [DBG] Done attempting to bind parameter 'paginationParams' of type 'TravelPlannerAPI.Dtos.PaginationParamsDto'.
+2025-07-31 10:54:23.393 +05:30 [DBG] Attempting to validate the bound parameter 'paginationParams' of type 'TravelPlannerAPI.Dtos.PaginationParamsDto' ...
+2025-07-31 10:54:23.394 +05:30 [DBG] Done attempting to validate the bound parameter 'paginationParams' of type 'TravelPlannerAPI.Dtos.PaginationParamsDto'.
+2025-07-31 10:54:23.397 +05:30 [DBG] Creating DbConnection.
+2025-07-31 10:54:23.398 +05:30 [DBG] Created DbConnection. (1ms).
+2025-07-31 10:54:23.399 +05:30 [DBG] Opening connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:54:23.401 +05:30 [DBG] Opened connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:54:23.402 +05:30 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-07-31 10:54:23.403 +05:30 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2025-07-31 10:54:23.404 +05:30 [DBG] Initialized DbCommand for 'ExecuteReader' (2ms).
+2025-07-31 10:54:23.405 +05:30 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Trips] AS [t]
+2025-07-31 10:54:23.408 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Trips] AS [t]
+2025-07-31 10:54:23.410 +05:30 [DBG] Closing data reader to 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:54:23.411 +05:30 [DBG] A data reader for 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS' is being disposed after spending 1ms reading results.
+2025-07-31 10:54:23.413 +05:30 [DBG] Closing connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:54:23.415 +05:30 [DBG] Closed connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS' (1ms).
+2025-07-31 10:54:23.417 +05:30 [DBG] Opening connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:54:23.418 +05:30 [DBG] Opened connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:54:23.420 +05:30 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-07-31 10:54:23.421 +05:30 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2025-07-31 10:54:23.422 +05:30 [DBG] Initialized DbCommand for 'ExecuteReader' (2ms).
+2025-07-31 10:54:23.423 +05:30 [DBG] Executing DbCommand [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[BestTime], [t].[Budget], [t].[Description], [t].[Destination], [t].[Duration], [t].[EndDate], [t].[EssentialsJson], [t].[Image], [t].[Notes], [t].[StartDate], [t].[Title], [t].[TouristSpotsJson], [t].[TravelMode], [t].[UserId]
+FROM [Trips] AS [t]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2025-07-31 10:54:23.426 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[BestTime], [t].[Budget], [t].[Description], [t].[Destination], [t].[Duration], [t].[EndDate], [t].[EssentialsJson], [t].[Image], [t].[Notes], [t].[StartDate], [t].[Title], [t].[TouristSpotsJson], [t].[TravelMode], [t].[UserId]
+FROM [Trips] AS [t]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2025-07-31 10:54:23.428 +05:30 [DBG] Context 'ApplicationDbContext' started tracking 'Trip' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-07-31 10:54:23.430 +05:30 [DBG] Context 'ApplicationDbContext' started tracking 'Trip' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-07-31 10:54:23.432 +05:30 [DBG] Context 'ApplicationDbContext' started tracking 'Trip' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-07-31 10:54:23.433 +05:30 [DBG] Context 'ApplicationDbContext' started tracking 'Trip' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-07-31 10:54:23.434 +05:30 [DBG] Context 'ApplicationDbContext' started tracking 'Trip' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-07-31 10:54:23.436 +05:30 [DBG] Context 'ApplicationDbContext' started tracking 'Trip' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-07-31 10:54:23.437 +05:30 [DBG] Closing data reader to 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:54:23.438 +05:30 [DBG] A data reader for 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS' is being disposed after spending 10ms reading results.
+2025-07-31 10:54:23.440 +05:30 [DBG] Closing connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:54:23.441 +05:30 [DBG] Closed connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS' (1ms).
+2025-07-31 10:54:23.443 +05:30 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2025-07-31 10:54:23.446 +05:30 [DBG] No information found on request to perform content negotiation.
+2025-07-31 10:54:23.447 +05:30 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2025-07-31 10:54:23.448 +05:30 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2025-07-31 10:54:23.448 +05:30 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2025-07-31 10:54:23.450 +05:30 [INF] Executing OkObjectResult, writing value of type 'TravelPlannerAPI.Helpers.PaginatedResult`1[[TravelPlannerAPI.Dtos.TripDto, TravelPlannerAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-31 10:54:23.451 +05:30 [INF] Executed action TravelPlannerAPI.Controllers.TripController.GetTrips (TravelPlannerAPI) in 78.5508ms
+2025-07-31 10:54:23.453 +05:30 [INF] Executed endpoint 'TravelPlannerAPI.Controllers.TripController.GetTrips (TravelPlannerAPI)'
+2025-07-31 10:54:23.455 +05:30 [INF] Source:[::1] Request: GET http localhost:5276/api/Trip/page ?PageNumber=1&PageSize=6  Responded with [200] in 98ms
+2025-07-31 10:54:23.456 +05:30 [DBG] Connection id "0HNEFTV7CP4BA" completed keep alive response.
+2025-07-31 10:54:23.458 +05:30 [DBG] 'ApplicationDbContext' disposed.
+2025-07-31 10:54:23.459 +05:30 [DBG] Disposing connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 10:54:23.460 +05:30 [DBG] Disposed connection to database '' on server '' (1ms).
+2025-07-31 10:54:23.462 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5276/api/Trip/page?PageNumber=1&PageSize=6 - 200 4852 application/json; ver=1.0 116.3363ms
+2025-07-31 10:55:03.053 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5276/swagger/index.html - null null
+2025-07-31 10:55:03.055 +05:30 [DBG] Connection id "0HNEFTV7CP4BC" accepted.
+2025-07-31 10:55:03.057 +05:30 [DBG] No candidates found for the request path '/swagger/index.html'
+2025-07-31 10:55:03.057 +05:30 [DBG] Connection id "0HNEFTV7CP4BC" started.
+2025-07-31 10:55:03.059 +05:30 [DBG] Request did not match any endpoints
+2025-07-31 10:55:03.061 +05:30 [DBG] Connection id "0HNEFTV7CP4BA" completed keep alive response.
+2025-07-31 10:55:03.063 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5276/swagger/index.html - 200 null text/html;charset=utf-8 9.1823ms
+2025-07-31 10:55:03.164 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5276/swagger/v1/swagger.json - null null
+2025-07-31 10:55:03.169 +05:30 [DBG] No candidates found for the request path '/swagger/v1/swagger.json'
+2025-07-31 10:55:03.171 +05:30 [DBG] Request did not match any endpoints
+2025-07-31 10:55:03.181 +05:30 [DBG] Connection id "0HNEFTV7CP4BA" completed keep alive response.
+2025-07-31 10:55:03.182 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5276/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 17.7997ms
+2025-07-31 10:56:05.772 +05:30 [DBG] Connection id "0HNEFTV7CP4BC" received FIN.
+2025-07-31 10:56:05.773 +05:30 [DBG] Connection id "0HNEFTV7CP4BC" disconnecting.
+2025-07-31 10:56:05.776 +05:30 [DBG] Connection id "0HNEFTV7CP4BC" sending FIN because: "The Socket transport's send loop completed gracefully."
+2025-07-31 10:56:05.779 +05:30 [DBG] Connection id "0HNEFTV7CP4BC" stopped.
+2025-07-31 10:57:14.441 +05:30 [DBG] Connection id "0HNEFTV7CP4BA" disconnecting.
+2025-07-31 10:57:14.443 +05:30 [DBG] Connection id "0HNEFTV7CP4BA" stopped.
+2025-07-31 10:57:14.447 +05:30 [DBG] Connection id "0HNEFTV7CP4BA" sending FIN because: "The Socket transport's send loop completed gracefully."
+2025-07-31 11:04:01.384 +05:30 [INF] Application is shutting down...
+2025-07-31 11:04:01.385 +05:30 [DBG] Hosting stopping
+2025-07-31 11:04:01.390 +05:30 [DBG] Hosting stopped
+2025-07-31 16:29:32.408 +05:30 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.Versioning.ApiVersionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2025-07-31 16:29:32.543 +05:30 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2025-07-31 16:29:32.580 +05:30 [INF] User profile is available. Using 'C:\Users\A2832856\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-07-31 16:29:32.863 +05:30 [DBG] The index {'UserId'} was not created on entity type 'IdentityUserRole<int>' as the properties are already covered by the index {'UserId', 'RoleId'}.
+2025-07-31 16:29:32.865 +05:30 [DBG] The index {'UserId'} was not created on entity type 'IdentityUserToken<int>' as the properties are already covered by the index {'UserId', 'LoginProvider', 'Name'}.
+2025-07-31 16:29:32.868 +05:30 [DBG] The index {'TripId'} was not created on entity type 'Review' as the properties are already covered by the index {'TripId', 'UserId'}.
+2025-07-31 16:29:32.870 +05:30 [DBG] The index {'TripId'} was not created on entity type 'TripShare' as the properties are already covered by the index {'TripId', 'SharedWithUserId'}.
+2025-07-31 16:29:32.968 +05:30 [WRN] No store type was specified for the decimal property 'Food' on entity type 'BudgetDetails'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-07-31 16:29:32.970 +05:30 [WRN] No store type was specified for the decimal property 'Hotel' on entity type 'BudgetDetails'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-07-31 16:29:32.973 +05:30 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'Expense'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-07-31 16:29:32.975 +05:30 [WRN] No store type was specified for the decimal property 'Budget' on entity type 'Trip'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-07-31 16:29:33.056 +05:30 [DBG] Entity Framework Core 8.0.13 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.13' with options: None
+2025-07-31 16:29:33.104 +05:30 [DBG] Compiling query expression: 
+'DbSet<IdentityRole<int>>()
+    .FirstOrDefault(r => r.NormalizedName == __normalizedName_0)'
+2025-07-31 16:29:33.205 +05:30 [DBG] Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<IdentityRole<int>>(
+    asyncEnumerable: new SingleQueryingEnumerable<IdentityRole<int>>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.QueryExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: IdentityRole<int>.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: IdentityRole<int>.ConcurrencyStamp (string) Concurrency, 1], [Property: IdentityRole<int>.Name (string) MaxLength(256), 2], [Property: IdentityRole<int>.NormalizedName (string) Index MaxLength(256), 3] }
+            SELECT TOP(1) r.Id, r.ConcurrencyStamp, r.Name, r.NormalizedName
+            FROM role AS r
+            WHERE r.NormalizedName == @__normalizedName_0), 
+        null, 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, IdentityRole<int>>, 
+        TravelPlannerAPI.Models.Data.ApplicationDbContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+2025-07-31 16:29:33.231 +05:30 [DBG] Creating DbConnection.
+2025-07-31 16:29:33.245 +05:30 [DBG] Created DbConnection. (12ms).
+2025-07-31 16:29:33.250 +05:30 [DBG] Opening connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 16:29:33.387 +05:30 [DBG] Opened connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 16:29:33.392 +05:30 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-07-31 16:29:33.398 +05:30 [DBG] Created DbCommand for 'ExecuteReader' (4ms).
+2025-07-31 16:29:33.405 +05:30 [DBG] Initialized DbCommand for 'ExecuteReader' (13ms).
+2025-07-31 16:29:33.413 +05:30 [DBG] Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Name], [r].[NormalizedName]
+FROM [role] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0
+2025-07-31 16:29:33.457 +05:30 [INF] Executed DbCommand (42ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Name], [r].[NormalizedName]
+FROM [role] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0
+2025-07-31 16:29:33.505 +05:30 [DBG] Context 'ApplicationDbContext' started tracking 'IdentityRole' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-07-31 16:29:33.524 +05:30 [DBG] Closing data reader to 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 16:29:33.533 +05:30 [DBG] A data reader for 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS' is being disposed after spending 66ms reading results.
+2025-07-31 16:29:33.542 +05:30 [DBG] Closing connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 16:29:33.549 +05:30 [DBG] Closed connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS' (7ms).
+2025-07-31 16:29:33.555 +05:30 [DBG] Compiling query expression: 
+'DbSet<User>()
+    .SingleOrDefault(u => u.NormalizedEmail == __normalizedEmail_0)'
+2025-07-31 16:29:33.564 +05:30 [DBG] Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<User>(
+    asyncEnumerable: new SingleQueryingEnumerable<User>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.QueryExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: User.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: User.AccessFailedCount (int) Required, 1], [Property: User.ConcurrencyStamp (string) Concurrency, 2], [Property: User.Email (string) MaxLength(256), 3], [Property: User.EmailConfirmed (bool) Required, 4], [Property: User.IsActive (bool) Required, 5], [Property: User.IsAdmin (bool) Required, 6], [Property: User.LastLoginDate (DateTime) Required, 7], [Property: User.LockoutEnabled (bool) Required, 8], [Property: User.LockoutEnd (DateTimeOffset?), 9], [Property: User.Name (string) Required, 10], [Property: User.NormalizedEmail (string) Index MaxLength(256), 11], [Property: User.NormalizedUserName (string) Index MaxLength(256), 12], [Property: User.PasswordHash (string), 13], [Property: User.PhoneNumber (string), 14], [Property: User.PhoneNumberConfirmed (bool) Required, 15], [Property: User.Role (string) Required, 16], [Property: User.SecurityStamp (string), 17], [Property: User.TwoFactorEnabled (bool) Required, 18], [Property: User.UserName (string) MaxLength(256), 19] }
+            SELECT TOP(2) u.Id, u.AccessFailedCount, u.ConcurrencyStamp, u.Email, u.EmailConfirmed, u.IsActive, u.IsAdmin, u.LastLoginDate, u.LockoutEnabled, u.LockoutEnd, u.Name, u.NormalizedEmail, u.NormalizedUserName, u.PasswordHash, u.PhoneNumber, u.PhoneNumberConfirmed, u.Role, u.SecurityStamp, u.TwoFactorEnabled, u.UserName
+            FROM Users AS u
+            WHERE u.NormalizedEmail == @__normalizedEmail_0), 
+        null, 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, User>, 
+        TravelPlannerAPI.Models.Data.ApplicationDbContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+2025-07-31 16:29:33.568 +05:30 [DBG] Opening connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 16:29:33.571 +05:30 [DBG] Opened connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 16:29:33.573 +05:30 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-07-31 16:29:33.576 +05:30 [DBG] Created DbCommand for 'ExecuteReader' (2ms).
+2025-07-31 16:29:33.579 +05:30 [DBG] Initialized DbCommand for 'ExecuteReader' (5ms).
+2025-07-31 16:29:33.582 +05:30 [DBG] Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[IsActive], [u].[IsAdmin], [u].[LastLoginDate], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[Name], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Role], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0
+2025-07-31 16:29:33.591 +05:30 [INF] Executed DbCommand (10ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[IsActive], [u].[IsAdmin], [u].[LastLoginDate], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[Name], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Role], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0
+2025-07-31 16:29:33.611 +05:30 [DBG] Context 'ApplicationDbContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-07-31 16:29:33.656 +05:30 [DBG] Closing data reader to 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 16:29:33.658 +05:30 [DBG] A data reader for 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS' is being disposed after spending 63ms reading results.
+2025-07-31 16:29:33.660 +05:30 [DBG] Closing connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 16:29:33.663 +05:30 [DBG] Closed connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS' (2ms).
+2025-07-31 16:29:33.667 +05:30 [DBG] 'ApplicationDbContext' disposed.
+2025-07-31 16:29:33.671 +05:30 [DBG] Disposing connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 16:29:33.675 +05:30 [DBG] Disposed connection to database '' on server '' (4ms).
+2025-07-31 16:29:33.682 +05:30 [DBG] Hosting starting
+2025-07-31 16:29:33.695 +05:30 [DBG] Reading data from file 'C:\Users\A2832856\AppData\Local\ASP.NET\DataProtection-Keys\key-b8dbd3f7-4314-4233-bf92-12b3421374e1.xml'.
+2025-07-31 16:29:33.703 +05:30 [DBG] Found key {b8dbd3f7-4314-4233-bf92-12b3421374e1}.
+2025-07-31 16:29:33.712 +05:30 [DBG] Considering key {b8dbd3f7-4314-4233-bf92-12b3421374e1} with expiration date 2025-10-14 14:17:30Z as default key.
+2025-07-31 16:29:33.717 +05:30 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2025-07-31 16:29:33.719 +05:30 [DBG] Decrypting secret element using Windows DPAPI.
+2025-07-31 16:29:33.723 +05:30 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2025-07-31 16:29:33.726 +05:30 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2025-07-31 16:29:33.729 +05:30 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2025-07-31 16:29:33.732 +05:30 [DBG] Using key {b8dbd3f7-4314-4233-bf92-12b3421374e1} as the default key.
+2025-07-31 16:29:33.734 +05:30 [DBG] Key ring with default key {b8dbd3f7-4314-4233-bf92-12b3421374e1} was loaded during application startup.
+2025-07-31 16:29:33.774 +05:30 [INF] Now listening on: http://localhost:5276
+2025-07-31 16:29:33.776 +05:30 [DBG] Loaded hosting startup assembly TravelPlannerAPI
+2025-07-31 16:29:33.777 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-31 16:29:33.778 +05:30 [INF] Hosting environment: Development
+2025-07-31 16:29:33.779 +05:30 [INF] Content root path: C:\Prejoining_Project\Backend\TravelPlannerAPI\TravelPlannerAPI
+2025-07-31 16:29:33.780 +05:30 [DBG] Hosting started
+2025-07-31 16:29:34.961 +05:30 [DBG] Connection id "0HNEG45ATSPVS" accepted.
+2025-07-31 16:29:34.963 +05:30 [DBG] Connection id "0HNEG45ATSPVS" started.
+2025-07-31 16:29:34.982 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5276/swagger/v1/swagger.json - null null
+2025-07-31 16:29:34.987 +05:30 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2025-07-31 16:29:34.998 +05:30 [DBG] No candidates found for the request path '/swagger/v1/swagger.json'
+2025-07-31 16:29:35.000 +05:30 [DBG] Request did not match any endpoints
+2025-07-31 16:29:35.090 +05:30 [DBG] Connection id "0HNEG45ATSPVS" completed keep alive response.
+2025-07-31 16:29:35.093 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5276/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 111.5368ms
+2025-07-31 16:30:33.541 +05:30 [DBG] Connection id "0HNEG45ATSPVT" accepted.
+2025-07-31 16:30:33.543 +05:30 [DBG] Connection id "0HNEG45ATSPVT" started.
+2025-07-31 16:30:33.547 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5276/api/v1/Auth/login - null null
+2025-07-31 16:30:33.556 +05:30 [DBG] 1 candidate(s) found for the request path '/api/v1/Auth/login'
+2025-07-31 16:30:33.559 +05:30 [DBG] Request matched endpoint '405 HTTP Method Not Supported'
+2025-07-31 16:30:33.570 +05:30 [WRN] Failed to determine the https port for redirect.
+2025-07-31 16:30:33.572 +05:30 [DBG] The request has an origin header: 'http://localhost:4200'.
+2025-07-31 16:30:33.574 +05:30 [INF] CORS policy execution successful.
+2025-07-31 16:30:33.576 +05:30 [DBG] The request is a preflight request.
+2025-07-31 16:30:33.589 +05:30 [INF] Source:[::1] Request: OPTIONS http localhost:5276/api/v1/Auth/login   Responded with [204] in 14ms
+2025-07-31 16:30:33.591 +05:30 [DBG] Connection id "0HNEG45ATSPVT" completed keep alive response.
+2025-07-31 16:30:33.593 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5276/api/v1/Auth/login - 204 null null 45.4592ms
+2025-07-31 16:30:33.595 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5276/api/v1/Auth/login - application/json 56
+2025-07-31 16:30:33.601 +05:30 [DBG] 1 candidate(s) found for the request path '/api/v1/Auth/login'
+2025-07-31 16:30:33.603 +05:30 [DBG] Endpoint 'AuthController.Login (TravelPlannerAPI)' with route pattern 'api/v{version:apiVersion}/Auth/login' is valid for the request path '/api/v1/Auth/login'
+2025-07-31 16:30:33.607 +05:30 [DBG] Request matched endpoint 'AuthController.Login (TravelPlannerAPI)'
+2025-07-31 16:30:33.610 +05:30 [DBG] Connection id "0HNEG45ATSPVS", Request id "0HNEG45ATSPVS:00000002": started reading request body.
+2025-07-31 16:30:33.612 +05:30 [DBG] Connection id "0HNEG45ATSPVS", Request id "0HNEG45ATSPVS:00000002": done reading request body.
+2025-07-31 16:30:33.615 +05:30 [DBG] The request has an origin header: 'http://localhost:4200'.
+2025-07-31 16:30:33.617 +05:30 [INF] CORS policy execution successful.
+2025-07-31 16:30:33.661 +05:30 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '7/30/2025 4:50:35 PM', Current time (UTC): '7/31/2025 11:00:33 AM'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-07-31 16:30:33.669 +05:30 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '7/30/2025 4:50:35 PM', Current time (UTC): '7/31/2025 11:00:33 AM'.
+2025-07-31 16:30:33.672 +05:30 [INF] Executing endpoint 'AuthController.Login (TravelPlannerAPI)'
+2025-07-31 16:30:33.688 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(TravelPlannerAPI.Dtos.LoginRequestDto) on controller AuthController (TravelPlannerAPI).
+2025-07-31 16:30:33.692 +05:30 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2025-07-31 16:30:33.694 +05:30 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2025-07-31 16:30:33.696 +05:30 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)","Microsoft.AspNetCore.Mvc.ReportApiVersionsAttribute (Order: 0)","Microsoft.AspNetCore.Mvc.Versioning.ApplyContentTypeVersionActionFilter"]
+2025-07-31 16:30:33.699 +05:30 [DBG] Execution plan of exception filters (in the following order): ["TravelPlannerAPI.Filters.ApiExceptionFilter"]
+2025-07-31 16:30:33.700 +05:30 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)","Microsoft.AspNetCore.Mvc.ReportApiVersionsAttribute (Order: 0)"]
+2025-07-31 16:30:33.703 +05:30 [DBG] Executing controller factory for controller AuthController (TravelPlannerAPI)
+2025-07-31 16:30:33.741 +05:30 [DBG] Entity Framework Core 8.0.13 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.13' with options: None
+2025-07-31 16:30:33.744 +05:30 [DBG] Executed controller factory for controller AuthController (TravelPlannerAPI)
+2025-07-31 16:30:33.748 +05:30 [DBG] Attempting to bind parameter 'request' of type 'TravelPlannerAPI.Dtos.LoginRequestDto' ...
+2025-07-31 16:30:33.751 +05:30 [DBG] Attempting to bind parameter 'request' of type 'TravelPlannerAPI.Dtos.LoginRequestDto' using the name '' in request data ...
+2025-07-31 16:30:33.754 +05:30 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2025-07-31 16:30:33.788 +05:30 [DBG] JSON input formatter succeeded, deserializing to type 'TravelPlannerAPI.Dtos.LoginRequestDto'
+2025-07-31 16:30:33.791 +05:30 [DBG] Done attempting to bind parameter 'request' of type 'TravelPlannerAPI.Dtos.LoginRequestDto'.
+2025-07-31 16:30:33.793 +05:30 [DBG] Done attempting to bind parameter 'request' of type 'TravelPlannerAPI.Dtos.LoginRequestDto'.
+2025-07-31 16:30:33.795 +05:30 [DBG] Attempting to validate the bound parameter 'request' of type 'TravelPlannerAPI.Dtos.LoginRequestDto' ...
+2025-07-31 16:30:33.802 +05:30 [DBG] Done attempting to validate the bound parameter 'request' of type 'TravelPlannerAPI.Dtos.LoginRequestDto'.
+2025-07-31 16:30:33.810 +05:30 [DBG] Creating DbConnection.
+2025-07-31 16:30:33.812 +05:30 [DBG] Created DbConnection. (1ms).
+2025-07-31 16:30:33.813 +05:30 [DBG] Opening connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 16:30:33.815 +05:30 [DBG] Opened connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 16:30:33.816 +05:30 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-07-31 16:30:33.818 +05:30 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2025-07-31 16:30:33.819 +05:30 [DBG] Initialized DbCommand for 'ExecuteReader' (2ms).
+2025-07-31 16:30:33.821 +05:30 [DBG] Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[IsActive], [u].[IsAdmin], [u].[LastLoginDate], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[Name], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Role], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0
+2025-07-31 16:30:33.834 +05:30 [INF] Executed DbCommand (13ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[IsActive], [u].[IsAdmin], [u].[LastLoginDate], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[Name], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Role], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0
+2025-07-31 16:30:33.837 +05:30 [DBG] Context 'ApplicationDbContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-07-31 16:30:33.839 +05:30 [DBG] Closing data reader to 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 16:30:33.841 +05:30 [DBG] A data reader for 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS' is being disposed after spending 4ms reading results.
+2025-07-31 16:30:33.843 +05:30 [DBG] Closing connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 16:30:33.844 +05:30 [DBG] Closed connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS' (1ms).
+2025-07-31 16:30:33.904 +05:30 [DBG] Compiling query expression: 
+'DbSet<User>()
+    .FirstOrDefault(u => u.NormalizedUserName == __normalizedUserName_0)'
+2025-07-31 16:30:33.913 +05:30 [DBG] Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<User>(
+    asyncEnumerable: new SingleQueryingEnumerable<User>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.QueryExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: User.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: User.AccessFailedCount (int) Required, 1], [Property: User.ConcurrencyStamp (string) Concurrency, 2], [Property: User.Email (string) MaxLength(256), 3], [Property: User.EmailConfirmed (bool) Required, 4], [Property: User.IsActive (bool) Required, 5], [Property: User.IsAdmin (bool) Required, 6], [Property: User.LastLoginDate (DateTime) Required, 7], [Property: User.LockoutEnabled (bool) Required, 8], [Property: User.LockoutEnd (DateTimeOffset?), 9], [Property: User.Name (string) Required, 10], [Property: User.NormalizedEmail (string) Index MaxLength(256), 11], [Property: User.NormalizedUserName (string) Index MaxLength(256), 12], [Property: User.PasswordHash (string), 13], [Property: User.PhoneNumber (string), 14], [Property: User.PhoneNumberConfirmed (bool) Required, 15], [Property: User.Role (string) Required, 16], [Property: User.SecurityStamp (string), 17], [Property: User.TwoFactorEnabled (bool) Required, 18], [Property: User.UserName (string) MaxLength(256), 19] }
+            SELECT TOP(1) u.Id, u.AccessFailedCount, u.ConcurrencyStamp, u.Email, u.EmailConfirmed, u.IsActive, u.IsAdmin, u.LastLoginDate, u.LockoutEnabled, u.LockoutEnd, u.Name, u.NormalizedEmail, u.NormalizedUserName, u.PasswordHash, u.PhoneNumber, u.PhoneNumberConfirmed, u.Role, u.SecurityStamp, u.TwoFactorEnabled, u.UserName
+            FROM Users AS u
+            WHERE u.NormalizedUserName == @__normalizedUserName_0), 
+        null, 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, User>, 
+        TravelPlannerAPI.Models.Data.ApplicationDbContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+2025-07-31 16:30:33.916 +05:30 [DBG] Opening connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 16:30:33.918 +05:30 [DBG] Opened connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 16:30:33.920 +05:30 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-07-31 16:30:33.922 +05:30 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2025-07-31 16:30:33.924 +05:30 [DBG] Initialized DbCommand for 'ExecuteReader' (3ms).
+2025-07-31 16:30:33.926 +05:30 [DBG] Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[IsActive], [u].[IsAdmin], [u].[LastLoginDate], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[Name], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Role], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2025-07-31 16:30:33.931 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[IsActive], [u].[IsAdmin], [u].[LastLoginDate], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[Name], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[Role], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2025-07-31 16:30:33.935 +05:30 [DBG] Closing data reader to 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 16:30:33.936 +05:30 [DBG] A data reader for 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS' is being disposed after spending 1ms reading results.
+2025-07-31 16:30:33.938 +05:30 [DBG] Closing connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 16:30:33.940 +05:30 [DBG] Closed connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS' (1ms).
+2025-07-31 16:30:33.954 +05:30 [DBG] An entity of type 'User' tracked by 'ApplicationDbContext' changed state from '"Unchanged"' to '"Modified"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-07-31 16:30:33.958 +05:30 [DBG] SaveChanges starting for 'ApplicationDbContext'.
+2025-07-31 16:30:33.961 +05:30 [DBG] DetectChanges starting for 'ApplicationDbContext'.
+2025-07-31 16:30:33.971 +05:30 [DBG] DetectChanges completed for 'ApplicationDbContext'.
+2025-07-31 16:30:34.018 +05:30 [DBG] Opening connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 16:30:34.021 +05:30 [DBG] Opened connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 16:30:34.025 +05:30 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-07-31 16:30:34.027 +05:30 [DBG] Created DbCommand for 'ExecuteReader' (2ms).
+2025-07-31 16:30:34.029 +05:30 [DBG] Initialized DbCommand for 'ExecuteReader' (4ms).
+2025-07-31 16:30:34.031 +05:30 [DBG] Executing DbCommand [Parameters=[@p19='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p20='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = Boolean), @p6='?' (DbType = DateTime2), @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTimeOffset), @p9='?' (Size = 4000), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 4000), @p16='?' (Size = 4000), @p17='?' (DbType = Boolean), @p18='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [AccessFailedCount] = @p0, [ConcurrencyStamp] = @p1, [Email] = @p2, [EmailConfirmed] = @p3, [IsActive] = @p4, [IsAdmin] = @p5, [LastLoginDate] = @p6, [LockoutEnabled] = @p7, [LockoutEnd] = @p8, [Name] = @p9, [NormalizedEmail] = @p10, [NormalizedUserName] = @p11, [PasswordHash] = @p12, [PhoneNumber] = @p13, [PhoneNumberConfirmed] = @p14, [Role] = @p15, [SecurityStamp] = @p16, [TwoFactorEnabled] = @p17, [UserName] = @p18
+OUTPUT 1
+WHERE [Id] = @p19 AND [ConcurrencyStamp] = @p20;
+2025-07-31 16:30:34.042 +05:30 [INF] Executed DbCommand (11ms) [Parameters=[@p19='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p20='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = Boolean), @p6='?' (DbType = DateTime2), @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTimeOffset), @p9='?' (Size = 4000), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 4000), @p16='?' (Size = 4000), @p17='?' (DbType = Boolean), @p18='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [AccessFailedCount] = @p0, [ConcurrencyStamp] = @p1, [Email] = @p2, [EmailConfirmed] = @p3, [IsActive] = @p4, [IsAdmin] = @p5, [LastLoginDate] = @p6, [LockoutEnabled] = @p7, [LockoutEnd] = @p8, [Name] = @p9, [NormalizedEmail] = @p10, [NormalizedUserName] = @p11, [PasswordHash] = @p12, [PhoneNumber] = @p13, [PhoneNumberConfirmed] = @p14, [Role] = @p15, [SecurityStamp] = @p16, [TwoFactorEnabled] = @p17, [UserName] = @p18
+OUTPUT 1
+WHERE [Id] = @p19 AND [ConcurrencyStamp] = @p20;
+2025-07-31 16:30:34.050 +05:30 [DBG] Closing data reader to 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 16:30:34.052 +05:30 [DBG] A data reader for 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS' is being disposed after spending 6ms reading results.
+2025-07-31 16:30:34.054 +05:30 [DBG] Closing connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 16:30:34.056 +05:30 [DBG] Closed connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS' (1ms).
+2025-07-31 16:30:34.060 +05:30 [DBG] An entity of type 'User' tracked by 'ApplicationDbContext' changed state from '"Modified"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-07-31 16:30:34.064 +05:30 [DBG] SaveChanges completed for 'ApplicationDbContext' with 1 entities written to the database.
+2025-07-31 16:30:34.078 +05:30 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2025-07-31 16:30:34.083 +05:30 [DBG] No information found on request to perform content negotiation.
+2025-07-31 16:30:34.084 +05:30 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2025-07-31 16:30:34.085 +05:30 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2025-07-31 16:30:34.086 +05:30 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2025-07-31 16:30:34.088 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`3[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[<>f__AnonymousType2`4[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], TravelPlannerAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-31 16:30:34.110 +05:30 [INF] Executed action AuthController.Login (TravelPlannerAPI) in 406.3686ms
+2025-07-31 16:30:34.113 +05:30 [INF] Executed endpoint 'AuthController.Login (TravelPlannerAPI)'
+2025-07-31 16:30:34.249 +05:30 [INF] Source:[::1] Request: POST http localhost:5276/api/v1/Auth/login  {"email":"suraksha@gmail.com","password":"Password@123"} Responded with [200] in 637ms
+2025-07-31 16:30:34.253 +05:30 [DBG] Connection id "0HNEG45ATSPVS" completed keep alive response.
+2025-07-31 16:30:34.257 +05:30 [DBG] 'ApplicationDbContext' disposed.
+2025-07-31 16:30:34.262 +05:30 [DBG] Disposing connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 16:30:34.265 +05:30 [DBG] Disposed connection to database '' on server '' (3ms).
+2025-07-31 16:30:34.268 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5276/api/v1/Auth/login - 200 850 application/json; ver=1 673.4184ms
+2025-07-31 16:30:34.271 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5276/api/v1/Trip/page?pageNumber=1&pageSize=3 - null null
+2025-07-31 16:30:34.275 +05:30 [DBG] Connection id "0HNEG45ATSPVU" accepted.
+2025-07-31 16:30:34.278 +05:30 [DBG] 1 candidate(s) found for the request path '/api/v1/Trip/page'
+2025-07-31 16:30:34.279 +05:30 [DBG] Connection id "0HNEG45ATSPVU" started.
+2025-07-31 16:30:34.280 +05:30 [DBG] Request matched endpoint '405 HTTP Method Not Supported'
+2025-07-31 16:30:34.282 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5276/api/v1/TripShare/shared-with-me - null null
+2025-07-31 16:30:34.284 +05:30 [DBG] The request has an origin header: 'http://localhost:4200'.
+2025-07-31 16:30:34.286 +05:30 [DBG] 1 candidate(s) found for the request path '/api/v1/TripShare/shared-with-me'
+2025-07-31 16:30:34.290 +05:30 [INF] CORS policy execution successful.
+2025-07-31 16:30:34.291 +05:30 [DBG] Request matched endpoint '405 HTTP Method Not Supported'
+2025-07-31 16:30:34.292 +05:30 [DBG] The request is a preflight request.
+2025-07-31 16:30:34.293 +05:30 [DBG] The request has an origin header: 'http://localhost:4200'.
+2025-07-31 16:30:34.294 +05:30 [INF] Source:[::1] Request: OPTIONS http localhost:5276/api/v1/Trip/page ?pageNumber=1&pageSize=3  Responded with [204] in 11ms
+2025-07-31 16:30:34.295 +05:30 [INF] CORS policy execution successful.
+2025-07-31 16:30:34.296 +05:30 [DBG] Connection id "0HNEG45ATSPVT" completed keep alive response.
+2025-07-31 16:30:34.297 +05:30 [DBG] The request is a preflight request.
+2025-07-31 16:30:34.299 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5276/api/v1/Trip/page?pageNumber=1&pageSize=3 - 204 null null 27.4542ms
+2025-07-31 16:30:34.299 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5276/api/v1/Trip/page?pageNumber=1&pageSize=3 - null null
+2025-07-31 16:30:34.300 +05:30 [INF] Source:[::1] Request: OPTIONS http localhost:5276/api/v1/TripShare/shared-with-me   Responded with [204] in 6ms
+2025-07-31 16:30:34.310 +05:30 [DBG] 2 candidate(s) found for the request path '/api/v1/Trip/page'
+2025-07-31 16:30:34.311 +05:30 [DBG] Connection id "0HNEG45ATSPVU" completed keep alive response.
+2025-07-31 16:30:34.314 +05:30 [DBG] Endpoint 'TravelPlannerAPI.Controllers.TripController.GetTrips (TravelPlannerAPI)' with route pattern 'api/v{version:apiVersion}/Trip/page' is valid for the request path '/api/v1/Trip/page'
+2025-07-31 16:30:34.316 +05:30 [DBG] Connection id "0HNEG45ATSPVV" accepted.
+2025-07-31 16:30:34.315 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5276/api/v1/TripShare/shared-with-me - 204 null null 32.6308ms
+2025-07-31 16:30:34.317 +05:30 [DBG] Endpoint 'TravelPlannerAPI.Controllers.TripController.GetTrip (TravelPlannerAPI)' with route pattern 'api/v{version:apiVersion}/Trip/{id}' is valid for the request path '/api/v1/Trip/page'
+2025-07-31 16:30:34.318 +05:30 [DBG] Connection id "0HNEG45ATSPVV" started.
+2025-07-31 16:30:34.326 +05:30 [DBG] Request matched endpoint 'TravelPlannerAPI.Controllers.TripController.GetTrips (TravelPlannerAPI)'
+2025-07-31 16:30:34.328 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5276/api/v1/TripShare/shared-with-me - null null
+2025-07-31 16:30:34.329 +05:30 [DBG] The request has an origin header: 'http://localhost:4200'.
+2025-07-31 16:30:34.333 +05:30 [INF] CORS policy execution successful.
+2025-07-31 16:30:34.333 +05:30 [DBG] 1 candidate(s) found for the request path '/api/v1/TripShare/shared-with-me'
+2025-07-31 16:30:34.336 +05:30 [DBG] Endpoint 'TravelPlannerAPI.Controllers.TripShareController.GetTripsSharedWithMe (TravelPlannerAPI)' with route pattern 'api/v{version:apiVersion}/TripShare/shared-with-me' is valid for the request path '/api/v1/TripShare/shared-with-me'
+2025-07-31 16:30:34.338 +05:30 [DBG] Request matched endpoint 'TravelPlannerAPI.Controllers.TripShareController.GetTripsSharedWithMe (TravelPlannerAPI)'
+2025-07-31 16:30:34.340 +05:30 [DBG] The request has an origin header: 'http://localhost:4200'.
+2025-07-31 16:30:34.341 +05:30 [INF] CORS policy execution successful.
+2025-07-31 16:30:34.345 +05:30 [DBG] Successfully validated the token.
+2025-07-31 16:30:34.345 +05:30 [DBG] Successfully validated the token.
+2025-07-31 16:30:34.349 +05:30 [DBG] AuthenticationScheme: Bearer was successfully authenticated.
+2025-07-31 16:30:34.349 +05:30 [DBG] AuthenticationScheme: Bearer was successfully authenticated.
+2025-07-31 16:30:34.354 +05:30 [DBG] Authorization was successful.
+2025-07-31 16:30:34.354 +05:30 [DBG] Authorization was successful.
+2025-07-31 16:30:34.356 +05:30 [INF] Executing endpoint 'TravelPlannerAPI.Controllers.TripShareController.GetTripsSharedWithMe (TravelPlannerAPI)'
+2025-07-31 16:30:34.357 +05:30 [INF] Executing endpoint 'TravelPlannerAPI.Controllers.TripController.GetTrips (TravelPlannerAPI)'
+2025-07-31 16:30:34.362 +05:30 [INF] Route matched with {action = "GetTripsSharedWithMe", controller = "TripShare"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetTripsSharedWithMe() on controller TravelPlannerAPI.Controllers.TripShareController (TravelPlannerAPI).
+2025-07-31 16:30:34.363 +05:30 [INF] Route matched with {action = "GetTrips", controller = "Trip"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetTrips(TravelPlannerAPI.Dtos.PaginationParamsDto) on controller TravelPlannerAPI.Controllers.TripController (TravelPlannerAPI).
+2025-07-31 16:30:34.364 +05:30 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2025-07-31 16:30:34.366 +05:30 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2025-07-31 16:30:34.368 +05:30 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2025-07-31 16:30:34.369 +05:30 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2025-07-31 16:30:34.371 +05:30 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)","Microsoft.AspNetCore.Mvc.ReportApiVersionsAttribute (Order: 0)","Microsoft.AspNetCore.Mvc.Versioning.ApplyContentTypeVersionActionFilter"]
+2025-07-31 16:30:34.372 +05:30 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)","Microsoft.AspNetCore.Mvc.ReportApiVersionsAttribute (Order: 0)","Microsoft.AspNetCore.Mvc.Versioning.ApplyContentTypeVersionActionFilter"]
+2025-07-31 16:30:34.375 +05:30 [DBG] Execution plan of exception filters (in the following order): ["TravelPlannerAPI.Filters.ApiExceptionFilter"]
+2025-07-31 16:30:34.378 +05:30 [DBG] Execution plan of exception filters (in the following order): ["TravelPlannerAPI.Filters.ApiExceptionFilter"]
+2025-07-31 16:30:34.380 +05:30 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)","Microsoft.AspNetCore.Mvc.ReportApiVersionsAttribute (Order: 0)"]
+2025-07-31 16:30:34.381 +05:30 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)","Microsoft.AspNetCore.Mvc.ReportApiVersionsAttribute (Order: 0)"]
+2025-07-31 16:30:34.383 +05:30 [DBG] Executing controller factory for controller TravelPlannerAPI.Controllers.TripShareController (TravelPlannerAPI)
+2025-07-31 16:30:34.385 +05:30 [DBG] Executing controller factory for controller TravelPlannerAPI.Controllers.TripController (TravelPlannerAPI)
+2025-07-31 16:30:34.398 +05:30 [DBG] Entity Framework Core 8.0.13 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.13' with options: None
+2025-07-31 16:30:34.398 +05:30 [DBG] Entity Framework Core 8.0.13 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.13' with options: None
+2025-07-31 16:30:34.402 +05:30 [DBG] Executed controller factory for controller TravelPlannerAPI.Controllers.TripShareController (TravelPlannerAPI)
+2025-07-31 16:30:34.414 +05:30 [DBG] Compiling query expression: 
+'DbSet<TripShare>()
+    .Where(s => s.SharedWithUserId == __sharedWithUserId_0)
+    .Include(s => s.Trip)'
+2025-07-31 16:30:34.427 +05:30 [DBG] Including navigation: 'TripShare.Trip'.
+2025-07-31 16:30:34.473 +05:30 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<TripShare>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Client Projections:
+            0 -> Dictionary<IProperty, int> { [Property: TripShare.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: TripShare.AccessLevel (AccessLevel) Required, 1], [Property: TripShare.OwnerId (int) Required FK Index, 2], [Property: TripShare.SharedWithUserId (int) Required FK Index, 3], [Property: TripShare.TripId (int) Required FK Index, 4] }
+            1 -> Dictionary<IProperty, int> { [Property: Trip.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 5], [Property: Trip.BestTime (string), 6], [Property: Trip.Budget (decimal) Required, 7], [Property: Trip.Description (string), 8], [Property: Trip.Destination (string) Required, 9], [Property: Trip.Duration (string), 10], [Property: Trip.EndDate (DateTime) Required, 11], [Property: Trip.EssentialsJson (string), 12], [Property: Trip.Image (string), 13], [Property: Trip.Notes (string) Required, 14], [Property: Trip.StartDate (DateTime) Required, 15], [Property: Trip.Title (string) Required, 16], [Property: Trip.TouristSpotsJson (string), 17], [Property: Trip.TravelMode (string) Required, 18], [Property: Trip.UserId (int) Required FK Index, 19] }
+        SELECT t.Id, t.AccessLevel, t.OwnerId, t.SharedWithUserId, t.TripId, t0.Id, t0.BestTime, t0.Budget, t0.Description, t0.Destination, t0.Duration, t0.EndDate, t0.EssentialsJson, t0.Image, t0.Notes, t0.StartDate, t0.Title, t0.TouristSpotsJson, t0.TravelMode, t0.UserId
+        FROM TripShares AS t
+        INNER JOIN Trips AS t0 ON t.TripId == t0.Id
+        WHERE t.SharedWithUserId == @__sharedWithUserId_0), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, TripShare>, 
+    TravelPlannerAPI.Models.Data.ApplicationDbContext, 
+    False, 
+    False, 
+    True
+)'
+2025-07-31 16:30:34.477 +05:30 [DBG] Creating DbConnection.
+2025-07-31 16:30:34.478 +05:30 [DBG] Created DbConnection. (1ms).
+2025-07-31 16:30:34.480 +05:30 [DBG] Opening connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 16:30:34.482 +05:30 [DBG] Opened connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 16:30:34.483 +05:30 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-07-31 16:30:34.485 +05:30 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2025-07-31 16:30:34.486 +05:30 [DBG] Initialized DbCommand for 'ExecuteReader' (2ms).
+2025-07-31 16:30:34.488 +05:30 [DBG] Executing DbCommand [Parameters=[@__sharedWithUserId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AccessLevel], [t].[OwnerId], [t].[SharedWithUserId], [t].[TripId], [t0].[Id], [t0].[BestTime], [t0].[Budget], [t0].[Description], [t0].[Destination], [t0].[Duration], [t0].[EndDate], [t0].[EssentialsJson], [t0].[Image], [t0].[Notes], [t0].[StartDate], [t0].[Title], [t0].[TouristSpotsJson], [t0].[TravelMode], [t0].[UserId]
+FROM [TripShares] AS [t]
+INNER JOIN [Trips] AS [t0] ON [t].[TripId] = [t0].[Id]
+WHERE [t].[SharedWithUserId] = @__sharedWithUserId_0
+2025-07-31 16:30:34.500 +05:30 [INF] Executed DbCommand (12ms) [Parameters=[@__sharedWithUserId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AccessLevel], [t].[OwnerId], [t].[SharedWithUserId], [t].[TripId], [t0].[Id], [t0].[BestTime], [t0].[Budget], [t0].[Description], [t0].[Destination], [t0].[Duration], [t0].[EndDate], [t0].[EssentialsJson], [t0].[Image], [t0].[Notes], [t0].[StartDate], [t0].[Title], [t0].[TouristSpotsJson], [t0].[TravelMode], [t0].[UserId]
+FROM [TripShares] AS [t]
+INNER JOIN [Trips] AS [t0] ON [t].[TripId] = [t0].[Id]
+WHERE [t].[SharedWithUserId] = @__sharedWithUserId_0
+2025-07-31 16:30:34.506 +05:30 [DBG] Context 'ApplicationDbContext' started tracking 'TripShare' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-07-31 16:30:34.517 +05:30 [DBG] Executed controller factory for controller TravelPlannerAPI.Controllers.TripController (TravelPlannerAPI)
+2025-07-31 16:30:34.521 +05:30 [DBG] Attempting to bind parameter 'paginationParams' of type 'TravelPlannerAPI.Dtos.PaginationParamsDto' ...
+2025-07-31 16:30:34.524 +05:30 [DBG] Attempting to bind parameter 'paginationParams' of type 'TravelPlannerAPI.Dtos.PaginationParamsDto' using the name '' in request data ...
+2025-07-31 16:30:34.529 +05:30 [DBG] Attempting to bind property 'TravelPlannerAPI.Dtos.PaginationParamsDto.PageNumber' of type 'System.Int32' using the name 'PageNumber' in request data ...
+2025-07-31 16:30:34.532 +05:30 [DBG] Done attempting to bind property 'TravelPlannerAPI.Dtos.PaginationParamsDto.PageNumber' of type 'System.Int32'.
+2025-07-31 16:30:34.532 +05:30 [DBG] The navigation 'TripShare.Trip' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-07-31 16:30:34.535 +05:30 [DBG] Attempting to bind property 'TravelPlannerAPI.Dtos.PaginationParamsDto.PageSize' of type 'System.Int32' using the name 'PageSize' in request data ...
+2025-07-31 16:30:34.538 +05:30 [DBG] Done attempting to bind property 'TravelPlannerAPI.Dtos.PaginationParamsDto.PageSize' of type 'System.Int32'.
+2025-07-31 16:30:34.541 +05:30 [DBG] Done attempting to bind parameter 'paginationParams' of type 'TravelPlannerAPI.Dtos.PaginationParamsDto'.
+2025-07-31 16:30:34.542 +05:30 [DBG] Done attempting to bind parameter 'paginationParams' of type 'TravelPlannerAPI.Dtos.PaginationParamsDto'.
+2025-07-31 16:30:34.542 +05:30 [DBG] Context 'ApplicationDbContext' started tracking 'Trip' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-07-31 16:30:34.544 +05:30 [DBG] Attempting to validate the bound parameter 'paginationParams' of type 'TravelPlannerAPI.Dtos.PaginationParamsDto' ...
+2025-07-31 16:30:34.548 +05:30 [DBG] Done attempting to validate the bound parameter 'paginationParams' of type 'TravelPlannerAPI.Dtos.PaginationParamsDto'.
+2025-07-31 16:30:34.552 +05:30 [DBG] Compiling query expression: 
+'DbSet<Trip>()
+    .Count()'
+2025-07-31 16:30:34.565 +05:30 [DBG] Context 'ApplicationDbContext' started tracking 'TripShare' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-07-31 16:30:34.567 +05:30 [DBG] The navigation 'TripShare.Trip' was detected as changed. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-07-31 16:30:34.569 +05:30 [DBG] Context 'ApplicationDbContext' started tracking 'Trip' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-07-31 16:30:34.571 +05:30 [DBG] Closing data reader to 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 16:30:34.571 +05:30 [DBG] Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleAsync<int>(
+    asyncEnumerable: new SingleQueryingEnumerable<int>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.QueryExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> 0
+            SELECT COUNT(*)
+            FROM Trips AS t), 
+        null, 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, int>, 
+        TravelPlannerAPI.Models.Data.ApplicationDbContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+2025-07-31 16:30:34.573 +05:30 [DBG] A data reader for 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS' is being disposed after spending 71ms reading results.
+2025-07-31 16:30:34.577 +05:30 [DBG] Closing connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 16:30:34.578 +05:30 [DBG] Closed connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS' (1ms).
+2025-07-31 16:30:34.582 +05:30 [DBG] Creating DbConnection.
+2025-07-31 16:30:34.583 +05:30 [DBG] Created DbConnection. (1ms).
+2025-07-31 16:30:34.584 +05:30 [DBG] Opening connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 16:30:34.584 +05:30 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2025-07-31 16:30:34.586 +05:30 [DBG] Opened connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 16:30:34.588 +05:30 [DBG] No information found on request to perform content negotiation.
+2025-07-31 16:30:34.590 +05:30 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-07-31 16:30:34.591 +05:30 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2025-07-31 16:30:34.592 +05:30 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2025-07-31 16:30:34.593 +05:30 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2025-07-31 16:30:34.594 +05:30 [DBG] Initialized DbCommand for 'ExecuteReader' (4ms).
+2025-07-31 16:30:34.595 +05:30 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2025-07-31 16:30:34.596 +05:30 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Trips] AS [t]
+2025-07-31 16:30:34.598 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TravelPlannerAPI.Dtos.SharedTripDto, TravelPlannerAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-31 16:30:34.603 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Trips] AS [t]
+2025-07-31 16:30:34.607 +05:30 [DBG] Closing data reader to 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 16:30:34.609 +05:30 [DBG] A data reader for 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS' is being disposed after spending 3ms reading results.
+2025-07-31 16:30:34.611 +05:30 [DBG] Closing connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 16:30:34.612 +05:30 [DBG] Closed connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS' (1ms).
+2025-07-31 16:30:34.615 +05:30 [DBG] Compiling query expression: 
+'DbSet<Trip>()
+    .Skip(__p_0)
+    .Take(__p_1)'
+2025-07-31 16:30:34.619 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-31 16:30:34.620 +05:30 [WRN] The query uses a row limiting operator ('Skip'/'Take') without an 'OrderBy' operator. This may lead to unpredictable results. If the 'Distinct' operator is used after 'OrderBy', then make sure to use the 'OrderBy' operator after 'Distinct' as the ordering would otherwise get erased.
+2025-07-31 16:30:34.625 +05:30 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Trip>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: Trip.Id (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Trip.BestTime (string), 1], [Property: Trip.Budget (decimal) Required, 2], [Property: Trip.Description (string), 3], [Property: Trip.Destination (string) Required, 4], [Property: Trip.Duration (string), 5], [Property: Trip.EndDate (DateTime) Required, 6], [Property: Trip.EssentialsJson (string), 7], [Property: Trip.Image (string), 8], [Property: Trip.Notes (string) Required, 9], [Property: Trip.StartDate (DateTime) Required, 10], [Property: Trip.Title (string) Required, 11], [Property: Trip.TouristSpotsJson (string), 12], [Property: Trip.TravelMode (string) Required, 13], [Property: Trip.UserId (int) Required FK Index, 14] }
+        SELECT t.Id, t.BestTime, t.Budget, t.Description, t.Destination, t.Duration, t.EndDate, t.EssentialsJson, t.Image, t.Notes, t.StartDate, t.Title, t.TouristSpotsJson, t.TravelMode, t.UserId
+        FROM Trips AS t
+        OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Trip>, 
+    TravelPlannerAPI.Models.Data.ApplicationDbContext, 
+    False, 
+    False, 
+    True
+)'
+2025-07-31 16:30:34.628 +05:30 [DBG] Opening connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 16:30:34.630 +05:30 [DBG] Opened connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 16:30:34.631 +05:30 [INF] Executed action TravelPlannerAPI.Controllers.TripShareController.GetTripsSharedWithMe (TravelPlannerAPI) in 248.2819ms
+2025-07-31 16:30:34.631 +05:30 [DBG] Creating DbCommand for 'ExecuteReader'.
+2025-07-31 16:30:34.633 +05:30 [INF] Executed endpoint 'TravelPlannerAPI.Controllers.TripShareController.GetTripsSharedWithMe (TravelPlannerAPI)'
+2025-07-31 16:30:34.634 +05:30 [DBG] Created DbCommand for 'ExecuteReader' (2ms).
+2025-07-31 16:30:34.637 +05:30 [DBG] Initialized DbCommand for 'ExecuteReader' (5ms).
+2025-07-31 16:30:34.638 +05:30 [DBG] Executing DbCommand [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[BestTime], [t].[Budget], [t].[Description], [t].[Destination], [t].[Duration], [t].[EndDate], [t].[EssentialsJson], [t].[Image], [t].[Notes], [t].[StartDate], [t].[Title], [t].[TouristSpotsJson], [t].[TravelMode], [t].[UserId]
+FROM [Trips] AS [t]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2025-07-31 16:30:34.644 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[BestTime], [t].[Budget], [t].[Description], [t].[Destination], [t].[Duration], [t].[EndDate], [t].[EssentialsJson], [t].[Image], [t].[Notes], [t].[StartDate], [t].[Title], [t].[TouristSpotsJson], [t].[TravelMode], [t].[UserId]
+FROM [Trips] AS [t]
+ORDER BY (SELECT 1)
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2025-07-31 16:30:34.647 +05:30 [DBG] Context 'ApplicationDbContext' started tracking 'Trip' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-07-31 16:30:34.649 +05:30 [DBG] Context 'ApplicationDbContext' started tracking 'Trip' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-07-31 16:30:34.651 +05:30 [DBG] Context 'ApplicationDbContext' started tracking 'Trip' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2025-07-31 16:30:34.653 +05:30 [DBG] Closing data reader to 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 16:30:34.654 +05:30 [DBG] A data reader for 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS' is being disposed after spending 7ms reading results.
+2025-07-31 16:30:34.656 +05:30 [DBG] Closing connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 16:30:34.658 +05:30 [DBG] Closed connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS' (1ms).
+2025-07-31 16:30:34.660 +05:30 [INF] Source:[::1] Request: GET http localhost:5276/api/v1/TripShare/shared-with-me   Responded with [200] in 320ms
+2025-07-31 16:30:34.662 +05:30 [DBG] Connection id "0HNEG45ATSPVV" completed keep alive response.
+2025-07-31 16:30:34.663 +05:30 [DBG] 'ApplicationDbContext' disposed.
+2025-07-31 16:30:34.665 +05:30 [DBG] Disposing connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 16:30:34.667 +05:30 [DBG] Disposed connection to database '' on server '' (1ms).
+2025-07-31 16:30:34.669 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5276/api/v1/TripShare/shared-with-me - 200 1198 application/json; ver=1 341.1528ms
+2025-07-31 16:30:34.677 +05:30 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2025-07-31 16:30:34.680 +05:30 [DBG] No information found on request to perform content negotiation.
+2025-07-31 16:30:34.681 +05:30 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2025-07-31 16:30:34.682 +05:30 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2025-07-31 16:30:34.683 +05:30 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2025-07-31 16:30:34.685 +05:30 [INF] Executing OkObjectResult, writing value of type 'TravelPlannerAPI.Helpers.PaginatedResult`1[[TravelPlannerAPI.Dtos.TripDto, TravelPlannerAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-07-31 16:30:34.696 +05:30 [INF] Executed action TravelPlannerAPI.Controllers.TripController.GetTrips (TravelPlannerAPI) in 311.8615ms
+2025-07-31 16:30:34.698 +05:30 [INF] Executed endpoint 'TravelPlannerAPI.Controllers.TripController.GetTrips (TravelPlannerAPI)'
+2025-07-31 16:30:34.701 +05:30 [INF] Source:[::1] Request: GET http localhost:5276/api/v1/Trip/page ?pageNumber=1&pageSize=3  Responded with [200] in 371ms
+2025-07-31 16:30:34.702 +05:30 [DBG] Connection id "0HNEG45ATSPVS" completed keep alive response.
+2025-07-31 16:30:34.704 +05:30 [DBG] 'ApplicationDbContext' disposed.
+2025-07-31 16:30:34.705 +05:30 [DBG] Disposing connection to database 'travelplanner' on server 'TRPRDK0PCJ92-L\SQLEXPRESS'.
+2025-07-31 16:30:34.708 +05:30 [DBG] Disposed connection to database '' on server '' (2ms).
+2025-07-31 16:30:34.710 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5276/api/v1/Trip/page?pageNumber=1&pageSize=3 - 200 1716 application/json; ver=1 411.114ms
+2025-07-31 16:32:45.597 +05:30 [DBG] Connection id "0HNEG45ATSPVS" disconnecting.
+2025-07-31 16:32:45.598 +05:30 [DBG] Connection id "0HNEG45ATSPVT" disconnecting.
+2025-07-31 16:32:45.607 +05:30 [DBG] Connection id "0HNEG45ATSPVT" stopped.
+2025-07-31 16:32:45.599 +05:30 [DBG] Connection id "0HNEG45ATSPVV" disconnecting.
+2025-07-31 16:32:45.606 +05:30 [DBG] Connection id "0HNEG45ATSPVS" stopped.
+2025-07-31 16:32:45.598 +05:30 [DBG] Connection id "0HNEG45ATSPVU" disconnecting.
+2025-07-31 16:32:45.612 +05:30 [DBG] Connection id "0HNEG45ATSPVV" stopped.
+2025-07-31 16:32:45.612 +05:30 [DBG] Connection id "0HNEG45ATSPVT" sending FIN because: "The Socket transport's send loop completed gracefully."
+2025-07-31 16:32:45.614 +05:30 [DBG] Connection id "0HNEG45ATSPVS" sending FIN because: "The Socket transport's send loop completed gracefully."
+2025-07-31 16:32:45.615 +05:30 [DBG] Connection id "0HNEG45ATSPVU" stopped.
+2025-07-31 16:32:45.617 +05:30 [DBG] Connection id "0HNEG45ATSPVV" sending FIN because: "The Socket transport's send loop completed gracefully."
+2025-07-31 16:32:45.625 +05:30 [DBG] Connection id "0HNEG45ATSPVU" sending FIN because: "The Socket transport's send loop completed gracefully."
+2025-07-31 17:06:32.924 +05:30 [DBG] Connection id "0HNEG45ATSQ00" accepted.
+2025-07-31 17:06:32.926 +05:30 [DBG] Connection id "0HNEG45ATSQ00" started.
+2025-07-31 17:06:32.928 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5276/swagger/v1/swagger.json - null null
+2025-07-31 17:06:32.933 +05:30 [DBG] No candidates found for the request path '/swagger/v1/swagger.json'
+2025-07-31 17:06:32.935 +05:30 [DBG] Request did not match any endpoints
+2025-07-31 17:06:32.957 +05:30 [DBG] Connection id "0HNEG45ATSQ00" completed keep alive response.
+2025-07-31 17:06:32.959 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5276/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 31.0205ms
+2025-07-31 17:08:44.062 +05:30 [DBG] Connection id "0HNEG45ATSQ00" disconnecting.
+2025-07-31 17:08:44.063 +05:30 [DBG] Connection id "0HNEG45ATSQ00" stopped.
+2025-07-31 17:08:44.072 +05:30 [DBG] Connection id "0HNEG45ATSQ00" sending FIN because: "The Socket transport's send loop completed gracefully."
+2025-07-31 17:19:51.494 +05:30 [DBG] Connection id "0HNEG45ATSQ01" accepted.
+2025-07-31 17:19:51.498 +05:30 [DBG] Connection id "0HNEG45ATSQ01" started.
+2025-07-31 17:19:51.498 +05:30 [DBG] Connection id "0HNEG45ATSQ02" accepted.
+2025-07-31 17:19:51.501 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5276/api/v1/Trip/page?pageNumber=1&pageSize=3 - null null
+2025-07-31 17:19:51.502 +05:30 [DBG] Connection id "0HNEG45ATSQ02" started.
+2025-07-31 17:19:51.510 +05:30 [DBG] 1 candidate(s) found for the request path '/api/v1/Trip/page'
+2025-07-31 17:19:51.512 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5276/api/v1/TripShare/shared-with-me - null null
+2025-07-31 17:19:51.513 +05:30 [DBG] Request matched endpoint '405 HTTP Method Not Supported'
+2025-07-31 17:19:51.516 +05:30 [DBG] 1 candidate(s) found for the request path '/api/v1/TripShare/shared-with-me'
+2025-07-31 17:19:51.520 +05:30 [DBG] Request matched endpoint '405 HTTP Method Not Supported'
+2025-07-31 17:19:51.522 +05:30 [DBG] The request has an origin header: 'http://localhost:4200'.
+2025-07-31 17:19:51.519 +05:30 [DBG] The request has an origin header: 'http://localhost:4200'.
+2025-07-31 17:19:51.525 +05:30 [INF] CORS policy execution successful.
+2025-07-31 17:19:51.527 +05:30 [INF] CORS policy execution successful.
+2025-07-31 17:19:51.529 +05:30 [DBG] The request is a preflight request.
+2025-07-31 17:19:51.533 +05:30 [DBG] The request is a preflight request.
+2025-07-31 17:19:51.536 +05:30 [INF] Source:[::1] Request: OPTIONS http localhost:5276/api/v1/TripShare/shared-with-me   Responded with [204] in 13ms
+2025-07-31 17:19:51.539 +05:30 [INF] Source:[::1] Request: OPTIONS http localhost:5276/api/v1/Trip/page ?pageNumber=1&pageSize=3  Responded with [204] in 20ms
+2025-07-31 17:19:51.540 +05:30 [DBG] Connection id "0HNEG45ATSQ02" completed keep alive response.
+2025-07-31 17:19:51.541 +05:30 [DBG] Connection id "0HNEG45ATSQ01" completed keep alive response.
+2025-07-31 17:19:51.542 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5276/api/v1/TripShare/shared-with-me - 204 null null 29.701ms
+2025-07-31 17:19:51.545 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5276/api/v1/Trip/page?pageNumber=1&pageSize=3 - 204 null null 43.3874ms
+2025-07-31 17:19:51.546 +05:30 [DBG] Connection id "0HNEG45ATSQ03" accepted.
+2025-07-31 17:19:51.556 +05:30 [DBG] Connection id "0HNEG45ATSQ03" started.
+2025-07-31 17:19:51.557 +05:30 [DBG] Connection id "0HNEG45ATSQ04" accepted.
+2025-07-31 17:19:51.559 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5276/api/v1/TripShare/shared-with-me - null null
+2025-07-31 17:19:51.562 +05:30 [DBG] Connection id "0HNEG45ATSQ04" started.
+2025-07-31 17:19:51.572 +05:30 [DBG] 1 candidate(s) found for the request path '/api/v1/TripShare/shared-with-me'
+2025-07-31 17:19:51.573 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5276/api/v1/Trip/page?pageNumber=1&pageSize=3 - null null
+2025-07-31 17:19:51.575 +05:30 [DBG] Endpoint 'TravelPlannerAPI.Controllers.TripShareController.GetTripsSharedWithMe (TravelPlannerAPI)' with route pattern 'api/v{version:apiVersion}/TripShare/shared-with-me' is valid for the request path '/api/v1/TripShare/shared-with-me'
+2025-07-31 17:19:51.577 +05:30 [DBG] 2 candidate(s) found for the request path '/api/v1/Trip/page'
+2025-07-31 17:19:51.579 +05:30 [DBG] Request matched endpoint 'TravelPlannerAPI.Controllers.TripShareController.GetTripsSharedWithMe (TravelPlannerAPI)'
+2025-07-31 17:19:51.581 +05:30 [DBG] Endpoint 'TravelPlannerAPI.Controllers.TripController.GetTrips (TravelPlannerAPI)' with route pattern 'api/v{version:apiVersion}/Trip/page' is valid for the request path '/api/v1/Trip/page'
+2025-07-31 17:19:51.582 +05:30 [DBG] The request has an origin header: 'http://localhost:4200'.
+2025-07-31 17:19:51.583 +05:30 [DBG] Endpoint 'TravelPlannerAPI.Controllers.TripController.GetTrip (TravelPlannerAPI)' with route pattern 'api/v{version:apiVersion}/Trip/{id}' is valid for the request path '/api/v1/Trip/page'
+2025-07-31 17:19:51.585 +05:30 [INF] CORS policy execution successful.
+2025-07-31 17:19:51.588 +05:30 [DBG] Request matched endpoint 'TravelPlannerAPI.Controllers.TripController.GetTrips (TravelPlannerAPI)'
+2025-07-31 17:19:51.592 +05:30 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '7/31/2025 11:01:34 AM', Current time (UTC): '7/31/2025 11:49:51 AM'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-07-31 17:19:51.592 +05:30 [DBG] The request has an origin header: 'http://localhost:4200'.
+2025-07-31 17:19:51.596 +05:30 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '7/31/2025 11:01:34 AM', Current time (UTC): '7/31/2025 11:49:51 AM'.
+2025-07-31 17:19:51.597 +05:30 [INF] CORS policy execution successful.
+2025-07-31 17:19:51.600 +05:30 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '7/31/2025 11:01:34 AM', Current time (UTC): '7/31/2025 11:49:51 AM'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-07-31 17:19:51.603 +05:30 [DBG] Policy authentication schemes  did not succeed
+2025-07-31 17:19:51.614 +05:30 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '7/31/2025 11:01:34 AM', Current time (UTC): '7/31/2025 11:49:51 AM'.
+2025-07-31 17:19:51.630 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-07-31 17:19:51.632 +05:30 [DBG] Policy authentication schemes  did not succeed
+2025-07-31 17:19:51.636 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-07-31 17:19:51.641 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2025-07-31 17:19:51.641 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2025-07-31 17:19:51.653 +05:30 [INF] Source:[::1] Request: GET http localhost:5276/api/v1/Trip/page ?pageNumber=1&pageSize=3  Responded with [401] in 60ms
+2025-07-31 17:19:51.653 +05:30 [INF] Source:[::1] Request: GET http localhost:5276/api/v1/TripShare/shared-with-me   Responded with [401] in 71ms
+2025-07-31 17:19:51.655 +05:30 [DBG] Connection id "0HNEG45ATSQ04" completed keep alive response.
+2025-07-31 17:19:51.657 +05:30 [DBG] Connection id "0HNEG45ATSQ03" completed keep alive response.
+2025-07-31 17:19:51.660 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5276/api/v1/Trip/page?pageNumber=1&pageSize=3 - 401 119 application/json 86.3728ms
+2025-07-31 17:19:51.662 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5276/api/v1/TripShare/shared-with-me - 401 119 application/json 102.6114ms
+2025-07-31 17:19:51.730 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5276/api/v1/Auth/refresh - null null
+2025-07-31 17:19:51.736 +05:30 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5276/api/v1/Auth/refresh - null null
+2025-07-31 17:19:51.736 +05:30 [DBG] 1 candidate(s) found for the request path '/api/v1/Auth/refresh'
+2025-07-31 17:19:51.741 +05:30 [DBG] 1 candidate(s) found for the request path '/api/v1/Auth/refresh'
+2025-07-31 17:19:51.741 +05:30 [DBG] Request matched endpoint '405 HTTP Method Not Supported'
+2025-07-31 17:19:51.743 +05:30 [DBG] Request matched endpoint '405 HTTP Method Not Supported'
+2025-07-31 17:19:51.744 +05:30 [DBG] The request has an origin header: 'http://localhost:4200'.
+2025-07-31 17:19:51.746 +05:30 [DBG] The request has an origin header: 'http://localhost:4200'.
+2025-07-31 17:19:51.747 +05:30 [INF] CORS policy execution successful.
+2025-07-31 17:19:51.749 +05:30 [INF] CORS policy execution successful.
+2025-07-31 17:19:51.750 +05:30 [DBG] The request is a preflight request.
+2025-07-31 17:19:51.751 +05:30 [DBG] The request is a preflight request.
+2025-07-31 17:19:51.753 +05:30 [INF] Source:[::1] Request: OPTIONS http localhost:5276/api/v1/Auth/refresh   Responded with [204] in 8ms
+2025-07-31 17:19:51.754 +05:30 [INF] Source:[::1] Request: OPTIONS http localhost:5276/api/v1/Auth/refresh   Responded with [204] in 7ms
+2025-07-31 17:19:51.754 +05:30 [DBG] Connection id "0HNEG45ATSQ01" completed keep alive response.
+2025-07-31 17:19:51.755 +05:30 [DBG] Connection id "0HNEG45ATSQ02" completed keep alive response.
+2025-07-31 17:19:51.757 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5276/api/v1/Auth/refresh - application/json 642
+2025-07-31 17:19:51.757 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5276/api/v1/Auth/refresh - 204 null null 27.4267ms
+2025-07-31 17:19:51.757 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5276/api/v1/Auth/refresh - application/json 642
+2025-07-31 17:19:51.758 +05:30 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5276/api/v1/Auth/refresh - 204 null null 23.0559ms
+2025-07-31 17:19:51.761 +05:30 [DBG] 1 candidate(s) found for the request path '/api/v1/Auth/refresh'
+2025-07-31 17:19:51.768 +05:30 [DBG] 1 candidate(s) found for the request path '/api/v1/Auth/refresh'
+2025-07-31 17:19:51.773 +05:30 [DBG] Endpoint 'AuthController.Refresh (TravelPlannerAPI)' with route pattern 'api/v{version:apiVersion}/Auth/refresh' is valid for the request path '/api/v1/Auth/refresh'
+2025-07-31 17:19:51.775 +05:30 [DBG] Endpoint 'AuthController.Refresh (TravelPlannerAPI)' with route pattern 'api/v{version:apiVersion}/Auth/refresh' is valid for the request path '/api/v1/Auth/refresh'
+2025-07-31 17:19:51.777 +05:30 [DBG] Request matched endpoint 'AuthController.Refresh (TravelPlannerAPI)'
+2025-07-31 17:19:51.778 +05:30 [DBG] Request matched endpoint 'AuthController.Refresh (TravelPlannerAPI)'
+2025-07-31 17:19:51.780 +05:30 [DBG] Connection id "0HNEG45ATSQ04", Request id "0HNEG45ATSQ04:00000002": started reading request body.
+2025-07-31 17:19:51.781 +05:30 [DBG] Connection id "0HNEG45ATSQ03", Request id "0HNEG45ATSQ03:00000002": started reading request body.
+2025-07-31 17:19:51.782 +05:30 [DBG] Connection id "0HNEG45ATSQ04", Request id "0HNEG45ATSQ04:00000002": done reading request body.
+2025-07-31 17:19:51.784 +05:30 [DBG] Connection id "0HNEG45ATSQ03", Request id "0HNEG45ATSQ03:00000002": done reading request body.
+2025-07-31 17:19:51.786 +05:30 [DBG] The request has an origin header: 'http://localhost:4200'.
+2025-07-31 17:19:51.787 +05:30 [DBG] The request has an origin header: 'http://localhost:4200'.
+2025-07-31 17:19:51.788 +05:30 [INF] CORS policy execution successful.
+2025-07-31 17:19:51.790 +05:30 [INF] CORS policy execution successful.
+2025-07-31 17:19:51.791 +05:30 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '7/31/2025 11:01:34 AM', Current time (UTC): '7/31/2025 11:49:51 AM'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-07-31 17:19:51.791 +05:30 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '7/31/2025 11:01:34 AM', Current time (UTC): '7/31/2025 11:49:51 AM'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2025-07-31 17:19:51.794 +05:30 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '7/31/2025 11:01:34 AM', Current time (UTC): '7/31/2025 11:49:51 AM'.
+2025-07-31 17:19:51.796 +05:30 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '7/31/2025 11:01:34 AM', Current time (UTC): '7/31/2025 11:49:51 AM'.
+2025-07-31 17:19:51.797 +05:30 [INF] Executing endpoint 'AuthController.Refresh (TravelPlannerAPI)'
+2025-07-31 17:19:51.798 +05:30 [INF] Executing endpoint 'AuthController.Refresh (TravelPlannerAPI)'
+2025-07-31 17:19:51.804 +05:30 [INF] Route matched with {action = "Refresh", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Refresh(TravelPlannerAPI.Dtos.TokenRefreshRequestDto) on controller AuthController (TravelPlannerAPI).
+2025-07-31 17:19:51.804 +05:30 [INF] Route matched with {action = "Refresh", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Refresh(TravelPlannerAPI.Dtos.TokenRefreshRequestDto) on controller AuthController (TravelPlannerAPI).
+2025-07-31 17:19:51.807 +05:30 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2025-07-31 17:19:51.809 +05:30 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2025-07-31 17:19:51.811 +05:30 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2025-07-31 17:19:51.812 +05:30 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2025-07-31 17:19:51.814 +05:30 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)","Microsoft.AspNetCore.Mvc.ReportApiVersionsAttribute (Order: 0)","Microsoft.AspNetCore.Mvc.Versioning.ApplyContentTypeVersionActionFilter"]
+2025-07-31 17:19:51.815 +05:30 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)","Microsoft.AspNetCore.Mvc.ReportApiVersionsAttribute (Order: 0)","Microsoft.AspNetCore.Mvc.Versioning.ApplyContentTypeVersionActionFilter"]
+2025-07-31 17:19:51.819 +05:30 [DBG] Execution plan of exception filters (in the following order): ["TravelPlannerAPI.Filters.ApiExceptionFilter"]
+2025-07-31 17:19:51.821 +05:30 [DBG] Execution plan of exception filters (in the following order): ["TravelPlannerAPI.Filters.ApiExceptionFilter"]
+2025-07-31 17:19:51.822 +05:30 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)","Microsoft.AspNetCore.Mvc.ReportApiVersionsAttribute (Order: 0)"]
+2025-07-31 17:19:51.824 +05:30 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)","Microsoft.AspNetCore.Mvc.ReportApiVersionsAttribute (Order: 0)"]
+2025-07-31 17:19:51.826 +05:30 [DBG] Executing controller factory for controller AuthController (TravelPlannerAPI)
+2025-07-31 17:19:51.828 +05:30 [DBG] Executing controller factory for controller AuthController (TravelPlannerAPI)
+2025-07-31 17:19:51.839 +05:30 [DBG] Entity Framework Core 8.0.13 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.13' with options: None
+2025-07-31 17:19:51.839 +05:30 [DBG] Entity Framework Core 8.0.13 initialized 'ApplicationDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:8.0.13' with options: None
+2025-07-31 17:19:51.842 +05:30 [DBG] Executed controller factory for controller AuthController (TravelPlannerAPI)
+2025-07-31 17:19:51.845 +05:30 [DBG] Attempting to bind parameter 'request' of type 'TravelPlannerAPI.Dtos.TokenRefreshRequestDto' ...
+2025-07-31 17:19:51.846 +05:30 [DBG] Executed controller factory for controller AuthController (TravelPlannerAPI)
+2025-07-31 17:19:51.847 +05:30 [DBG] Attempting to bind parameter 'request' of type 'TravelPlannerAPI.Dtos.TokenRefreshRequestDto' using the name '' in request data ...
+2025-07-31 17:19:51.849 +05:30 [DBG] Attempting to bind parameter 'request' of type 'TravelPlannerAPI.Dtos.TokenRefreshRequestDto' ...
+2025-07-31 17:19:51.850 +05:30 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2025-07-31 17:19:51.851 +05:30 [DBG] Attempting to bind parameter 'request' of type 'TravelPlannerAPI.Dtos.TokenRefreshRequestDto' using the name '' in request data ...
+2025-07-31 17:19:51.855 +05:30 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2025-07-31 17:19:51.856 +05:30 [DBG] JSON input formatter succeeded, deserializing to type 'TravelPlannerAPI.Dtos.TokenRefreshRequestDto'
+2025-07-31 17:19:51.856 +05:30 [DBG] JSON input formatter succeeded, deserializing to type 'TravelPlannerAPI.Dtos.TokenRefreshRequestDto'
+2025-07-31 17:19:51.857 +05:30 [DBG] Done attempting to bind parameter 'request' of type 'TravelPlannerAPI.Dtos.TokenRefreshRequestDto'.
+2025-07-31 17:19:51.858 +05:30 [DBG] Done attempting to bind parameter 'request' of type 'TravelPlannerAPI.Dtos.TokenRefreshRequestDto'.
+2025-07-31 17:19:51.859 +05:30 [DBG] Done attempting to bind parameter 'request' of type 'TravelPlannerAPI.Dtos.TokenRefreshRequestDto'.
+2025-07-31 17:19:51.861 +05:30 [DBG] Done attempting to bind parameter 'request' of type 'TravelPlannerAPI.Dtos.TokenRefreshRequestDto'.
+2025-07-31 17:19:51.862 +05:30 [DBG] Attempting to validate the bound parameter 'request' of type 'TravelPlannerAPI.Dtos.TokenRefreshRequestDto' ...
+2025-07-31 17:19:51.863 +05:30 [DBG] Attempting to validate the bound parameter 'request' of type 'TravelPlannerAPI.Dtos.TokenRefreshRequestDto' ...
+2025-07-31 17:19:51.867 +05:30 [DBG] Done attempting to validate the bound parameter 'request' of type 'TravelPlannerAPI.Dtos.TokenRefreshRequestDto'.
+2025-07-31 17:19:51.867 +05:30 [DBG] Done attempting to validate the bound parameter 'request' of type 'TravelPlannerAPI.Dtos.TokenRefreshRequestDto'.
+2025-07-31 17:19:51.890 +05:30 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2025-07-31 17:19:51.890 +05:30 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2025-07-31 17:19:51.894 +05:30 [DBG] No information found on request to perform content negotiation.
+2025-07-31 17:19:51.897 +05:30 [DBG] No information found on request to perform content negotiation.
+2025-07-31 17:19:51.898 +05:30 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2025-07-31 17:19:51.899 +05:30 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2025-07-31 17:19:51.900 +05:30 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2025-07-31 17:19:51.901 +05:30 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2025-07-31 17:19:51.902 +05:30 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2025-07-31 17:19:51.903 +05:30 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2025-07-31 17:19:51.904 +05:30 [INF] Executing UnauthorizedObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-07-31 17:19:51.906 +05:30 [INF] Executing UnauthorizedObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-07-31 17:19:51.909 +05:30 [INF] Executed action AuthController.Refresh (TravelPlannerAPI) in 82.7781ms
+2025-07-31 17:19:51.909 +05:30 [INF] Executed action AuthController.Refresh (TravelPlannerAPI) in 80.8144ms
+2025-07-31 17:19:51.910 +05:30 [INF] Executed endpoint 'AuthController.Refresh (TravelPlannerAPI)'
+2025-07-31 17:19:51.912 +05:30 [INF] Executed endpoint 'AuthController.Refresh (TravelPlannerAPI)'
+2025-07-31 17:19:51.917 +05:30 [INF] Source:[::1] Request: POST http localhost:5276/api/v1/Auth/refresh  {"AccessToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyIiwidW5pcXVlX25hbWUiOiJzdXJha3NoYSIsImVtYWlsIjoic3VyYWtzaGFAZ21haWwuY29tIiwicm9sZSI6IlVzZXIiLCJuYmYiOjE3NTM5NTk2MzQsImV4cCI6MTc1Mzk1OTY5NCwiaWF0IjoxNzUzOTU5NjM0LCJpc3MiOiJUcmF2ZWxQbGFubmVyQVBJIiwiYXVkIjoiVHJhdmVsUGxhbm5lckNsaWVudCJ9.DufT6GstLUlmaDmL4SHXmLvBJoN-LLSPoBNNAeE6HjU","RefreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyIiwiZW1haWwiOiJzdXJha3NoYUBnbWFpbC5jb20iLCJuYmYiOjE3NTM5NTk2MzQsImV4cCI6MTc1NDU2NDQzNCwiaWF0IjoxNzUzOTU5NjM0LCJpc3MiOiJUcmF2ZWxQbGFubmVyQVBJIiwiYXVkIjoiVHJhdmVsUGxhbm5lckNsaWVudCJ9.BhGsBn2mXy8UmE7MqAxyXWlTJchVbwjxKJ0bfCNZU6A"} Responded with [401] in 137ms
+2025-07-31 17:19:51.917 +05:30 [INF] Source:[::1] Request: POST http localhost:5276/api/v1/Auth/refresh  {"AccessToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyIiwidW5pcXVlX25hbWUiOiJzdXJha3NoYSIsImVtYWlsIjoic3VyYWtzaGFAZ21haWwuY29tIiwicm9sZSI6IlVzZXIiLCJuYmYiOjE3NTM5NTk2MzQsImV4cCI6MTc1Mzk1OTY5NCwiaWF0IjoxNzUzOTU5NjM0LCJpc3MiOiJUcmF2ZWxQbGFubmVyQVBJIiwiYXVkIjoiVHJhdmVsUGxhbm5lckNsaWVudCJ9.DufT6GstLUlmaDmL4SHXmLvBJoN-LLSPoBNNAeE6HjU","RefreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyIiwiZW1haWwiOiJzdXJha3NoYUBnbWFpbC5jb20iLCJuYmYiOjE3NTM5NTk2MzQsImV4cCI6MTc1NDU2NDQzNCwiaWF0IjoxNzUzOTU5NjM0LCJpc3MiOiJUcmF2ZWxQbGFubmVyQVBJIiwiYXVkIjoiVHJhdmVsUGxhbm5lckNsaWVudCJ9.BhGsBn2mXy8UmE7MqAxyXWlTJchVbwjxKJ0bfCNZU6A"} Responded with [401] in 136ms
+2025-07-31 17:19:51.919 +05:30 [DBG] Connection id "0HNEG45ATSQ04" completed keep alive response.
+2025-07-31 17:19:51.920 +05:30 [DBG] Connection id "0HNEG45ATSQ03" completed keep alive response.
+2025-07-31 17:19:51.922 +05:30 [DBG] 'ApplicationDbContext' disposed.
+2025-07-31 17:19:51.923 +05:30 [DBG] 'ApplicationDbContext' disposed.
+2025-07-31 17:19:51.924 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5276/api/v1/Auth/refresh - 401 126 application/json; ver=1 167.7655ms
+2025-07-31 17:19:51.925 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5276/api/v1/Auth/refresh - 401 126 application/json; ver=1 167.8451ms
+2025-07-31 17:21:10.423 +05:30 [DBG] Connection id "0HNEG45ATSQ04" received FIN.
+2025-07-31 17:21:10.424 +05:30 [DBG] Connection id "0HNEG45ATSQ03" received FIN.
+2025-07-31 17:21:10.424 +05:30 [DBG] Connection id "0HNEG45ATSQ01" received FIN.
+2025-07-31 17:21:10.425 +05:30 [DBG] Connection id "0HNEG45ATSQ02" received FIN.
+2025-07-31 17:21:10.425 +05:30 [DBG] Connection id "0HNEG45ATSQ04" disconnecting.
+2025-07-31 17:21:10.429 +05:30 [DBG] Connection id "0HNEG45ATSQ03" disconnecting.
+2025-07-31 17:21:10.432 +05:30 [DBG] Connection id "0HNEG45ATSQ01" disconnecting.
+2025-07-31 17:21:10.433 +05:30 [DBG] Connection id "0HNEG45ATSQ02" disconnecting.
+2025-07-31 17:21:10.437 +05:30 [DBG] Connection id "0HNEG45ATSQ04" sending FIN because: "The Socket transport's send loop completed gracefully."
+2025-07-31 17:21:10.438 +05:30 [DBG] Connection id "0HNEG45ATSQ03" sending FIN because: "The Socket transport's send loop completed gracefully."
+2025-07-31 17:21:10.439 +05:30 [DBG] Connection id "0HNEG45ATSQ01" sending FIN because: "The Socket transport's send loop completed gracefully."
+2025-07-31 17:21:10.441 +05:30 [DBG] Connection id "0HNEG45ATSQ02" sending FIN because: "The Socket transport's send loop completed gracefully."
+2025-07-31 17:21:10.454 +05:30 [DBG] Connection id "0HNEG45ATSQ04" stopped.
+2025-07-31 17:21:10.454 +05:30 [DBG] Connection id "0HNEG45ATSQ03" stopped.
+2025-07-31 17:21:10.454 +05:30 [DBG] Connection id "0HNEG45ATSQ02" stopped.
+2025-07-31 17:21:10.454 +05:30 [DBG] Connection id "0HNEG45ATSQ01" stopped.
+2025-07-31 17:22:39.618 +05:30 [INF] Application is shutting down...
+2025-07-31 17:22:39.619 +05:30 [DBG] Hosting stopping
+2025-07-31 17:22:39.626 +05:30 [DBG] Hosting stopped

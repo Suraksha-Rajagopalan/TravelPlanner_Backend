@@ -15,9 +15,9 @@ namespace TravelPlannerAPI.Services.Implementations
     public class AdminService : IAdminService
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly UserManager<User> _userManager;
+        private readonly UserManager<UserModel> _userManager;
 
-        public AdminService(IUnitOfWork unitOfWork, UserManager<User> userManager)
+        public AdminService(IUnitOfWork unitOfWork, UserManager<UserModel> userManager)
         {
             _unitOfWork = unitOfWork;
             _userManager = userManager;

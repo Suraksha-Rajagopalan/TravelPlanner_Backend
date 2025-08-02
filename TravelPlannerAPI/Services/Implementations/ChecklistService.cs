@@ -1,12 +1,13 @@
 ﻿using AutoMapper;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using TravelPlannerAPI.Dtos;
 using TravelPlannerAPI.Models;
+using TravelPlannerAPI.Models.Enums;
 using TravelPlannerAPI.Repository.Interface;
-using TravelPlannerAPI.UoW;
 using TravelPlannerAPI.Services.Interfaces;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Linq;
+using TravelPlannerAPI.UoW;
 
 namespace TravelPlannerAPI.Services.Implementations
 {
@@ -29,26 +30,37 @@ namespace TravelPlannerAPI.Services.Implementations
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<ChecklistWithAccessDto> GetChecklistAsync(int tripId, int userId)
+        public async Task<ChecklistWithAccessDto?> GetChecklistAsync(int tripId, int userId)
         {
             if (!await _access.HasAccessToTripAsync(tripId, userId))
                 return null;
 
             var items = await _repo.GetByTripAndUserAsync(tripId, userId);
-            return new ChecklistWithAccessDto
+
+            if (items == null)
+                return null;
+
+            var accessLevel = await _access.GetAccessLevelAsync(tripId, userId);
+            var accessString = accessLevel?.ToString();
+            if (accessString != null)
             {
-                AccessLevel = await _access.GetAccessLevelAsync(tripId, userId),
-                Items = items.Select(i => _mapper.Map<ChecklistItemDto>(i)).ToList()
-            };
+                return new ChecklistWithAccessDto
+                {
+                    AccessLevel = accessString,
+                    Items = items.Select(i => _mapper.Map<ChecklistItemDto?>(i)).ToList()
+                };
+            }
+            return null;
+            
         }
 
 
-        public async Task<ChecklistItemDto> AddItemAsync(ChecklistItemDto dto, int userId)
+        public async Task<ChecklistItemDto?> AddItemAsync(ChecklistItemDto dto, int userId)
         {
             if (!await _access.HasAccessToTripAsync(dto.TripId, userId))
                 return null;
 
-            var entity = _mapper.Map<ChecklistItem>(dto);
+            var entity = _mapper.Map<ChecklistItemModel>(dto);
             entity.UserId = userId;
 
             await _repo.AddAsync(entity);
@@ -57,14 +69,14 @@ namespace TravelPlannerAPI.Services.Implementations
             return _mapper.Map<ChecklistItemDto>(entity);
         }
 
-        public async Task<ChecklistItemDto> UpdateItemAsync(int id, ChecklistItemUpdateDto dto, int userId)
+        public async Task<ChecklistItemDto?> UpdateItemAsync(int id, ChecklistItemUpdateDto dto, int userId)
         {
             var item = await _repo.GetByIdAsync(id);
             if (item == null || item.UserId != userId ||
                 !await _access.HasAccessToTripAsync(item.TripId, userId))
                 return null;
 
-            item.Text = dto.Description;
+            item.Description = dto.Description;
             item.IsCompleted = dto.IsCompleted;
 
             _repo.Update(item);
@@ -85,7 +97,7 @@ namespace TravelPlannerAPI.Services.Implementations
             return true;
         }
 
-        public async Task<ChecklistItemDto> ToggleCompletionAsync(int id, int userId)
+        public async Task<ChecklistItemDto?> ToggleCompletionAsync(int id, int userId)
         {
             var item = await _repo.GetByIdAsync(id);
             if (item == null || item.UserId != userId ||

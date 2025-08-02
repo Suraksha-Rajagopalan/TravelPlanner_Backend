@@ -1,17 +1,18 @@
-﻿using TravelPlannerAPI.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using TravelPlannerAPI.Generic;
+using TravelPlannerAPI.Models;
 
 namespace TravelPlannerAPI.Repository.Interface
 {
-    public interface IItineraryRepository
+    public interface IItineraryRepository : IGenericRepository<ItineraryItemsModel>
     {
-        Task<IEnumerable<ItineraryItem>> GetByTripIdAsync(int tripId);
-        Task<ItineraryItem> GetByIdAsync(int id);
-        Task AddAsync(ItineraryItem item);
-        Task UpdateAsync(ItineraryItem item);
-        Task DeleteAsync(ItineraryItem item);
+        Task<IEnumerable<ItineraryItemsModel>> GetByTripIdAsync(int tripId);
+        Task<ItineraryItemsModel?> GetByIdAsync(int id);
+        Task newAddAsync(ItineraryItemsModel item);
+        Task UpdateAsync(ItineraryItemsModel item);
+        Task DeleteAsync(ItineraryItemsModel item);
         Task<bool> ExistsAsync(int id);
-        Task<IEnumerable<ItineraryItem>> GetSharedItineraryAsync(int tripId, int userId);
+        Task<IEnumerable<ItineraryItemsModel>> GetSharedItineraryAsync(int tripId, int userId);
     }
 }

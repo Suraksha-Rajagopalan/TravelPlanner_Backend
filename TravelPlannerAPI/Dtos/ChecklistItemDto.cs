@@ -10,7 +10,7 @@ namespace TravelPlannerAPI.Dtos
         public int TripId { get; set; }
 
         [Required]
-        [StringLength(300, ErrorMessage = "Description can't be longer than 200 characters.")]
+        [StringLength(300, ErrorMessage = "Description can't be longer than 300 characters.")]
         public string Description { get; set; } = string.Empty;
 
         public bool IsCompleted { get; set; }

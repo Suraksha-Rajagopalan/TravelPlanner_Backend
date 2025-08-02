@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace TravelPlannerAPI.Models
 {
-    public class BudgetDetails
+    public class BudgetDetailsModel
     {
         [Key]
         public int Id { get; set; }
@@ -16,6 +16,6 @@ namespace TravelPlannerAPI.Models
         public int TripId { get; set; }
 
         [JsonIgnore]
-        public Trip Trip { get; set; } = null!;
+        public TripModel Trip { get; set; } = null!;
     }
 }

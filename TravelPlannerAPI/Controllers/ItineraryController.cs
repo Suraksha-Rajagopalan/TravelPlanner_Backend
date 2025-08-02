@@ -26,7 +26,7 @@ namespace TravelPlannerAPI.Controllers
             _mapper = mapper;
         }
 
-        [MapToApiVersion("1.0")]
+        
         [HttpGet]
         public async Task<IActionResult> GetItineraryItems(int tripId)
         {
@@ -34,7 +34,7 @@ namespace TravelPlannerAPI.Controllers
             return Ok(items);
         }
 
-        [MapToApiVersion("1.0")]
+        
         [HttpPost]
         public async Task<IActionResult> CreateItineraryItem(
             int tripId,
@@ -47,7 +47,7 @@ namespace TravelPlannerAPI.Controllers
             return Ok(item);
         }
 
-        [MapToApiVersion("1.0")]
+        
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateItineraryItem(
             int tripId,
@@ -62,7 +62,7 @@ namespace TravelPlannerAPI.Controllers
             return NoContent();
         }
 
-        [MapToApiVersion("1.0")]
+        
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteItineraryItem(int tripId, int id)
         {

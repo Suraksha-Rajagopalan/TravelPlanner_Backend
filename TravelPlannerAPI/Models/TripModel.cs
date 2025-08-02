@@ -5,7 +5,7 @@ using System.Text.Json;
 
 namespace TravelPlannerAPI.Models
 {
-    public class Trip
+    public class TripModel
     {
         [Key]
         public int Id { get; set; }
@@ -33,7 +33,7 @@ namespace TravelPlannerAPI.Models
         public int UserId { get; set; }
 
         [JsonIgnore]
-        public User User { get; set; } = null!;
+        public UserModel User { get; set; } = null!;
 
         public string? Image { get; set; } = null;
         public string? Description { get; set; } = null;
@@ -68,11 +68,11 @@ namespace TravelPlannerAPI.Models
             set => TouristSpotsJson = JsonSerializer.Serialize(value ?? new List<string>());
         }
 
-        public BudgetDetails? BudgetDetails { get; set; }
+        public BudgetDetailsModel? BudgetDetails { get; set; }
 
-        public ICollection<Review> Reviews { get; set; } = new List<Review>();
+        public ICollection<ReviewModel> Reviews { get; set; } = new List<ReviewModel>();
 
-        public ICollection<TripShare> SharedUsers { get; set; } = new List<TripShare>();
+        public ICollection<TripShareModel> SharedUsers { get; set; } = new List<TripShareModel>();
 
     };
 }

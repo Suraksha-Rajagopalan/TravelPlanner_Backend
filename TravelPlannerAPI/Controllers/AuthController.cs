@@ -17,20 +17,20 @@ using TravelPlannerAPI.Services.Interfaces;
 [ApiController]
 public class AuthController : ControllerBase
 {
-    private readonly UserManager<User> _userManager;
-    private readonly SignInManager<User> _signInManager;
+    private readonly UserManager<UserModel> _userManager;
+    private readonly SignInManager<UserModel> _signInManager;
     private readonly IConfiguration _configuration;
     private readonly ILogger<AuthController> _logger;
-    private readonly IGenericRepository<User> _userRepository;
+    private readonly IGenericRepository<UserModel> _userRepository;
     private readonly ITokenService _tokenService;
     private readonly IAuthService _authService;
 
     public AuthController(
-        UserManager<User> userManager,
-        SignInManager<User> signInManager,
+        UserManager<UserModel> userManager,
+        SignInManager<UserModel> signInManager,
         IConfiguration configuration,
         ILogger<AuthController> logger,
-        IGenericRepository<User> userRepository,
+        IGenericRepository<UserModel> userRepository,
         ITokenService tokenService,
         IAuthService authService)
     {
@@ -43,7 +43,7 @@ public class AuthController : ControllerBase
         _authService = authService;
     }
 
-    [MapToApiVersion("1.0")]
+    
     [HttpPost("signup")]
     public async Task<IActionResult> Signup([FromBody] SignupRequest request)
     {
@@ -51,7 +51,7 @@ public class AuthController : ControllerBase
         if (existingUser != null)
             return BadRequest(new { message = "Email already registered" });
 
-        var newUser = new User
+        var newUser = new UserModel
         {
             UserName = request.Email,
             Email = request.Email,
@@ -68,7 +68,7 @@ public class AuthController : ControllerBase
         return Ok(new { message = $"User {request.Name} registered successfully!" });
     }
 
-    [MapToApiVersion("1.0")]
+    
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] LoginRequestDto request)
     {
@@ -97,7 +97,7 @@ public class AuthController : ControllerBase
         });
     }
 
-    [MapToApiVersion("1.0")]
+    
     [HttpPost("refresh")]
     public async Task<IActionResult> Refresh([FromBody] TokenRefreshRequestDto request)
     {
@@ -120,7 +120,11 @@ public class AuthController : ControllerBase
         if (userId != refreshUserId)
             return Unauthorized(new { message = "Token mismatch" });
 
+        if (userId==null)
+            return BadRequest(new { message = "UserId cannot be null" });
+
         var user = await _userManager.FindByIdAsync(userId);
+
         if (user == null)
             return Unauthorized(new { message = "User not found" });
 

@@ -10,19 +10,19 @@ using System.Threading.Tasks;
 namespace TravelPlannerAPI.Repository.Implementation
 {
     public class TripShareRepository
-        : GenericRepository<TripShare>, ITripShareRepository
+        : GenericRepository<TripShareModel>, ITripShareRepository
     {
         private readonly ApplicationDbContext _context;
 
         public TripShareRepository(
             ApplicationDbContext context,
-            IGenericRepository<TripShare> genericRepo
+            IGenericRepository<TripShareModel> genericRepo
         ) : base(context)
         {
             _context = context;
         }
 
-        public async Task<TripShare> GetByTripAndUserAsync(int tripId, int sharedWithUserId)
+        public async Task<TripShareModel?> GetByTripAndUserAsync(int tripId, int sharedWithUserId)
         {
             return await _context.TripShares
                 .FirstOrDefaultAsync(s
@@ -30,7 +30,7 @@ namespace TravelPlannerAPI.Repository.Implementation
                     && s.SharedWithUserId == sharedWithUserId);
         }
 
-        public async Task<Trip> GetOwnedTripAsync(int tripId, int ownerId)
+        public async Task<TripModel?> GetOwnedTripAsync(int tripId, int ownerId)
         {
             return await _context.Trips
                 .FirstOrDefaultAsync(t
@@ -38,12 +38,19 @@ namespace TravelPlannerAPI.Repository.Implementation
                     && t.UserId == ownerId);
         }
 
-        public async Task<List<TripShare>> GetSharesForUserAsync(int sharedWithUserId)
+        public async Task<List<TripShareModel>> GetSharesForUserAsync(int sharedWithUserId)
         {
             return await _context.TripShares
                 .Where(s => s.SharedWithUserId == sharedWithUserId)
                 .Include(s => s.Trip)
                 .ToListAsync();
         }
+
+        public async Task<UserModel?> GetUserByEmailAsync(string email)
+        {
+            return await _context.Users
+                .FirstOrDefaultAsync(u => u.Email == email);
+        }
+
     }
 }

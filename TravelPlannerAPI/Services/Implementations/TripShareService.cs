@@ -16,16 +16,13 @@ namespace TravelPlannerAPI.Services.Implementations
     public class TripShareService : ITripShareService
     {
         private readonly ITripShareRepository _repo;
-        private readonly ApplicationDbContext _context;
         private readonly IUnitOfWork _unitOfWork;
 
         public TripShareService(
             ITripShareRepository repo,
-            ApplicationDbContext context,
             IUnitOfWork unitOfWork)
         {
             _repo = repo;
-            _context = context;
             _unitOfWork = unitOfWork;
         }
 
@@ -34,8 +31,8 @@ namespace TravelPlannerAPI.Services.Implementations
             TripShareRequestDto request)
         {
             // Lookup user by email
-            var sharedWithUser = await _context.Users
-                .FirstOrDefaultAsync(u => u.Email == request.SharedWithEmail);
+            var sharedWithUser = await _repo.GetUserByEmailAsync(request.SharedWithEmail);
+
             if (sharedWithUser == null)
                 return (false, "User to share with not found.");
 
@@ -63,7 +60,7 @@ namespace TravelPlannerAPI.Services.Implementations
                 return (false, "This trip is already shared with the user.");
 
             // Create & persist
-            var share = new TripShare
+            var share = new TripShareModel
             {
                 TripId = request.TripId,
                 OwnerId = ownerId,
@@ -73,7 +70,7 @@ namespace TravelPlannerAPI.Services.Implementations
 
             await _repo.AddAsync(share);
             await _unitOfWork.CompleteAsync();
-            return (true, null);
+            return (true, "");
         }
 
         public async Task<IEnumerable<SharedTripDto>> GetTripsSharedWithUserAsync(int userId)
@@ -94,7 +91,7 @@ namespace TravelPlannerAPI.Services.Implementations
                 Notes = s.Trip.Notes,
                 Image = s.Trip.Image,
                 Duration = s.Trip.Duration,
-                BestTime = s.Trip.BestTime,
+                BestTime = s.Trip.BestTime ?? String.Empty,
                 Essentials = s.Trip.Essentials ?? new List<string>(),
                 TouristSpots = s.Trip.TouristSpots ?? new List<string>()
             }).ToList();

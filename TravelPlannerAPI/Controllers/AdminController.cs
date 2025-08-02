@@ -21,7 +21,7 @@ public class AdminController : ControllerBase
         _logger = logger;
     }
 
-    [MapToApiVersion("1.0")]
+    
     [HttpGet("users")]
     public async Task<IActionResult> GetAllUsers()
     {
@@ -29,7 +29,7 @@ public class AdminController : ControllerBase
         return Ok(users);
     }
 
-    [MapToApiVersion("1.0")]
+    
     [HttpDelete("delete-user/{id}")]
     public async Task<IActionResult> DeleteUser(int id)
     {
