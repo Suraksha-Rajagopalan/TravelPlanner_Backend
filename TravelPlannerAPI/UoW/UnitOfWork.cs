@@ -24,6 +24,7 @@ public class UnitOfWork : IUnitOfWork
         var expenseRepo = new GenericRepository<ExpenseModel>(_context);
         var tripShareRepo = new GenericRepository<TripShareModel>(_context);
         var userRepo = new GenericRepository<UserModel>(_context);
+        var tripReviewRepo = new GenericRepository<TripReviewModel>(_context);
 
 
         // Assign to properties
@@ -36,6 +37,7 @@ public class UnitOfWork : IUnitOfWork
         Access = new AccessRepository(_context);
         Auth = new AuthRepository(_context, _userManager);
         Users = new UserRepository(_context);
+        TripReview = new TripReviewRepository(_context, tripReviewRepo);
 
     }
 
@@ -49,6 +51,8 @@ public class UnitOfWork : IUnitOfWork
     public ITripShareRepository TripShares { get; }
     public IAccessRepository Access { get; }
     public IAuthRepository Auth { get; }
+    public ITripReviewRepository TripReview { get; }
+
 
     public async Task<int> CompleteAsync() => await _context.SaveChangesAsync();
 }

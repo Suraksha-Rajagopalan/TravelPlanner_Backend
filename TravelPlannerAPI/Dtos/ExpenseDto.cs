@@ -9,7 +9,7 @@ namespace TravelPlannerAPI.Models.Dtos
         [Required]
         public int TripId { get; set; }
         public string Category { get; set; } = null!;
-        [StringLength(300, ErrorMessage = "Description can't be longer than 200 characters.")]
+        [StringLength(300, ErrorMessage = "Description can't be longer than 300 characters.")]
         public string? Description { get; set; }
         public decimal Amount { get; set; }
         public DateTime Date { get; set; }

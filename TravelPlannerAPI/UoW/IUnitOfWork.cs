@@ -14,6 +14,8 @@ namespace TravelPlannerAPI.UoW
         ITripShareRepository TripShares { get; }
         IAccessRepository Access { get; }
         IAuthRepository Auth { get; }
+        ITripReviewRepository TripReview { get; }
+
 
         Task<int> CompleteAsync();
     }

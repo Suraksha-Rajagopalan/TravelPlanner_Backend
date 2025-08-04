@@ -15,14 +15,11 @@ namespace TravelPlannerAPI.Services.Implementations
 {
     public class TripShareService : ITripShareService
     {
-        private readonly ITripShareRepository _repo;
         private readonly IUnitOfWork _unitOfWork;
 
         public TripShareService(
-            ITripShareRepository repo,
             IUnitOfWork unitOfWork)
         {
-            _repo = repo;
             _unitOfWork = unitOfWork;
         }
 
@@ -31,7 +28,7 @@ namespace TravelPlannerAPI.Services.Implementations
             TripShareRequestDto request)
         {
             // Lookup user by email
-            var sharedWithUser = await _repo.GetUserByEmailAsync(request.SharedWithEmail);
+            var sharedWithUser = await _unitOfWork.TripShares.GetUserByEmailAsync(request.SharedWithEmail);
 
             if (sharedWithUser == null)
                 return (false, "User to share with not found.");
@@ -50,12 +47,12 @@ namespace TravelPlannerAPI.Services.Implementations
             }
 
             // Ensure trip belongs to owner
-            var trip = await _repo.GetOwnedTripAsync(request.TripId, ownerId);
+            var trip = await _unitOfWork.TripShares.GetOwnedTripAsync(request.TripId, ownerId);
             if (trip == null)
                 return (false, "Trip not found or you do not own it.");
 
             // Prevent duplicate share
-            var exists = await _repo.GetByTripAndUserAsync(request.TripId, sharedWithUser.Id);
+            var exists = await _unitOfWork.TripShares.GetByTripAndUserAsync(request.TripId, sharedWithUser.Id);
             if (exists != null)
                 return (false, "This trip is already shared with the user.");
 
@@ -68,14 +65,14 @@ namespace TravelPlannerAPI.Services.Implementations
                 AccessLevel = accessLevel
             };
 
-            await _repo.AddAsync(share);
+            await _unitOfWork.TripShares.AddAsync(share);
             await _unitOfWork.CompleteAsync();
             return (true, "");
         }
 
         public async Task<IEnumerable<SharedTripDto>> GetTripsSharedWithUserAsync(int userId)
         {
-            var shares = await _repo.GetSharesForUserAsync(userId);
+            var shares = await _unitOfWork.TripShares.GetSharesForUserAsync(userId);
 
             return shares.Select(s => new SharedTripDto
             {

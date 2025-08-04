@@ -9,23 +9,21 @@ namespace TravelPlannerAPI.Services.Implementations
 {
     public class ReviewService : IReviewService
     {
-        private readonly IReviewRepository _repo;
         private readonly IUnitOfWork _unitOfWork;
 
-        public ReviewService(IReviewRepository repo, IUnitOfWork unitOfWork)
+        public ReviewService(IUnitOfWork unitOfWork)
         {
-            _repo = repo;
             _unitOfWork = unitOfWork;
         }
 
         public async Task<bool> SubmitReviewAsync(ReviewDto dto, int userId)
         {
             // 1. Access check
-            if (!await _repo.HasAccessAsync(dto.TripId, userId))
+            if (!await _unitOfWork.Reviews.HasAccessAsync(dto.TripId, userId))
                 return false;
 
             // 2. Already reviewed?
-            var existing = await _repo.GetByTripAndUserAsync(dto.TripId, userId);
+            var existing = await _unitOfWork.Reviews.GetByTripAndUserAsync(dto.TripId, userId);
             if (existing != null)
                 return false;
 
@@ -38,7 +36,7 @@ namespace TravelPlannerAPI.Services.Implementations
                 ReviewText = dto.Review ?? string.Empty
             };
 
-            await _repo.AddAsync(review);
+            await _unitOfWork.Reviews.AddAsync(review);
             await _unitOfWork.CompleteAsync();      // commit via generic
             return true;
         }
@@ -46,11 +44,11 @@ namespace TravelPlannerAPI.Services.Implementations
         public async Task<ReviewDto?> GetReviewAsync(int tripId, int userId)
         {
             // 1. Access check
-            if (!await _repo.HasAccessAsync(tripId, userId))
+            if (!await _unitOfWork.Reviews.HasAccessAsync(tripId, userId))
                 return null;
 
             // 2. Fetch
-            var review = await _repo.GetByTripAndUserAsync(tripId, userId);
+            var review = await _unitOfWork.Reviews.GetByTripAndUserAsync(tripId, userId);
             if (review == null) return null;
 
             // 3. Map to DTO

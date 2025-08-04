@@ -1,7 +1,4 @@
-﻿using TravelPlannerAPI.Dtos;
-using TravelPlannerAPI.Models;
-using TravelPlannerAPI.Services.Interfaces;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -9,26 +6,31 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-
+using TravelPlannerAPI.Dtos;
+using TravelPlannerAPI.Models;
 using TravelPlannerAPI.Repository.Interface;
+using TravelPlannerAPI.Services.Interfaces;
+using TravelPlannerAPI.UoW;
 
 public class AuthService : IAuthService
 {
-    private readonly IAuthRepository _authRepository;
+    //private readonly IAuthRepository _authRepository;
     private readonly IConfiguration _configuration;
+    private readonly IUnitOfWork _unitOfWork;
 
-    public AuthService(IAuthRepository authRepository, IConfiguration configuration)
+    public AuthService(IConfiguration configuration, IUnitOfWork unitOfWork)
     {
-        _authRepository = authRepository;
+        //_authRepository = authRepository;
         _configuration = configuration;
+        _unitOfWork = unitOfWork;
     }
 
     public async Task<AuthResponseDto> SignupAsync(SignupRequest request)
     {
-        var existingUser = await _authRepository.GetByEmailAsync(request.Email);
+        var existingUser = await _unitOfWork.Auth.GetByEmailAsync(request.Email);
         if (existingUser != null)
         {
-            return new AuthResponseDto { Success = false, Message = "Email already registered" };
+            return new AuthResponseDto ( false, "Email already registered", null, null );
         }
 
         var newUser = new UserModel
@@ -41,32 +43,32 @@ public class AuthService : IAuthService
             IsActive = true
         };
 
-        var (succeeded, errors) = await _authRepository.CreateUserAsync(newUser, request.Password);
+        var (succeeded, errors) = await _unitOfWork.Auth.CreateUserAsync(newUser, request.Password);
         if (!succeeded)
         {
-            return new AuthResponseDto { Success = false, Errors = errors };
+            return new AuthResponseDto ( false, null, null, errors);
         }
 
-        return new AuthResponseDto { Success = true, Message = $"User {request.Name} registered successfully!" };
+        return new AuthResponseDto ( true, $"User {request.Name} registered successfully!", null, null );
     }
 
     public async Task<AuthResponseDto> LoginAsync(LoginRequestDto request)
     {
-        var user = await _authRepository.GetByEmailAsync(request.Email);
-        if (user == null || !await _authRepository.CheckPasswordAsync(user, request.Password))
+        var user = await _unitOfWork.Auth.GetByEmailAsync(request.Email);
+        if (user == null || !await _unitOfWork.Auth.CheckPasswordAsync(user, request.Password))
         {
-            return new AuthResponseDto { Success = false, Message = "Invalid credentials" };
+            return new AuthResponseDto (false, "Invalid credentials", null, null );
         }
 
         user.LastLoginDate = DateTime.UtcNow;
-        await _authRepository.UpdateUserAsync(user);
+        await _unitOfWork.Auth.UpdateUserAsync(user);
 
         var accessToken = GenerateJwtToken(user);
 
         return new AuthResponseDto
-        {
-            Success = true,
-            Data = new
+        (
+            true, null, null,
+            new
             {
                 Token = accessToken,
                 User = new
@@ -76,7 +78,7 @@ public class AuthService : IAuthService
                     email = user.Email
                 }
             }
-        };
+        );
     }
 
     public string GenerateJwtToken(UserModel user)
@@ -95,7 +97,7 @@ public class AuthService : IAuthService
         var tokenDescriptor = new SecurityTokenDescriptor
         {
             Subject = new ClaimsIdentity(claims),
-            Expires = DateTime.UtcNow.AddMinutes(1),
+            Expires = DateTime.UtcNow.AddMinutes(15),
             SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
             Issuer = _configuration["Jwt:Issuer"],
             Audience = _configuration["Jwt:Audience"]

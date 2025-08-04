@@ -10,17 +10,11 @@ namespace TravelPlannerAPI.Services.Implementations
 {
     public class ExpenseService : IExpenseService
     {
-        private readonly IExpenseRepository _expenseRepo;
-        private readonly IGenericRepository<ExpenseModel> _genericRepo;
         private readonly IUnitOfWork _unitOfWork;
 
         public ExpenseService(
-            IExpenseRepository expenseRepo,
-            IGenericRepository<ExpenseModel> genericRepo,
             IUnitOfWork unitOfWork)
         {
-            _expenseRepo = expenseRepo;
-            _genericRepo = genericRepo;
             _unitOfWork = unitOfWork;
         }
 
@@ -32,7 +26,8 @@ namespace TravelPlannerAPI.Services.Implementations
             dto.TripId = tripId;
             //dto.UserId = userId;
 
-            await _genericRepo.AddAsync(dto);
+            // _genericRepo.AddAsync(dto);
+            await _unitOfWork.Expenses.AddAsync(dto);
             await _unitOfWork.CompleteAsync();
 
             return dto;
@@ -41,12 +36,12 @@ namespace TravelPlannerAPI.Services.Implementations
         public async Task<IEnumerable<ExpenseModel?>> GetExpensesAsync(int tripId, int userId)
         {
             // Optionally filter by userId as well
-            return await _expenseRepo.GetByTripAsync(tripId);
+            return await _unitOfWork.Expenses.GetByTripAsync(tripId);
         }
 
         public async Task<ExpenseModel?> UpdateExpenseAsync(int tripId, int id, ExpenseModel dto, int userId)
         {
-            var expense = await _genericRepo.GetByIdAsync(id);
+            var expense = await _unitOfWork.Expenses.GetByIdAsync(id);
             if (expense == null || expense.TripId != tripId)
                 return null;
 
@@ -54,7 +49,7 @@ namespace TravelPlannerAPI.Services.Implementations
             expense.Amount = dto.Amount;
             expense.Category = dto.Category;
 
-            _genericRepo.Update(expense);
+            _unitOfWork.Expenses.Update(expense);
             await _unitOfWork.CompleteAsync();
 
             return expense;
@@ -62,11 +57,11 @@ namespace TravelPlannerAPI.Services.Implementations
 
         public async Task<bool> DeleteExpenseAsync(int tripId, int id, int userId)
         {
-            var expense = await _genericRepo.GetByIdAsync(id);
+            var expense = await _unitOfWork.Expenses.GetByIdAsync(id);
             if (expense == null || expense.TripId != tripId)
                 return false;
 
-            _genericRepo.Delete(expense);
+            _unitOfWork.Expenses.Delete(expense);
             await _unitOfWork.CompleteAsync();
 
             return true;

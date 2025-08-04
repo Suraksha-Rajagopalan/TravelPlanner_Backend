@@ -11,46 +11,43 @@ namespace TravelPlannerAPI.Services.Implementations
 {
     public class ItineraryService : IItineraryService
     {
-        private readonly IItineraryRepository _repo;
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
 
         public ItineraryService(
-            IItineraryRepository repository,
             IMapper mapper,
             IUnitOfWork unitOfWork)
         {
-            _repo = repository;
             _mapper = mapper;
             _unitOfWork = unitOfWork;
         }
 
         public Task<IEnumerable<ItineraryItemsModel>> GetItineraryItemsByTripIdAsync(int tripId)
-            => _repo.GetByTripIdAsync(tripId);
+            => _unitOfWork.Itineraries.GetByTripIdAsync(tripId);
 
         public Task<ItineraryItemsModel?> GetItineraryItemByIdAsync(int id)
-            => _repo.GetByIdAsync(id);
+            => _unitOfWork.Itineraries.GetByIdAsync(id);
 
         public async Task<ItineraryItemsModel> AddItineraryItemAsync(int tripId, ItineraryItemCreateDto dto)
         {
             var item = _mapper.Map<ItineraryItemsModel>(dto);
             item.TripId = tripId;
 
-            await _repo.AddAsync(item);
+            await _unitOfWork.Itineraries.AddAsync(item);
             return item;
         }
 
         public async Task<bool> UpdateItineraryItemAsync(int id, ItineraryItemCreateDto dto)
         {
-            if (!await _repo.ExistsAsync(id))
+            if (!await _unitOfWork.Itineraries.ExistsAsync(id))
                 return false;
 
-            var item = await _repo.GetByIdAsync(id);
+            var item = await _unitOfWork.Itineraries.GetByIdAsync(id);
             _mapper.Map(dto, item);
 
             if (item!=null)
             {
-                await _repo.UpdateAsync(item);
+                await _unitOfWork.Itineraries.UpdateAsync(item);
                 return true;
             }
             return false;
@@ -60,14 +57,14 @@ namespace TravelPlannerAPI.Services.Implementations
 
         public async Task<bool> DeleteItineraryItemAsync(int id)
         {
-            var item = await _repo.GetByIdAsync(id);
+            var item = await _unitOfWork.Itineraries.GetByIdAsync(id);
             if (item == null) return false;
 
-            await _repo.DeleteAsync(item);
+            await _unitOfWork.Itineraries.DeleteAsync(item);
             return true;
         }
 
         public Task<IEnumerable<ItineraryItemsModel>> GetSharedItineraryAsync(int tripId, int userId)
-            => _repo.GetSharedItineraryAsync(tripId, userId);
+            => _unitOfWork.Itineraries.GetSharedItineraryAsync(tripId, userId);
     }
 }

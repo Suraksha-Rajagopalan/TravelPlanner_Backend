@@ -3,21 +3,22 @@ using System.Threading.Tasks;
 using TravelPlannerAPI.Dtos;
 using TravelPlannerAPI.Repository.Interface;
 using TravelPlannerAPI.Services.Interfaces;
+using TravelPlannerAPI.UoW;
 
 namespace TravelPlannerAPI.Services
 {
     public class TripReviewService : ITripReviewService
     {
-        private readonly ITripReviewRepository _tripreviewRepository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public TripReviewService(ITripReviewRepository tripreviewRepository)
+        public TripReviewService(IUnitOfWork unitOfWork)
         {
-            _tripreviewRepository = tripreviewRepository;
+            _unitOfWork = unitOfWork;
         }
 
         public Task<List<TripReviewDto>> SearchReviewsByDestinationAsync(string destination)
         {
-            return _tripreviewRepository.SearchReviewsByDestinationAsync(destination);
+            return _unitOfWork.TripReview.SearchReviewsByDestinationAsync(destination);
         }
     }
 }

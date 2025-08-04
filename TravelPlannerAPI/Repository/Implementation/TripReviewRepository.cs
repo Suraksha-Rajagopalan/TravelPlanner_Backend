@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TravelPlannerAPI.Dtos;
+using TravelPlannerAPI.Generic;
+using TravelPlannerAPI.Models;
 using TravelPlannerAPI.Models.Data;
 using TravelPlannerAPI.Repository.Interface;
 
 namespace TravelPlannerAPI.Repository.Implementation
 {
-    public class TripReviewRepository : ITripReviewRepository
+    public class TripReviewRepository : GenericRepository<TripReviewModel>, ITripReviewRepository
     {
         private readonly ApplicationDbContext _context;
 
-        public TripReviewRepository(ApplicationDbContext context)
+        public TripReviewRepository(ApplicationDbContext context, 
+            IGenericRepository<TripReviewModel> genericRepo) : base(context)
         {
             _context = context;
         }
