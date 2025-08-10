@@ -54,5 +54,7 @@ namespace TravelPlannerAPI.Dtos
         public List<string>? TouristSpots { get; set; }
 
         public BudgetDetailsDto? BudgetDetails { get; set; }
+
+        public ReviewDto? Review { get; set; }
     }
 }

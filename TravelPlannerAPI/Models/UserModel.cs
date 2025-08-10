@@ -31,6 +31,7 @@ namespace TravelPlannerAPI.Models
         [InverseProperty("SharedWithUser")]
         public ICollection<TripShareModel> ReceivedTripShares { get; set; } = new List<TripShareModel>();
 
+        public ICollection<ExpenseModel> Expenses { get; set; } = new List<ExpenseModel>();
 
     }
 }

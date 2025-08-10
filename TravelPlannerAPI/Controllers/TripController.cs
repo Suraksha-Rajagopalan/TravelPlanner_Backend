@@ -31,15 +31,51 @@ namespace TravelPlannerAPI.Controllers
             int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out var id)
             ? id : 0;
 
-        
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TripDto>>> GetTrips()
         {
-            var trips = await _service.GetTripsAsync(UserId);
-            return Ok(_mapper.Map<IEnumerable<TripDto>>(trips));
+            var trips = await _service.GetTripsAsync(UserId); 
+
+            var tripDtos = trips.Select(t => new TripDto
+            {
+                Id = t.Id,
+                Title = t.Title,
+                Destination = t.Destination,
+                StartDate = t.StartDate,
+                EndDate = t.EndDate,
+                Budget = t.Budget,
+                TravelMode = t.TravelMode,
+                Notes = t.Notes,
+                UserId = t.UserId,
+                Image = t.Image,
+                Description = t.Description,
+                Duration = t.Duration,
+                BestTime = t.BestTime,
+                Essentials = t.Essentials?.ToList(),
+                TouristSpots = t.TouristSpots?.ToList(),
+                BudgetDetails = t.BudgetDetails == null ? null : new BudgetDetailsDto
+                {
+                    Food = t.BudgetDetails.Food,
+                    Hotel = t.BudgetDetails.Hotel
+                },
+                Review = t.Reviews
+                    ?.Where(r => r.UserId == UserId)
+                    .Select(r => new ReviewDto
+                    {
+                        TripId = r.TripId,
+                        UserId = r.UserId,
+                        Rating = r.Rating,
+                        Review = r.ReviewText
+                    })
+                    .FirstOrDefault()
+            }).ToList();
+
+            return Ok(tripDtos);
         }
 
-        
+
+
         [HttpGet("page")]
         public async Task<IActionResult> GetTrips([FromQuery] PaginationParamsDto paginationParams)
         {

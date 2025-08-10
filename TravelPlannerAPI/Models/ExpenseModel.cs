@@ -12,6 +12,9 @@ namespace TravelPlannerAPI.Models
         [ForeignKey("Trip")]
         public int TripId { get; set; }
 
+        [ForeignKey("Users")]
+        public int UserId { get; set; }
+
         public string Category { get; set; } = null!; // 'Food', 'Travel', etc.
         public string? Description { get; set; }
 
@@ -22,5 +25,8 @@ namespace TravelPlannerAPI.Models
         [ValidateNever]
         [JsonIgnore]
         public TripModel Trip { get; set; } = null!;
+        [ValidateNever]
+        [JsonIgnore]
+        public UserModel User { get; set; } = null!;
     }
 }

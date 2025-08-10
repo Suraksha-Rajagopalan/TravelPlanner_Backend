@@ -97,11 +97,10 @@ public class AuthController : ControllerBase
         });
     }
 
-    
+
     [HttpPost("refresh")]
     public async Task<IActionResult> Refresh([FromBody] TokenRefreshRequestDto request)
     {
-        // Get tokens
         var accessToken = request.AccessToken;
         var refreshToken = HttpContext.Request.Cookies["refreshToken"]; // Only from cookie
 
@@ -120,17 +119,17 @@ public class AuthController : ControllerBase
         if (userId != refreshUserId)
             return Unauthorized(new { message = "Token mismatch" });
 
-        if (userId==null)
+        if (userId == null)
             return BadRequest(new { message = "UserId cannot be null" });
 
         var user = await _userManager.FindByIdAsync(userId);
-
         if (user == null)
             return Unauthorized(new { message = "User not found" });
 
         var newAccessToken = _tokenService.GenerateAccessToken(user);
         var newRefreshToken = _tokenService.GenerateRefreshToken(user);
 
+        // Set tokens in cookies
         Response.Cookies.Append("refreshToken", newRefreshToken, new CookieOptions
         {
             SameSite = SameSiteMode.Lax,
@@ -146,11 +145,16 @@ public class AuthController : ControllerBase
         return Ok(new
         {
             accessToken = newAccessToken,
-            refreshToken = newRefreshToken 
+            refreshToken = newRefreshToken,
+            user = new
+            {
+                id = user.Id,
+                username = user.Name,
+                email = user.Email,
+                role = user.Role
+            }
         });
     }
-
-
 
 
 }

@@ -68,9 +68,9 @@ namespace TravelPlannerAPI.Controllers
             if (!int.TryParse(userIdString, out var userId))
                 return Unauthorized();
 
-            var review = await _reviewService.GetReviewAsync(tripId, userId);
+            var review = await _reviewService.GetReviewAsync(tripId,userId);
             if (review == null)
-                return Forbid();
+                return BadRequest();
 
             return Ok(review);
         }

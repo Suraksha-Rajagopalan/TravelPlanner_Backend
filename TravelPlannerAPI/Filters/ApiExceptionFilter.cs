@@ -15,6 +15,7 @@ namespace TravelPlannerAPI.Filters
 
         public void OnException(ExceptionContext context)
         {
+            
             _logger.LogError(context.Exception, "Handled in API Exception Filter");
 
             var response = new

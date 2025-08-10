@@ -155,7 +155,7 @@ namespace TravelPlannerAPI.Migrations
                     b.ToTable("user_tokens", (string)null);
                 });
 
-            modelBuilder.Entity("TravelPlannerAPI.Models.BudgetDetails", b =>
+            modelBuilder.Entity("TravelPlannerAPI.Models.BudgetDetailsModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -180,7 +180,7 @@ namespace TravelPlannerAPI.Migrations
                     b.ToTable("budgetdetails", (string)null);
                 });
 
-            modelBuilder.Entity("TravelPlannerAPI.Models.ChecklistItem", b =>
+            modelBuilder.Entity("TravelPlannerAPI.Models.ChecklistItemModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -188,12 +188,12 @@ namespace TravelPlannerAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<bool>("IsCompleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Text")
+                    b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsCompleted")
+                        .HasColumnType("bit");
 
                     b.Property<int>("TripId")
                         .HasColumnType("int");
@@ -210,7 +210,7 @@ namespace TravelPlannerAPI.Migrations
                     b.ToTable("ChecklistItems");
                 });
 
-            modelBuilder.Entity("TravelPlannerAPI.Models.Expense", b =>
+            modelBuilder.Entity("TravelPlannerAPI.Models.ExpenseModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -234,14 +234,19 @@ namespace TravelPlannerAPI.Migrations
                     b.Property<int>("TripId")
                         .HasColumnType("int");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("TripId");
 
+                    b.HasIndex("UserId");
+
                     b.ToTable("Expenses");
                 });
 
-            modelBuilder.Entity("TravelPlannerAPI.Models.ItineraryItem", b =>
+            modelBuilder.Entity("TravelPlannerAPI.Models.ItineraryItemsModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -270,7 +275,7 @@ namespace TravelPlannerAPI.Migrations
                     b.ToTable("ItineraryItems");
                 });
 
-            modelBuilder.Entity("TravelPlannerAPI.Models.Review", b =>
+            modelBuilder.Entity("TravelPlannerAPI.Models.ReviewModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -302,7 +307,7 @@ namespace TravelPlannerAPI.Migrations
                     b.ToTable("reviews");
                 });
 
-            modelBuilder.Entity("TravelPlannerAPI.Models.Trip", b =>
+            modelBuilder.Entity("TravelPlannerAPI.Models.TripModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -363,7 +368,7 @@ namespace TravelPlannerAPI.Migrations
                     b.ToTable("Trips", (string)null);
                 });
 
-            modelBuilder.Entity("TravelPlannerAPI.Models.User", b =>
+            modelBuilder.Entity("TravelPlannerAPI.Models.UserModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -448,7 +453,7 @@ namespace TravelPlannerAPI.Migrations
                     b.ToTable("Users", (string)null);
                 });
 
-            modelBuilder.Entity("TripShare", b =>
+            modelBuilder.Entity("TripShareModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -491,7 +496,7 @@ namespace TravelPlannerAPI.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<int>", b =>
                 {
-                    b.HasOne("TravelPlannerAPI.Models.User", null)
+                    b.HasOne("TravelPlannerAPI.Models.UserModel", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -500,7 +505,7 @@ namespace TravelPlannerAPI.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<int>", b =>
                 {
-                    b.HasOne("TravelPlannerAPI.Models.User", null)
+                    b.HasOne("TravelPlannerAPI.Models.UserModel", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -515,7 +520,7 @@ namespace TravelPlannerAPI.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("TravelPlannerAPI.Models.User", null)
+                    b.HasOne("TravelPlannerAPI.Models.UserModel", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -524,33 +529,33 @@ namespace TravelPlannerAPI.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<int>", b =>
                 {
-                    b.HasOne("TravelPlannerAPI.Models.User", null)
+                    b.HasOne("TravelPlannerAPI.Models.UserModel", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("TravelPlannerAPI.Models.BudgetDetails", b =>
+            modelBuilder.Entity("TravelPlannerAPI.Models.BudgetDetailsModel", b =>
                 {
-                    b.HasOne("TravelPlannerAPI.Models.Trip", "Trip")
+                    b.HasOne("TravelPlannerAPI.Models.TripModel", "Trip")
                         .WithOne("BudgetDetails")
-                        .HasForeignKey("TravelPlannerAPI.Models.BudgetDetails", "TripId")
+                        .HasForeignKey("TravelPlannerAPI.Models.BudgetDetailsModel", "TripId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Trip");
                 });
 
-            modelBuilder.Entity("TravelPlannerAPI.Models.ChecklistItem", b =>
+            modelBuilder.Entity("TravelPlannerAPI.Models.ChecklistItemModel", b =>
                 {
-                    b.HasOne("TravelPlannerAPI.Models.Trip", "Trip")
+                    b.HasOne("TravelPlannerAPI.Models.TripModel", "Trip")
                         .WithMany()
                         .HasForeignKey("TripId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("TravelPlannerAPI.Models.User", "User")
+                    b.HasOne("TravelPlannerAPI.Models.UserModel", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -561,9 +566,28 @@ namespace TravelPlannerAPI.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("TravelPlannerAPI.Models.Expense", b =>
+            modelBuilder.Entity("TravelPlannerAPI.Models.ExpenseModel", b =>
                 {
-                    b.HasOne("TravelPlannerAPI.Models.Trip", "Trip")
+                    b.HasOne("TravelPlannerAPI.Models.TripModel", "Trip")
+                        .WithMany()
+                        .HasForeignKey("TripId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TravelPlannerAPI.Models.UserModel", "User")
+                        .WithMany("Expenses")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Trip");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("TravelPlannerAPI.Models.ItineraryItemsModel", b =>
+                {
+                    b.HasOne("TravelPlannerAPI.Models.TripModel", "Trip")
                         .WithMany()
                         .HasForeignKey("TripId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -572,26 +596,15 @@ namespace TravelPlannerAPI.Migrations
                     b.Navigation("Trip");
                 });
 
-            modelBuilder.Entity("TravelPlannerAPI.Models.ItineraryItem", b =>
+            modelBuilder.Entity("TravelPlannerAPI.Models.ReviewModel", b =>
                 {
-                    b.HasOne("TravelPlannerAPI.Models.Trip", "Trip")
-                        .WithMany()
-                        .HasForeignKey("TripId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Trip");
-                });
-
-            modelBuilder.Entity("TravelPlannerAPI.Models.Review", b =>
-                {
-                    b.HasOne("TravelPlannerAPI.Models.Trip", "Trip")
+                    b.HasOne("TravelPlannerAPI.Models.TripModel", "Trip")
                         .WithMany("Reviews")
                         .HasForeignKey("TripId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("TravelPlannerAPI.Models.User", "User")
+                    b.HasOne("TravelPlannerAPI.Models.UserModel", "User")
                         .WithMany("Reviews")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -602,9 +615,9 @@ namespace TravelPlannerAPI.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("TravelPlannerAPI.Models.Trip", b =>
+            modelBuilder.Entity("TravelPlannerAPI.Models.TripModel", b =>
                 {
-                    b.HasOne("TravelPlannerAPI.Models.User", "User")
+                    b.HasOne("TravelPlannerAPI.Models.UserModel", "User")
                         .WithMany("Trips")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -613,21 +626,21 @@ namespace TravelPlannerAPI.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("TripShare", b =>
+            modelBuilder.Entity("TripShareModel", b =>
                 {
-                    b.HasOne("TravelPlannerAPI.Models.User", "Owner")
+                    b.HasOne("TravelPlannerAPI.Models.UserModel", "Owner")
                         .WithMany("OwnedTripShares")
                         .HasForeignKey("OwnerId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("TravelPlannerAPI.Models.User", "SharedWithUser")
+                    b.HasOne("TravelPlannerAPI.Models.UserModel", "SharedWithUser")
                         .WithMany("ReceivedTripShares")
                         .HasForeignKey("SharedWithUserId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("TravelPlannerAPI.Models.Trip", "Trip")
+                    b.HasOne("TravelPlannerAPI.Models.TripModel", "Trip")
                         .WithMany("SharedUsers")
                         .HasForeignKey("TripId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -640,7 +653,7 @@ namespace TravelPlannerAPI.Migrations
                     b.Navigation("Trip");
                 });
 
-            modelBuilder.Entity("TravelPlannerAPI.Models.Trip", b =>
+            modelBuilder.Entity("TravelPlannerAPI.Models.TripModel", b =>
                 {
                     b.Navigation("BudgetDetails");
 
@@ -649,8 +662,10 @@ namespace TravelPlannerAPI.Migrations
                     b.Navigation("SharedUsers");
                 });
 
-            modelBuilder.Entity("TravelPlannerAPI.Models.User", b =>
+            modelBuilder.Entity("TravelPlannerAPI.Models.UserModel", b =>
                 {
+                    b.Navigation("Expenses");
+
                     b.Navigation("OwnedTripShares");
 
                     b.Navigation("ReceivedTripShares");

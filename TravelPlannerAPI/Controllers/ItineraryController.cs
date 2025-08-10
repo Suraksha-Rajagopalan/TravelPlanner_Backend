@@ -37,19 +37,21 @@ namespace TravelPlannerAPI.Controllers
         
         [HttpPost]
         public async Task<IActionResult> CreateItineraryItem(
+            int userId,
             int tripId,
             [FromBody] ItineraryItemCreateDto dto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var item = await _service.AddItineraryItemAsync(tripId, dto);
+            var item = await _service.AddItineraryItemAsync(tripId, dto, userId);
             return Ok(item);
         }
 
         
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateItineraryItem(
+            int userId,
             int tripId,
             int id,
             [FromBody] ItineraryItemCreateDto dto)
@@ -57,16 +59,16 @@ namespace TravelPlannerAPI.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var updated = await _service.UpdateItineraryItemAsync(id, dto);
+            var updated = await _service.UpdateItineraryItemAsync(id, dto, userId);
             if (!updated) return NotFound();
             return NoContent();
         }
 
         
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteItineraryItem(int tripId, int id)
+        public async Task<IActionResult> DeleteItineraryItem(int tripId, int id, int userId)
         {
-            var deleted = await _service.DeleteItineraryItemAsync(id);
+            var deleted = await _service.DeleteItineraryItemAsync(id, userId);
             if (!deleted) return NotFound();
             return NoContent();
         }

@@ -27,12 +27,14 @@ namespace TravelPlannerAPI.Repository.Implementation
         {
             return await _context.Trips
                 .Where(t => t.UserId == userId)
+                .Include(t => t.Reviews)
                 .ToListAsync();
         }
 
         public async Task<TripModel?> GetByIdWithIncludesAsync(int id)
         {
             return await _context.Trips
+                .Include(t => t.BudgetDetails)
                 .Include(t => t.Reviews)
                 .Include(t => t.SharedUsers)
                 .FirstOrDefaultAsync(t => t.Id == id);

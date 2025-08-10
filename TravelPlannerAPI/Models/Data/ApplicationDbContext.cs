@@ -104,6 +104,11 @@ namespace TravelPlannerAPI.Models.Data
                  .WithMany(u => u.Trips)
                  .HasForeignKey(t => t.UserId);
 
+            modelBuilder.Entity<ExpenseModel>()
+                 .HasOne(e => e.User)
+                 .WithMany(u => u.Expenses)
+                 .HasForeignKey(e => e.UserId);
+
         }
 
     }

@@ -68,15 +68,51 @@ namespace TravelPlannerAPI.Services.Implementations
 
         public async Task<bool> UpdateTripAsync(TripUpdateDto dto, int userId)
         {
+            // Fetch trip with related BudgetDetails
             var existing = await _repo.GetByIdWithIncludesAsync(dto.Id);
             if (existing == null || !await _access.HasAccessToTripAsync(dto.Id, userId))
                 return false;
 
-            // Map changes
-            _mapper.Map(dto, existing);
+            // Update basic fields
+            existing.Title = dto.Title;
+            existing.Destination = dto.Destination;
+            existing.StartDate = dto.StartDate;
+            existing.EndDate = dto.EndDate;
+            existing.Budget = dto.Budget;
+            existing.TravelMode = dto.TravelMode;
+            existing.Notes = dto.Notes;
+            existing.Image = dto.Image;
+            existing.Description = dto.Description;
+            existing.Duration = dto.Duration;
+            existing.BestTime = dto.BestTime;
+
+            // Update list fields
+            existing.Essentials = dto.Essentials ?? new List<string>();
+            existing.TouristSpots = dto.TouristSpots ?? new List<string>();
+
+            // Handle BudgetDetails (one-to-one)
+            if (existing.BudgetDetails != null)
+            {
+                // Update existing budget
+                existing.BudgetDetails.Food = dto.BudgetDetails?.Food ?? 0;
+                existing.BudgetDetails.Hotel = dto.BudgetDetails?.Hotel ?? 0;
+            }
+            else if (dto.BudgetDetails != null)
+            {
+                // Create new budget with correct TripId
+                existing.BudgetDetails = new BudgetDetailsModel
+                {
+                    TripId = existing.Id,
+                    Food = dto.BudgetDetails.Food,
+                    Hotel = dto.BudgetDetails.Hotel
+                };
+            }
+
+            // Persist changes
             await _unitOfwork.CompleteAsync();
             return true;
         }
+
 
         public async Task<bool> DeleteTripAsync(int id, int userId)
         {

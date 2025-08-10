@@ -11,11 +11,14 @@ namespace TravelPlannerAPI.Services.Implementations
     public class ExpenseService : IExpenseService
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IAccessService _access;
 
         public ExpenseService(
-            IUnitOfWork unitOfWork)
+            IUnitOfWork unitOfWork,
+            IAccessService accessService)
         {
             _unitOfWork = unitOfWork;
+            _access = accessService;
         }
 
         public async Task<ExpenseModel?> AddExpenseAsync(int tripId, ExpenseModel dto, int userId)
@@ -23,10 +26,12 @@ namespace TravelPlannerAPI.Services.Implementations
             if (dto == null)
                 return null;
 
-            dto.TripId = tripId;
-            //dto.UserId = userId;
+            if (!await _access.HasAccessToTripAsync(tripId, userId))
+                return null;
 
-            // _genericRepo.AddAsync(dto);
+            dto.TripId = tripId;
+            dto.UserId = userId;
+
             await _unitOfWork.Expenses.AddAsync(dto);
             await _unitOfWork.CompleteAsync();
 
@@ -35,7 +40,9 @@ namespace TravelPlannerAPI.Services.Implementations
 
         public async Task<IEnumerable<ExpenseModel?>> GetExpensesAsync(int tripId, int userId)
         {
-            // Optionally filter by userId as well
+            if (!await _access.HasAccessToTripAsync(tripId, userId))
+                return new List<ExpenseModel?>();
+
             return await _unitOfWork.Expenses.GetByTripAsync(tripId);
         }
 
@@ -43,6 +50,9 @@ namespace TravelPlannerAPI.Services.Implementations
         {
             var expense = await _unitOfWork.Expenses.GetByIdAsync(id);
             if (expense == null || expense.TripId != tripId)
+                return null;
+
+            if (!await _access.HasAccessToTripAsync(tripId, userId))
                 return null;
 
             expense.Description = dto.Description;
@@ -59,6 +69,9 @@ namespace TravelPlannerAPI.Services.Implementations
         {
             var expense = await _unitOfWork.Expenses.GetByIdAsync(id);
             if (expense == null || expense.TripId != tripId)
+                return false;
+
+            if (!await _access.HasAccessToTripAsync(tripId, userId))
                 return false;
 
             _unitOfWork.Expenses.Delete(expense);

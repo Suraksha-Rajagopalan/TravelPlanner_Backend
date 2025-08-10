@@ -9482,11 +9482,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Prejoining_Project\\Backend\\TravelPlannerAPI\\UnitTests\\UnitTests.csproj",
+      "projectUniqueName": "C:\\OneDrive - H&R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\UnitTests\\UnitTests.csproj",
       "projectName": "UnitTests",
-      "projectPath": "C:\\Prejoining_Project\\Backend\\TravelPlannerAPI\\UnitTests\\UnitTests.csproj",
+      "projectPath": "C:\\OneDrive - H&R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\UnitTests\\UnitTests.csproj",
       "packagesPath": "C:\\Users\\A2832856\\.nuget\\packages\\",
-      "outputPath": "C:\\Prejoining_Project\\Backend\\TravelPlannerAPI\\UnitTests\\obj\\",
+      "outputPath": "C:\\OneDrive - H&R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\UnitTests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -9508,8 +9508,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Prejoining_Project\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\TravelPlannerAPI.csproj": {
-              "projectPath": "C:\\Prejoining_Project\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\TravelPlannerAPI.csproj"
+            "C:\\OneDrive - H&R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\TravelPlannerAPI.csproj": {
+              "projectPath": "C:\\OneDrive - H&R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\TravelPlannerAPI.csproj"
             }
           }
         }

@@ -157,7 +157,7 @@ builder.Services.AddControllers(opts =>
 // ───── SWAGGER ───────────────────────────────────────────────────────────────
 var versionProvider = builder.Services.BuildServiceProvider()
     .GetRequiredService<IApiVersionDescriptionProvider>();
-
+builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
     foreach (var desc in versionProvider.ApiVersionDescriptions)
