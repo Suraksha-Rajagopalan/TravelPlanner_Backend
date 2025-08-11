@@ -36,5 +36,6 @@ namespace TravelPlannerAPI.Repository.Implementation
             return await _context.Reviews
                 .FirstOrDefaultAsync(r => r.TripId == tripId && r.UserId == userId);
         }
+
     }
 }

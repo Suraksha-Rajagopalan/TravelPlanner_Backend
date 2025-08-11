@@ -8,5 +8,6 @@
         void Update(T entity);
         void Delete(T entity);
         //Task SaveAsync();
+        Task RemoveByUserIdAsync(int userId);
     }
 }

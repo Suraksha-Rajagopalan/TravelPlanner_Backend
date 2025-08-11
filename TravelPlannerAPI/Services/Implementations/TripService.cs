@@ -33,9 +33,9 @@ namespace TravelPlannerAPI.Services.Implementations
         public Task<IEnumerable<TripModel>> GetTripsAsync(int userId)
             => _repo.GetByUserAsync(userId);
 
-        public async Task<PaginatedResult<TripDto>> GetPaginatedTripsAsync(PaginationParamsDto pagination)
+        public async Task<PaginatedResult<TripDto>> GetPaginatedTripsAsync(PaginationParamsDto pagination, int userId)
         {
-            var paginatedEntities = await _repo.GetPaginatedTripsAsync(pagination);
+            var paginatedEntities = await _repo.GetPaginatedTripsAsync(pagination, userId);
 
             var mappedDtos = _mapper.Map<List<TripDto>>(paginatedEntities.Items);
 
@@ -46,6 +46,7 @@ namespace TravelPlannerAPI.Services.Implementations
                 pagination.PageSize
             );
         }
+
 
         public async Task<TripModel?> GetTripByIdAsync(int id, int userId)
         {

@@ -52,5 +52,16 @@ namespace TravelPlannerAPI.Repository.Implementation
                 .FirstOrDefaultAsync(u => u.Email == email);
         }
 
+        public async Task RemoveByUserIdAsync(int userId)
+        {
+            var tripShares = await _context.TripShares
+                .Where(ts => ts.OwnerId == userId || ts.SharedWithUserId == userId)
+                .ToListAsync();
+
+            _context.TripShares.RemoveRange(tripShares);
+        }
+
+
+
     }
 }

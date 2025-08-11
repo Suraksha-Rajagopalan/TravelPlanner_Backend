@@ -40,18 +40,36 @@ namespace TravelPlannerAPI.Repository.Implementation
                 .FirstOrDefaultAsync(t => t.Id == id);
         }
 
-    public async Task<PaginatedResult<TripModel>> GetPaginatedTripsAsync(PaginationParamsDto pagination)
+        public async Task<PaginatedResult<TripModel>> GetPaginatedTripsAsync(PaginationParamsDto pagination, int userId)
         {
-            var query = _context.Trips.AsQueryable();
+            var query = _context.Trips
+                .Include(t => t.BudgetDetails)
+                .Include(t => t.Reviews)
+                .Where(t =>
+                    // User is the owner of the trip
+                    t.UserId == userId ||
+
+                    // OR user is shared with in TripShareModel
+                    _context.Set<TripShareModel>().Any(share =>
+                        share.TripId == t.Id &&
+                        share.SharedWithUserId == userId
+                    )
+                );
 
             var totalCount = await query.CountAsync();
 
             var items = await query
+                .OrderBy(t => t.Title) // consistent sorting
                 .Skip((pagination.PageNumber - 1) * pagination.PageSize)
                 .Take(pagination.PageSize)
                 .ToListAsync();
 
-            return new PaginatedResult<TripModel>(items, totalCount, pagination.PageNumber, pagination.PageSize);
+            return new PaginatedResult<TripModel>(
+                items,
+                totalCount,
+                pagination.PageNumber,
+                pagination.PageSize
+            );
         }
 
     }

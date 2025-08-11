@@ -3,12 +3,128 @@
   "WorkspaceRootPath": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\filters\\apiexceptionfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\filters\\apiexceptionfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\repository\\implementation\\triprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\repository\\implementation\\triprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\controllers\\tripcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\controllers\\tripcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\services\\implementations\\tripservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\services\\implementations\\tripservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\services\\interfaces\\itripservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\services\\interfaces\\itripservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\models\\tripsharemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\models\\tripsharemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\repository\\interface\\itriprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\repository\\interface\\itriprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\dtos\\paginationparamsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\dtos\\paginationparamsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\repository\\implementation\\tripsharerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\repository\\implementation\\tripsharerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\services\\implementations\\adminservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\services\\implementations\\adminservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\generic\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\generic\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\generic\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\generic\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\services\\interfaces\\iadminservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\services\\interfaces\\iadminservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\uow\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\uow\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\repository\\implementation\\expenserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\repository\\implementation\\expenserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\repository\\interface\\iexpenserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\repository\\interface\\iexpenserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\models\\tripreviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\models\\tripreviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\models\\tripmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\models\\tripmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\models\\itineraryitemsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\models\\itineraryitemsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\models\\expensemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\models\\expensemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\models\\checklistitemmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\models\\checklistitemmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\models\\budgetdetailsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\models\\budgetdetailsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\repository\\implementation\\reviewrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\repository\\implementation\\reviewrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\repository\\interface\\ireviewrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\repository\\interface\\ireviewrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\repository\\interface\\iitineraryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\repository\\interface\\iitineraryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\repository\\interface\\ichecklistrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\repository\\interface\\ichecklistrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\migrations\\20250810095039_updateexpenseuserfkrestrict.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\migrations\\20250810095039_updateexpenseuserfkrestrict.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\migrations\\20250810095039_updateexpenseuserfkrestrict.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\migrations\\20250810095039_updateexpenseuserfkrestrict.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\models\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\models\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\dtos\\tripcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,20 +139,12 @@
       "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\dtos\\tripdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\repository\\implementation\\triprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\repository\\implementation\\triprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\mappings\\mapping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\mappings\\mapping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\services\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\services\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\models\\tripmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\models\\tripmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\services\\implementations\\reviewservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -75,10 +183,6 @@
       "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\services\\implementations\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\models\\checklistitemmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\models\\checklistitemmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\dtos\\tripsharerequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\dtos\\tripsharerequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -89,10 +193,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\dtos\\reviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\dtos\\reviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\dtos\\paginationparamsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\dtos\\paginationparamsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\dtos\\loginrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -123,16 +223,8 @@
       "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\controllers\\sharecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\repository\\implementation\\tripsharerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\repository\\implementation\\tripsharerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\repository\\implementation\\authrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\repository\\implementation\\authrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\models\\tripsharemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\models\\tripsharemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\services\\implementations\\tripshareservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -151,14 +243,6 @@
       "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\repository\\interface\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\repository\\interface\\iexpenserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\repository\\interface\\iexpenserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\generic\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\generic\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F117B433-7039-4EA9-9E37-7293DA42FAF6}|UnitTests\\UnitTests.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\unittests\\expenseservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F117B433-7039-4EA9-9E37-7293DA42FAF6}|UnitTests\\UnitTests.csproj|solutionrelative:unittests\\expenseservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -173,14 +257,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\repository\\interface\\itripreviewrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\repository\\interface\\itripreviewrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\repository\\interface\\itriprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\repository\\interface\\itriprepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|c:\\onedrive - h\u0026r block ltd\\desktop\\tripplanner\\backend\\travelplannerapi\\travelplannerapi\\repository\\interface\\iitineraryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{53A26567-2253-473E-AD07-14AAB1A96A3A}|TravelPlannerAPI\\TravelPlannerAPI.csproj|solutionrelative:travelplannerapi\\repository\\interface\\iitineraryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -190,7 +266,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 248,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -198,56 +274,388 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "TripModel.cs",
-              "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Models\\TripModel.cs",
-              "RelativeDocumentMoniker": "TravelPlannerAPI\\Models\\TripModel.cs",
-              "ToolTip": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Models\\TripModel.cs",
-              "RelativeToolTip": "TravelPlannerAPI\\Models\\TripModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "TripService.cs",
+              "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Services\\Implementations\\TripService.cs",
+              "RelativeDocumentMoniker": "TravelPlannerAPI\\Services\\Implementations\\TripService.cs",
+              "ToolTip": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Services\\Implementations\\TripService.cs",
+              "RelativeToolTip": "TravelPlannerAPI\\Services\\Implementations\\TripService.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAYwDAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-08T15:04:39.878Z"
+              "WhenOpened": "2025-08-11T12:30:34.823Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
+              "Title": "TripShareModel.cs",
+              "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Models\\TripShareModel.cs",
+              "RelativeDocumentMoniker": "TravelPlannerAPI\\Models\\TripShareModel.cs",
+              "ToolTip": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Models\\TripShareModel.cs",
+              "RelativeToolTip": "TravelPlannerAPI\\Models\\TripShareModel.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAUwBQAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-04T06:13:57.628Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TripRepository.cs",
+              "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Repository\\Implementation\\TripRepository.cs",
+              "RelativeDocumentMoniker": "TravelPlannerAPI\\Repository\\Implementation\\TripRepository.cs",
+              "ToolTip": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Repository\\Implementation\\TripRepository.cs",
+              "RelativeToolTip": "TravelPlannerAPI\\Repository\\Implementation\\TripRepository.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAqwC4AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-02T14:41:44.841Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "TripController.cs",
               "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Controllers\\TripController.cs",
               "RelativeDocumentMoniker": "TravelPlannerAPI\\Controllers\\TripController.cs",
               "ToolTip": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Controllers\\TripController.cs",
               "RelativeToolTip": "TravelPlannerAPI\\Controllers\\TripController.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAYwCAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-08T11:11:05.512Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "TripService.cs",
-              "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Services\\Implementations\\TripService.cs",
-              "RelativeDocumentMoniker": "TravelPlannerAPI\\Services\\Implementations\\TripService.cs",
-              "ToolTip": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Services\\Implementations\\TripService.cs",
-              "RelativeToolTip": "TravelPlannerAPI\\Services\\Implementations\\TripService.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAuwHsAAAAMAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "ApiExceptionFilter.cs",
+              "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Filters\\ApiExceptionFilter.cs",
+              "RelativeDocumentMoniker": "TravelPlannerAPI\\Filters\\ApiExceptionFilter.cs",
+              "ToolTip": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Filters\\ApiExceptionFilter.cs",
+              "RelativeToolTip": "TravelPlannerAPI\\Filters\\ApiExceptionFilter.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAA0wBQAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-04T05:59:58.872Z"
+              "WhenOpened": "2025-08-10T08:40:24.602Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "TripRepository.cs",
-              "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Repository\\Implementation\\TripRepository.cs",
-              "RelativeDocumentMoniker": "TravelPlannerAPI\\Repository\\Implementation\\TripRepository.cs",
-              "ToolTip": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Repository\\Implementation\\TripRepository.cs",
-              "RelativeToolTip": "TravelPlannerAPI\\Repository\\Implementation\\TripRepository.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAQwBsAAAAMAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "ITripServices.cs",
+              "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Services\\Interfaces\\ITripServices.cs",
+              "RelativeDocumentMoniker": "TravelPlannerAPI\\Services\\Interfaces\\ITripServices.cs",
+              "ToolTip": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Services\\Interfaces\\ITripServices.cs",
+              "RelativeToolTip": "TravelPlannerAPI\\Services\\Interfaces\\ITripServices.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAsAAABoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-02T14:41:44.841Z"
+              "WhenOpened": "2025-08-11T12:32:28.748Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ITripRepository.cs",
+              "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Repository\\Interface\\ITripRepository.cs",
+              "RelativeDocumentMoniker": "TravelPlannerAPI\\Repository\\Interface\\ITripRepository.cs",
+              "ToolTip": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Repository\\Interface\\ITripRepository.cs",
+              "RelativeToolTip": "TravelPlannerAPI\\Repository\\Interface\\ITripRepository.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA0AAABqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-02T14:41:43.257Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
+              "Title": "PaginationParamsDto.cs",
+              "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Dtos\\PaginationParamsDto.cs",
+              "RelativeDocumentMoniker": "TravelPlannerAPI\\Dtos\\PaginationParamsDto.cs",
+              "ToolTip": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Dtos\\PaginationParamsDto.cs",
+              "RelativeToolTip": "TravelPlannerAPI\\Dtos\\PaginationParamsDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-04T11:02:58.185Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AdminService.cs",
+              "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Services\\Implementations\\AdminService.cs",
+              "RelativeDocumentMoniker": "TravelPlannerAPI\\Services\\Implementations\\AdminService.cs",
+              "ToolTip": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Services\\Implementations\\AdminService.cs",
+              "RelativeToolTip": "TravelPlannerAPI\\Services\\Implementations\\AdminService.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAuwCIAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T09:54:53.873Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "IGenericRepository.cs",
+              "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Generic\\IGenericRepository.cs",
+              "RelativeDocumentMoniker": "TravelPlannerAPI\\Generic\\IGenericRepository.cs",
+              "ToolTip": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Generic\\IGenericRepository.cs",
+              "RelativeToolTip": "TravelPlannerAPI\\Generic\\IGenericRepository.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAuwAkAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-04T04:04:03.339Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "TripShareRepository.cs",
+              "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Repository\\Implementation\\TripShareRepository.cs",
+              "RelativeDocumentMoniker": "TravelPlannerAPI\\Repository\\Implementation\\TripShareRepository.cs",
+              "ToolTip": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Repository\\Implementation\\TripShareRepository.cs",
+              "RelativeToolTip": "TravelPlannerAPI\\Repository\\Implementation\\TripShareRepository.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAA1wD4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-02T14:42:45.339Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ExpenseRepository.cs",
+              "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Repository\\Implementation\\ExpenseRepository.cs",
+              "RelativeDocumentMoniker": "TravelPlannerAPI\\Repository\\Implementation\\ExpenseRepository.cs",
+              "ToolTip": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Repository\\Implementation\\ExpenseRepository.cs",
+              "RelativeToolTip": "TravelPlannerAPI\\Repository\\Implementation\\ExpenseRepository.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAnwAwAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T10:15:00.298Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "IExpenseRepository.cs",
+              "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Repository\\Interface\\IExpenseRepository.cs",
+              "RelativeDocumentMoniker": "TravelPlannerAPI\\Repository\\Interface\\IExpenseRepository.cs",
+              "ToolTip": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Repository\\Interface\\IExpenseRepository.cs",
+              "RelativeToolTip": "TravelPlannerAPI\\Repository\\Interface\\IExpenseRepository.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAuwAkAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-04T04:47:37.334Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "GenericRepository.cs",
+              "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Generic\\GenericRepository.cs",
+              "RelativeDocumentMoniker": "TravelPlannerAPI\\Generic\\GenericRepository.cs",
+              "ToolTip": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Generic\\GenericRepository.cs",
+              "RelativeToolTip": "TravelPlannerAPI\\Generic\\GenericRepository.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAkwC4AAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T10:41:31.396Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "UnitOfWork.cs",
+              "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\UoW\\UnitOfWork.cs",
+              "RelativeDocumentMoniker": "TravelPlannerAPI\\UoW\\UnitOfWork.cs",
+              "ToolTip": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\UoW\\UnitOfWork.cs",
+              "RelativeToolTip": "TravelPlannerAPI\\UoW\\UnitOfWork.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAswDkAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T09:55:57.669Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "IAdminService.cs",
+              "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Services\\Interfaces\\IAdminService.cs",
+              "RelativeDocumentMoniker": "TravelPlannerAPI\\Services\\Interfaces\\IAdminService.cs",
+              "ToolTip": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Services\\Interfaces\\IAdminService.cs",
+              "RelativeToolTip": "TravelPlannerAPI\\Services\\Interfaces\\IAdminService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T11:04:40.43Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "TripReviewModel.cs",
+              "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Models\\TripReviewModel.cs",
+              "RelativeDocumentMoniker": "TravelPlannerAPI\\Models\\TripReviewModel.cs",
+              "ToolTip": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Models\\TripReviewModel.cs",
+              "RelativeToolTip": "TravelPlannerAPI\\Models\\TripReviewModel.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAA+wAoAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T10:43:28.403Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "UserModel.cs",
+              "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Models\\UserModel.cs",
+              "RelativeDocumentMoniker": "TravelPlannerAPI\\Models\\UserModel.cs",
+              "ToolTip": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Models\\UserModel.cs",
+              "RelativeToolTip": "TravelPlannerAPI\\Models\\UserModel.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAQwCEAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T10:43:46.214Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ItineraryItemsModel.cs",
+              "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Models\\ItineraryItemsModel.cs",
+              "RelativeDocumentMoniker": "TravelPlannerAPI\\Models\\ItineraryItemsModel.cs",
+              "ToolTip": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Models\\ItineraryItemsModel.cs",
+              "RelativeToolTip": "TravelPlannerAPI\\Models\\ItineraryItemsModel.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAuwA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T10:42:59.123Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "ExpenseModel.cs",
+              "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Models\\ExpenseModel.cs",
+              "RelativeDocumentMoniker": "TravelPlannerAPI\\Models\\ExpenseModel.cs",
+              "ToolTip": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Models\\ExpenseModel.cs",
+              "RelativeToolTip": "TravelPlannerAPI\\Models\\ExpenseModel.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAAwB4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T10:42:50.961Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "BudgetDetailsModel.cs",
+              "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Models\\BudgetDetailsModel.cs",
+              "RelativeDocumentMoniker": "TravelPlannerAPI\\Models\\BudgetDetailsModel.cs",
+              "ToolTip": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Models\\BudgetDetailsModel.cs",
+              "RelativeToolTip": "TravelPlannerAPI\\Models\\BudgetDetailsModel.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAxwBIAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T10:42:26.842Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "ReviewRepository.cs",
+              "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Repository\\Implementation\\ReviewRepository.cs",
+              "RelativeDocumentMoniker": "TravelPlannerAPI\\Repository\\Implementation\\ReviewRepository.cs",
+              "ToolTip": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Repository\\Implementation\\ReviewRepository.cs",
+              "RelativeToolTip": "TravelPlannerAPI\\Repository\\Implementation\\ReviewRepository.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAgwCYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T10:15:45.508Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "TripModel.cs",
+              "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Models\\TripModel.cs",
+              "RelativeDocumentMoniker": "TravelPlannerAPI\\Models\\TripModel.cs",
+              "ToolTip": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Models\\TripModel.cs",
+              "RelativeToolTip": "TravelPlannerAPI\\Models\\TripModel.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAQwEoAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-08T15:04:39.878Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "IReviewRepository.cs",
+              "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Repository\\Interface\\IReviewRepository.cs",
+              "RelativeDocumentMoniker": "TravelPlannerAPI\\Repository\\Interface\\IReviewRepository.cs",
+              "ToolTip": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Repository\\Interface\\IReviewRepository.cs",
+              "RelativeToolTip": "TravelPlannerAPI\\Repository\\Interface\\IReviewRepository.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBAAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T10:01:16.467Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "ChecklistItemModel.cs",
+              "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Models\\ChecklistItemModel.cs",
+              "RelativeDocumentMoniker": "TravelPlannerAPI\\Models\\ChecklistItemModel.cs",
+              "ToolTip": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Models\\ChecklistItemModel.cs",
+              "RelativeToolTip": "TravelPlannerAPI\\Models\\ChecklistItemModel.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAqwAoAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-05T11:13:33.77Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "IChecklistRepository.cs",
+              "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Repository\\Interface\\IChecklistRepository.cs",
+              "RelativeDocumentMoniker": "TravelPlannerAPI\\Repository\\Interface\\IChecklistRepository.cs",
+              "ToolTip": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Repository\\Interface\\IChecklistRepository.cs",
+              "RelativeToolTip": "TravelPlannerAPI\\Repository\\Interface\\IChecklistRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T09:59:40.817Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "TravelPlannerAPI\\Controllers\\AdminController.cs",
+              "ToolTip": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "TravelPlannerAPI\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAgwB8AAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T09:53:52.46Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "20250810095039_UpdateExpenseUserFKRestrict.cs",
+              "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Migrations\\20250810095039_UpdateExpenseUserFKRestrict.cs",
+              "RelativeDocumentMoniker": "TravelPlannerAPI\\Migrations\\20250810095039_UpdateExpenseUserFKRestrict.cs",
+              "ToolTip": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Migrations\\20250810095039_UpdateExpenseUserFKRestrict.cs",
+              "RelativeToolTip": "TravelPlannerAPI\\Migrations\\20250810095039_UpdateExpenseUserFKRestrict.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T09:50:58.135Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "IItineraryRepository.cs",
+              "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Repository\\Interface\\IItineraryRepository.cs",
+              "RelativeDocumentMoniker": "TravelPlannerAPI\\Repository\\Interface\\IItineraryRepository.cs",
+              "ToolTip": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Repository\\Interface\\IItineraryRepository.cs",
+              "RelativeToolTip": "TravelPlannerAPI\\Repository\\Interface\\IItineraryRepository.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAmwA0AAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-02T14:26:23.965Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "20250810095039_UpdateExpenseUserFKRestrict.Designer.cs",
+              "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Migrations\\20250810095039_UpdateExpenseUserFKRestrict.Designer.cs",
+              "RelativeDocumentMoniker": "TravelPlannerAPI\\Migrations\\20250810095039_UpdateExpenseUserFKRestrict.Designer.cs",
+              "ToolTip": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Migrations\\20250810095039_UpdateExpenseUserFKRestrict.Designer.cs",
+              "RelativeToolTip": "TravelPlannerAPI\\Migrations\\20250810095039_UpdateExpenseUserFKRestrict.Designer.cs",
+              "ViewState": "AgIAAIwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T09:51:11.477Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Models\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "TravelPlannerAPI\\Models\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Models\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "TravelPlannerAPI\\Models\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAkwG4AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-10T09:32:11.188Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
               "Title": "IAuthService.cs",
               "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Services\\Interfaces\\IAuthService.cs",
               "RelativeDocumentMoniker": "TravelPlannerAPI\\Services\\Interfaces\\IAuthService.cs",
@@ -259,7 +667,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 33,
               "Title": "TripDto.cs",
               "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Dtos\\TripDto.cs",
               "RelativeDocumentMoniker": "TravelPlannerAPI\\Dtos\\TripDto.cs",
@@ -271,7 +679,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 34,
               "Title": "Mapping.cs",
               "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Mappings\\Mapping.cs",
               "RelativeDocumentMoniker": "TravelPlannerAPI\\Mappings\\Mapping.cs",
@@ -283,7 +691,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 32,
               "Title": "ExpenseDto.cs",
               "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Dtos\\ExpenseDto.cs",
               "RelativeDocumentMoniker": "TravelPlannerAPI\\Dtos\\ExpenseDto.cs",
@@ -295,7 +703,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 31,
               "Title": "TripCreateDto.cs",
               "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Dtos\\TripCreateDto.cs",
               "RelativeDocumentMoniker": "TravelPlannerAPI\\Dtos\\TripCreateDto.cs",
@@ -307,7 +715,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 37,
               "Title": "ReviewsController.cs",
               "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Controllers\\ReviewsController.cs",
               "RelativeDocumentMoniker": "TravelPlannerAPI\\Controllers\\ReviewsController.cs",
@@ -319,7 +727,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 39,
               "Title": "IExpenseService.cs",
               "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Services\\Interfaces\\IExpenseService.cs",
               "RelativeDocumentMoniker": "TravelPlannerAPI\\Services\\Interfaces\\IExpenseService.cs",
@@ -331,7 +739,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 36,
               "Title": "ReviewService.cs",
               "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Services\\Implementations\\ReviewService.cs",
               "RelativeDocumentMoniker": "TravelPlannerAPI\\Services\\Implementations\\ReviewService.cs",
@@ -343,7 +751,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 38,
               "Title": "ChecklistRepository.cs",
               "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Repository\\Implementation\\ChecklistRepository.cs",
               "RelativeDocumentMoniker": "TravelPlannerAPI\\Repository\\Implementation\\ChecklistRepository.cs",
@@ -355,7 +763,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 40,
               "Title": "TripWithAccessDto.cs",
               "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Dtos\\TripWithAccessDto.cs",
               "RelativeDocumentMoniker": "TravelPlannerAPI\\Dtos\\TripWithAccessDto.cs",
@@ -367,7 +775,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 41,
               "Title": "TripUpdateDto.cs",
               "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Dtos\\TripUpdateDto.cs",
               "RelativeDocumentMoniker": "TravelPlannerAPI\\Dtos\\TripUpdateDto.cs",
@@ -379,7 +787,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 42,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "TravelPlannerAPI\\Controllers\\AuthController.cs",
@@ -391,7 +799,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 43,
               "Title": "AuthService.cs",
               "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Services\\Implementations\\AuthService.cs",
               "RelativeDocumentMoniker": "TravelPlannerAPI\\Services\\Implementations\\AuthService.cs",
@@ -403,7 +811,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 44,
               "Title": "TokenService.cs",
               "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Services\\Implementations\\TokenService.cs",
               "RelativeDocumentMoniker": "TravelPlannerAPI\\Services\\Implementations\\TokenService.cs",
@@ -415,19 +823,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "ChecklistItemModel.cs",
-              "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Models\\ChecklistItemModel.cs",
-              "RelativeDocumentMoniker": "TravelPlannerAPI\\Models\\ChecklistItemModel.cs",
-              "ToolTip": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Models\\ChecklistItemModel.cs",
-              "RelativeToolTip": "TravelPlannerAPI\\Models\\ChecklistItemModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-05T11:13:33.77Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 45,
               "Title": "TripShareRequestDto.cs",
               "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Dtos\\TripShareRequestDto.cs",
               "RelativeDocumentMoniker": "TravelPlannerAPI\\Dtos\\TripShareRequestDto.cs",
@@ -439,7 +835,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 46,
               "Title": "SharedTripDto.cs",
               "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Dtos\\SharedTripDto.cs",
               "RelativeDocumentMoniker": "TravelPlannerAPI\\Dtos\\SharedTripDto.cs",
@@ -451,7 +847,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 47,
               "Title": "ReviewDto.cs",
               "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Dtos\\ReviewDto.cs",
               "RelativeDocumentMoniker": "TravelPlannerAPI\\Dtos\\ReviewDto.cs",
@@ -463,19 +859,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "PaginationParamsDto.cs",
-              "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Dtos\\PaginationParamsDto.cs",
-              "RelativeDocumentMoniker": "TravelPlannerAPI\\Dtos\\PaginationParamsDto.cs",
-              "ToolTip": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Dtos\\PaginationParamsDto.cs",
-              "RelativeToolTip": "TravelPlannerAPI\\Dtos\\PaginationParamsDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-04T11:02:58.185Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 48,
               "Title": "LoginRequestDto.cs",
               "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Dtos\\LoginRequestDto.cs",
               "RelativeDocumentMoniker": "TravelPlannerAPI\\Dtos\\LoginRequestDto.cs",
@@ -487,7 +871,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 49,
               "Title": "ItineraryItemCreateDto.cs",
               "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Dtos\\ItineraryItemCreateDto.cs",
               "RelativeDocumentMoniker": "TravelPlannerAPI\\Dtos\\ItineraryItemCreateDto.cs",
@@ -499,7 +883,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 50,
               "Title": "ChecklistWithAccessDto.cs",
               "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Dtos\\ChecklistWithAccessDto.cs",
               "RelativeDocumentMoniker": "TravelPlannerAPI\\Dtos\\ChecklistWithAccessDto.cs",
@@ -511,7 +895,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 51,
               "Title": "ChecklistItemUpdateDto.cs",
               "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Dtos\\ChecklistItemUpdateDto.cs",
               "RelativeDocumentMoniker": "TravelPlannerAPI\\Dtos\\ChecklistItemUpdateDto.cs",
@@ -523,7 +907,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 52,
               "Title": "ChecklistItemDto.cs",
               "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Dtos\\ChecklistItemDto.cs",
               "RelativeDocumentMoniker": "TravelPlannerAPI\\Dtos\\ChecklistItemDto.cs",
@@ -535,7 +919,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 54,
               "Title": "ShareController.cs",
               "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Controllers\\ShareController.cs",
               "RelativeDocumentMoniker": "TravelPlannerAPI\\Controllers\\ShareController.cs",
@@ -547,7 +931,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 53,
               "Title": "AdminUserDto.cs",
               "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Dtos\\AdminUserDto.cs",
               "RelativeDocumentMoniker": "TravelPlannerAPI\\Dtos\\AdminUserDto.cs",
@@ -559,7 +943,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 55,
               "Title": "AuthRepository.cs",
               "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Repository\\Implementation\\AuthRepository.cs",
               "RelativeDocumentMoniker": "TravelPlannerAPI\\Repository\\Implementation\\AuthRepository.cs",
@@ -571,31 +955,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "TripShareRepository.cs",
-              "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Repository\\Implementation\\TripShareRepository.cs",
-              "RelativeDocumentMoniker": "TravelPlannerAPI\\Repository\\Implementation\\TripShareRepository.cs",
-              "ToolTip": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Repository\\Implementation\\TripShareRepository.cs",
-              "RelativeToolTip": "TravelPlannerAPI\\Repository\\Implementation\\TripShareRepository.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAAADQAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-02T14:42:45.339Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "TripShareModel.cs",
-              "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Models\\TripShareModel.cs",
-              "RelativeDocumentMoniker": "TravelPlannerAPI\\Models\\TripShareModel.cs",
-              "ToolTip": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Models\\TripShareModel.cs",
-              "RelativeToolTip": "TravelPlannerAPI\\Models\\TripShareModel.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-04T06:13:57.628Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 56,
               "Title": "TripShareService.cs",
               "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Services\\Implementations\\TripShareService.cs",
               "RelativeDocumentMoniker": "TravelPlannerAPI\\Services\\Implementations\\TripShareService.cs",
@@ -607,7 +967,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 57,
               "Title": "TripReviewService.cs",
               "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Services\\Implementations\\TripReviewService.cs",
               "RelativeDocumentMoniker": "TravelPlannerAPI\\Services\\Implementations\\TripReviewService.cs",
@@ -619,7 +979,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 58,
               "Title": "TripReviewRepository.cs",
               "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Repository\\Implementation\\TripReviewRepository.cs",
               "RelativeDocumentMoniker": "TravelPlannerAPI\\Repository\\Implementation\\TripReviewRepository.cs",
@@ -631,7 +991,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 59,
               "Title": "IUserRepository.cs",
               "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Repository\\Interface\\IUserRepository.cs",
               "RelativeDocumentMoniker": "TravelPlannerAPI\\Repository\\Interface\\IUserRepository.cs",
@@ -643,31 +1003,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "IExpenseRepository.cs",
-              "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Repository\\Interface\\IExpenseRepository.cs",
-              "RelativeDocumentMoniker": "TravelPlannerAPI\\Repository\\Interface\\IExpenseRepository.cs",
-              "ToolTip": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Repository\\Interface\\IExpenseRepository.cs",
-              "RelativeToolTip": "TravelPlannerAPI\\Repository\\Interface\\IExpenseRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-04T04:47:37.334Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "IGenericRepository.cs",
-              "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Generic\\IGenericRepository.cs",
-              "RelativeDocumentMoniker": "TravelPlannerAPI\\Generic\\IGenericRepository.cs",
-              "ToolTip": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Generic\\IGenericRepository.cs",
-              "RelativeToolTip": "TravelPlannerAPI\\Generic\\IGenericRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-04T04:04:03.339Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 60,
               "Title": "ExpenseServiceTests.cs",
               "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\UnitTests\\ExpenseServiceTests.cs",
               "RelativeDocumentMoniker": "UnitTests\\ExpenseServiceTests.cs",
@@ -679,7 +1015,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 61,
               "Title": "UnitTests.csproj",
               "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\UnitTests\\UnitTests.csproj",
               "RelativeDocumentMoniker": "UnitTests\\UnitTests.csproj",
@@ -691,7 +1027,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 62,
               "Title": "ITripShareRepository.cs",
               "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Repository\\Interface\\ITripShareRepository.cs",
               "RelativeDocumentMoniker": "TravelPlannerAPI\\Repository\\Interface\\ITripShareRepository.cs",
@@ -703,7 +1039,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 63,
               "Title": "ITripReviewRepository.cs",
               "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Repository\\Interface\\ITripReviewRepository.cs",
               "RelativeDocumentMoniker": "TravelPlannerAPI\\Repository\\Interface\\ITripReviewRepository.cs",
@@ -712,30 +1048,6 @@
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-02T14:42:01.706Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 43,
-              "Title": "ITripRepository.cs",
-              "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Repository\\Interface\\ITripRepository.cs",
-              "RelativeDocumentMoniker": "TravelPlannerAPI\\Repository\\Interface\\ITripRepository.cs",
-              "ToolTip": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Repository\\Interface\\ITripRepository.cs",
-              "RelativeToolTip": "TravelPlannerAPI\\Repository\\Interface\\ITripRepository.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-02T14:41:43.257Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 44,
-              "Title": "IItineraryRepository.cs",
-              "DocumentMoniker": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Repository\\Interface\\IItineraryRepository.cs",
-              "RelativeDocumentMoniker": "TravelPlannerAPI\\Repository\\Interface\\IItineraryRepository.cs",
-              "ToolTip": "C:\\OneDrive - H\u0026R BLOCK LTD\\Desktop\\TripPlanner\\Backend\\TravelPlannerAPI\\TravelPlannerAPI\\Repository\\Interface\\IItineraryRepository.cs",
-              "RelativeToolTip": "TravelPlannerAPI\\Repository\\Interface\\IItineraryRepository.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAgwAsAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-02T14:26:23.965Z"
             }
           ]
         },

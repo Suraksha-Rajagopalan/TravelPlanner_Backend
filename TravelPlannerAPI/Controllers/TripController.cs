@@ -74,16 +74,15 @@ namespace TravelPlannerAPI.Controllers
             return Ok(tripDtos);
         }
 
-
-
         [HttpGet("page")]
         public async Task<IActionResult> GetTrips([FromQuery] PaginationParamsDto paginationParams)
         {
-            var pagedResult = await _service.GetPaginatedTripsAsync(paginationParams);
+            var pagedResult = await _service.GetPaginatedTripsAsync(paginationParams, UserId);
             return Ok(pagedResult);
         }
 
-      
+
+
         [HttpGet("{id}")]
         public async Task<ActionResult<TripDto>> GetTrip(int id)
         {

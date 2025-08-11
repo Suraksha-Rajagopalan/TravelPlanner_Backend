@@ -27,6 +27,7 @@ public class UnitOfWork : IUnitOfWork
         var tripReviewRepo = new GenericRepository<TripReviewModel>(_context);
 
 
+
         // Assign to properties
         Trips = new TripRepository(_context, tripRepo);
         Reviews = new ReviewRepository(_context, reviewRepo);

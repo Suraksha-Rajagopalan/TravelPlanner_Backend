@@ -107,7 +107,9 @@ namespace TravelPlannerAPI.Models.Data
             modelBuilder.Entity<ExpenseModel>()
                  .HasOne(e => e.User)
                  .WithMany(u => u.Expenses)
-                 .HasForeignKey(e => e.UserId);
+                 .HasForeignKey(e => e.UserId)
+                 .OnDelete(DeleteBehavior.Restrict);
+
 
         }
 

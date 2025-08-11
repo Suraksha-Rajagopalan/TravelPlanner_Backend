@@ -11,6 +11,6 @@ namespace TravelPlannerAPI.Repository.Interface
     {
         Task<IEnumerable<TripModel>> GetByUserAsync(int userId);
         Task<TripModel?> GetByIdWithIncludesAsync(int id);
-        Task<PaginatedResult<TripModel>> GetPaginatedTripsAsync(PaginationParamsDto pagination);
+        Task<PaginatedResult<TripModel>> GetPaginatedTripsAsync(PaginationParamsDto pagination, int userId);
     }
 }
