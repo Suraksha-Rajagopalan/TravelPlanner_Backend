@@ -74,6 +74,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "AuthController",
+    "Method": "UpdateProfile",
+    "RelativePath": "api/v1/Auth/update-profile",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "TravelPlannerAPI.Dtos.UpdateProfileDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "TravelPlannerAPI.Controllers.ChecklistController",
     "Method": "AddItem",
     "RelativePath": "api/v1/Checklist",

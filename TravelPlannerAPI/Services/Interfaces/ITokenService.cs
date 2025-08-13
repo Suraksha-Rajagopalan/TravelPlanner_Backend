@@ -5,8 +5,8 @@ namespace TravelPlannerAPI.Services.Interfaces
 {
     public interface ITokenService
     {
-        string GenerateAccessToken(UserModel user);
-        string GenerateRefreshToken(UserModel user);
+        Task<(string token, DateTime? expiry)> GenerateAccessToken(UserModel user);
+        Task<(string token, DateTime expiry)> GenerateRefreshToken(UserModel user);
         ClaimsPrincipal? GetPrincipalFromExpiredToken(string token, bool isRefreshToken);
     }
 }

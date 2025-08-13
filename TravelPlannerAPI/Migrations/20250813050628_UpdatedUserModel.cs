@@ -5,7 +5,7 @@
 namespace TravelPlannerAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class UpdateExpenseUserFKRestrict : Migration
+    public partial class UpdatedUserModel : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

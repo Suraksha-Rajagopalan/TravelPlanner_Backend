@@ -144,6 +144,7 @@ builder.Services.AddScoped<IAdminService, AdminService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<ApiExceptionFilter>();
 
+
 // ───── CONTROLLERS + JSON ─────────────────────────────────────────────────────
 builder.Services.AddControllers(opts =>
 {

@@ -37,7 +37,40 @@ namespace TravelPlannerAPI.Services.Implementations
         {
             var paginatedEntities = await _repo.GetPaginatedTripsAsync(pagination, userId);
 
-            var mappedDtos = _mapper.Map<List<TripDto>>(paginatedEntities.Items);
+            var mappedDtos = paginatedEntities.Items.Select(t => new TripDto
+            {
+                Id = t.Id,
+                Title = t.Title,
+                Destination = t.Destination,
+                StartDate = t.StartDate,
+                EndDate = t.EndDate,
+                Budget = t.Budget,
+                TravelMode = t.TravelMode,
+                Notes = t.Notes,
+                UserId = t.UserId,
+                Image = t.Image,
+                Description = t.Description,
+                Duration = t.Duration,
+                BestTime = t.BestTime,
+                Essentials = t.Essentials?.ToList(),
+                TouristSpots = t.TouristSpots?.ToList(),
+                BudgetDetails = t.BudgetDetails == null ? null : new BudgetDetailsDto
+                {
+                    Food = t.BudgetDetails.Food,
+                    Hotel = t.BudgetDetails.Hotel
+                },
+                    Review = t.Reviews
+                    ?.Where(r => r.UserId == userId)
+                    .Select(r => new ReviewDto
+                {
+                    TripId = r.TripId,
+                    UserId = r.UserId,
+                    Rating = r.Rating,
+                    Review = r.ReviewText
+                    })
+                        .FirstOrDefault()
+             }).ToList();
+
 
             return new PaginatedResult<TripDto>(
                 mappedDtos,

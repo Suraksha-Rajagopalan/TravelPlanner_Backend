@@ -17,12 +17,14 @@ public class AuthService : IAuthService
     //private readonly IAuthRepository _authRepository;
     private readonly IConfiguration _configuration;
     private readonly IUnitOfWork _unitOfWork;
+    private readonly ITokenService _tokenService;
 
-    public AuthService(IConfiguration configuration, IUnitOfWork unitOfWork)
+    public AuthService(IConfiguration configuration, IUnitOfWork unitOfWork, ITokenService tokenService)
     {
         //_authRepository = authRepository;
         _configuration = configuration;
         _unitOfWork = unitOfWork;
+        _tokenService = tokenService;
     }
 
     public async Task<AuthResponseDto> SignupAsync(SignupRequest request)
@@ -30,7 +32,7 @@ public class AuthService : IAuthService
         var existingUser = await _unitOfWork.Auth.GetByEmailAsync(request.Email);
         if (existingUser != null)
         {
-            return new AuthResponseDto ( false, "Email already registered", null, null );
+            return new AuthResponseDto(false, "Email already registered", null, null);
         }
 
         var newUser = new UserModel
@@ -46,10 +48,10 @@ public class AuthService : IAuthService
         var (succeeded, errors) = await _unitOfWork.Auth.CreateUserAsync(newUser, request.Password);
         if (!succeeded)
         {
-            return new AuthResponseDto ( false, null, null, errors);
+            return new AuthResponseDto(false, null, null, errors);
         }
 
-        return new AuthResponseDto ( true, $"User {request.Name} registered successfully!", null, null );
+        return new AuthResponseDto(true, $"User {request.Name} registered successfully!", null, null);
     }
 
     public async Task<AuthResponseDto> LoginAsync(LoginRequestDto request)
@@ -57,13 +59,13 @@ public class AuthService : IAuthService
         var user = await _unitOfWork.Auth.GetByEmailAsync(request.Email);
         if (user == null || !await _unitOfWork.Auth.CheckPasswordAsync(user, request.Password))
         {
-            return new AuthResponseDto (false, "Invalid credentials", null, null );
+            return new AuthResponseDto(false, "Invalid credentials", null, null);
         }
 
         user.LastLoginDate = DateTime.UtcNow;
         await _unitOfWork.Auth.UpdateUserAsync(user);
 
-        var accessToken = GenerateJwtToken(user);
+        var (accessToken, accessTokenExpiry) = await _tokenService.GenerateAccessToken(user);
 
         return new AuthResponseDto
         (
@@ -71,6 +73,7 @@ public class AuthService : IAuthService
             new
             {
                 Token = accessToken,
+                Expiry = accessTokenExpiry,
                 User = new
                 {
                     id = user.Id,
@@ -80,30 +83,32 @@ public class AuthService : IAuthService
             }
         );
     }
-
-    public string GenerateJwtToken(UserModel user)
+    public async Task<AuthResponseDto> UpdateProfileAsync(string userId, UpdateProfileDto dto)
     {
-        var key = Encoding.UTF8.GetBytes(_configuration["Jwt:Key"] ?? "");
-        var tokenHandler = new JwtSecurityTokenHandler();
+        var user = await _unitOfWork.Auth.GetByIdAsync(userId); // you may need to add this to repo
+        if (user == null) return new AuthResponseDto(false, "User not found", null, null);
 
-        var claims = new[]
+        if (!string.IsNullOrWhiteSpace(dto.Username)) user.Name = dto.Username;
+        if (!string.IsNullOrWhiteSpace(dto.Email)) user.Email = dto.Email;
+        if (!string.IsNullOrWhiteSpace(dto.Phone)) user.PhoneNumber = dto.Phone;
+        user.ProfileImage = dto.ProfileImage ?? user.ProfileImage;
+        user.Address = dto.Address ?? user.Address;
+        user.Bio = dto.Bio ?? user.Bio;
+
+        await _unitOfWork.Auth.UpdateUserAsync(user);
+        // If your UpdateUserAsync uses UserManager.UpdateAsync it already persists,
+        // otherwise call await _unitOfWork.CompleteAsync();
+
+        return new AuthResponseDto(true, "Profile updated", null, new
         {
-            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-            new Claim(ClaimTypes.Name, user.Name ?? ""),
-            new Claim(ClaimTypes.Email, user.Email ?? ""),
-            new Claim(ClaimTypes.Role, user.Role ?? "User")
-        };
-
-        var tokenDescriptor = new SecurityTokenDescriptor
-        {
-            Subject = new ClaimsIdentity(claims),
-            Expires = DateTime.UtcNow.AddMinutes(15),
-            SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
-            Issuer = _configuration["Jwt:Issuer"],
-            Audience = _configuration["Jwt:Audience"]
-        };
-
-        var token = tokenHandler.CreateToken(tokenDescriptor);
-        return tokenHandler.WriteToken(token);
+            id = user.Id,
+            username = user.Name,
+            email = user.Email,
+            phone = user.PhoneNumber,
+            profileImage = user.ProfileImage,
+            address = user.Address,
+            bio = user.Bio
+        });
     }
+
 }

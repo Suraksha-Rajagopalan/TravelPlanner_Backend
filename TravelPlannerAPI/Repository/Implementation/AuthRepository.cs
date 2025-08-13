@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using TravelPlannerAPI.Generic;
 using TravelPlannerAPI.Models;
 using TravelPlannerAPI.Models.Data;
@@ -17,10 +18,18 @@ namespace TravelPlannerAPI.Repository.Implementation
             _userManager = userManager;
         }
 
-
+        public async Task<UserModel?> GetByIdAsync(string id)
+        {
+            return await _userManager.FindByIdAsync(id);
+        }
         public async Task<UserModel?> GetByEmailAsync(string email)
         {
             return await _userManager.FindByEmailAsync(email);
+        }
+
+        public async Task<UserModel?> GetByTokenAsync(string refreshToken)
+        {
+            return await _userManager.Users.FirstOrDefaultAsync(u => u.RefreshToken == refreshToken);
         }
 
         public async Task<bool> CheckPasswordAsync(UserModel user, string password)

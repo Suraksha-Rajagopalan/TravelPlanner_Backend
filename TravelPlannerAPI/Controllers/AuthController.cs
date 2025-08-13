@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -43,7 +45,7 @@ public class AuthController : ControllerBase
         _authService = authService;
     }
 
-    
+
     [HttpPost("signup")]
     public async Task<IActionResult> Signup([FromBody] SignupRequest request)
     {
@@ -68,7 +70,7 @@ public class AuthController : ControllerBase
         return Ok(new { message = $"User {request.Name} registered successfully!" });
     }
 
-    
+
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] LoginRequestDto request)
     {
@@ -79,30 +81,39 @@ public class AuthController : ControllerBase
         user.LastLoginDate = DateTime.UtcNow;
         await _userManager.UpdateAsync(user);
 
-        var accessToken = _authService.GenerateJwtToken(user);
-        var refreshToken = _tokenService.GenerateRefreshToken(user);
+        var (accessToken, accessExpiry) = await _tokenService.GenerateAccessToken(user);
+        var (refreshToken, refreshExpiry) = await _tokenService.GenerateRefreshToken(user); // also saved to DB by your service
 
+        // Refresh token should be HttpOnly (JS cannot read) and Secure in production (HTTPS).
+        Response.Cookies.Append("refreshToken", refreshToken, new CookieOptions
+        {
+            SameSite = SameSiteMode.Lax,
+            Expires = refreshExpiry
+        });
+
+        Response.Cookies.Append("jwtToken", accessToken, new CookieOptions
+        {
+            SameSite = SameSiteMode.Lax,
+            Expires = accessExpiry ?? DateTime.UtcNow.AddHours(2)
+        });
 
         return Ok(new
         {
             accessToken,
-            refreshToken,
-            user = new
-            {
-                id = user.Id,
-                username = user.Name,
-                email = user.Email,
-                role = user.Role
-            }
+            accessExpiry,
+            refreshToken,       // you can omit this from body if you rely on cookie only
+            refreshExpiry,
+            user = new { id = user.Id, username = user.Name, email = user.Email, role = user.Role }
         });
     }
+
 
 
     [HttpPost("refresh")]
     public async Task<IActionResult> Refresh([FromBody] TokenRefreshRequestDto request)
     {
-        var accessToken = request.AccessToken;
-        var refreshToken = HttpContext.Request.Cookies["refreshToken"]; // Only from cookie
+        var accessToken = HttpContext.Request.Cookies["jwtToken"];
+        var refreshToken = HttpContext.Request.Cookies["refreshToken"];
 
         if (string.IsNullOrEmpty(refreshToken))
             return Unauthorized(new { message = "Refresh token is missing from cookies." });
@@ -116,44 +127,56 @@ public class AuthController : ControllerBase
         var userId = principal.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         var refreshUserId = refreshPrincipal.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
-        if (userId != refreshUserId)
+        if (userId == null || userId != refreshUserId)
             return Unauthorized(new { message = "Token mismatch" });
 
-        if (userId == null)
-            return BadRequest(new { message = "UserId cannot be null" });
+        // refresh token exists and is not expired in DB
+        var user = await _userManager.Users
+            .FirstOrDefaultAsync(u => u.Id.ToString() == userId && u.RefreshToken == refreshToken);
 
-        var user = await _userManager.FindByIdAsync(userId);
         if (user == null)
-            return Unauthorized(new { message = "User not found" });
+            return Unauthorized(new { message = "User not found or token mismatch" });
 
-        var newAccessToken = _tokenService.GenerateAccessToken(user);
-        var newRefreshToken = _tokenService.GenerateRefreshToken(user);
+        if (user.RefreshTokenExpiry == null || user.RefreshTokenExpiry <= DateTime.UtcNow)
+            return Unauthorized(new { message = "Refresh token expired" });
 
-        // Set tokens in cookies
+        // Rotate tokens
+        var (newAccessToken, newAccessExpiry) = await _tokenService.GenerateAccessToken(user);
+        var (newRefreshToken, newRefreshExpiry) = await _tokenService.GenerateRefreshToken(user); // updates DB
+
         Response.Cookies.Append("refreshToken", newRefreshToken, new CookieOptions
         {
             SameSite = SameSiteMode.Lax,
-            Expires = DateTimeOffset.UtcNow.AddDays(7)
+            Expires = newRefreshExpiry
         });
 
         Response.Cookies.Append("jwtToken", newAccessToken, new CookieOptions
         {
             SameSite = SameSiteMode.Lax,
-            Expires = DateTimeOffset.UtcNow.AddMinutes(1)
+            Expires = newAccessExpiry ?? DateTime.UtcNow.AddHours(2)
         });
 
         return Ok(new
         {
             accessToken = newAccessToken,
+            accessExpiry = newAccessExpiry,
             refreshToken = newRefreshToken,
-            user = new
-            {
-                id = user.Id,
-                username = user.Name,
-                email = user.Email,
-                role = user.Role
-            }
+            refreshExpiry = newRefreshExpiry,
+            user = new { id = user.Id, username = user.Name, email = user.Email, role = user.Role }
         });
+    }
+
+    [HttpPut("update-profile")]
+    [Authorize]
+    public async Task<IActionResult> UpdateProfile([FromBody] UpdateProfileDto request)
+    {
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        if (string.IsNullOrEmpty(userId)) return Unauthorized();
+
+        var res = await _authService.UpdateProfileAsync(userId, request);
+        if (!res.Success) return BadRequest(new { message = res.Message });
+
+        return Ok(res.Data);
     }
 
 

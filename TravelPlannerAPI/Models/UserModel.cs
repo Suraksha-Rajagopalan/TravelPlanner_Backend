@@ -17,6 +17,15 @@ namespace TravelPlannerAPI.Models
 
         public bool IsActive { get; set; } = true;
 
+        public string? RefreshToken { get; set; }
+
+        public DateTime? RefreshTokenExpiry { get; set; }
+
+        // profile fields
+        public string? ProfileImage { get; set; }
+        public string? Address { get; set; }
+        public string? Bio { get; set; }
+
         // User-created trips
         public ICollection<TripModel> Trips { get; set; } = new List<TripModel>();
 
